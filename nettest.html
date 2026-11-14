@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>اختبار الاتصال · Connection test</title>
+<style>
+:root{--bg:#eaf1fb;--card:#fff;--ink:#0b2858;--dim:#566b86;--line:#d5e0f0;--blue:#1a4b97;--ok:#117a4a;--bad:#b3261e;--mid:#9a6a00}
+@media (prefers-color-scheme:dark){:root{--bg:#0a1730;--card:#112243;--ink:#e8f0ff;--dim:#9db0cf;--line:#223a66;--blue:#5a9bff;--ok:#4fd18b;--bad:#ff7b72;--mid:#f0b94a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif;line-height:1.7}
+main{max-width:620px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px}
+h1{font-size:1.25rem;margin:0 0 6px}h2{font-size:1rem;margin:0 0 8px}
+p{margin:0 0 8px;color:var(--dim);font-size:.92rem}
+label{display:block;font-size:.85rem;color:var(--dim);margin:8px 0 3px}
+input,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:12px;background:var(--blue);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+button.sec{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+button[disabled]{opacity:.55}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:.9rem}
+.row:first-of-type{border-top:0}
+.row span:first-child{direction:ltr;text-align:left;overflow-wrap:anywhere}
+.s{font-weight:700;white-space:nowrap;direction:ltr}.ok{color:var(--ok)}.bad{color:var(--bad)}.wait{color:var(--dim)}
+.sum{font-weight:700;font-size:.9rem}
+pre{white-space:pre-wrap;direction:ltr;text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:.78rem;margin:8px 0 0}
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>اختبار الاتصال · Connection test</h1>
+    <p>يفحص هذا الاختبار هل تصل شبكتك إلى الخدمات التي قد تعتمد عليها منصة «كلمات». لا يرسل أي بيانات عنك إلى أي جهة، والنتيجة تبقى على جهازك حتى تنسخها أنت.</p>
+    <p dir="ltr" style="text-align:left">Checks whether your network can reach the services the Kalimat platform may use. Nothing about you is sent anywhere; the result stays on your device until you copy it.</p>
+    <label for="country">البلد · Country</label><input id="country" autocomplete="off">
+    <label for="isp">شركة الإنترنت (اختياري) · Provider (optional)</label><input id="isp" autocomplete="off">
+    <label for="net">نوع الشبكة · Network</label>
+    <select id="net"><option value="wifi">Wi-Fi</option><option value="mobile">بيانات الجوال · Mobile data</option><option value="other">أخرى · Other</option></select>
+    <button id="run" type="button">ابدأ الاختبار · Start</button>
+    <p style="margin-top:10px">✓ وصول · reachable &nbsp; ✗ محجوب أو لا يستجيب · blocked / no response<br>يُفضّل تكرار الاختبار مرة على Wi-Fi ومرة على بيانات الجوال، فقد تختلف النتيجة. · Please run it once on Wi-Fi and once on mobile data.</p>
+  </div>
+  <div id="out"></div>
+  <div class="card" id="rep" style="display:none">
+    <h2>التقرير · Report</h2>
+    <p>انسخه وأرسله لمن طلب منك الاختبار. · Copy it and send it to whoever asked you.</p>
+    <pre id="txt"></pre>
+    <button id="copy" type="button" class="sec">نسخ التقرير · Copy report</button>
+  </div>
+</main>
+<script>
+(function () {
+  var TIMEOUT = 8000;
+  var m = /[?&]t=(\d+)/.exec(location.search); if (m) TIMEOUT = +m[1];
+  var GROUPS = [
+    { name: "Cloudflare", hint: "الخطة المقترحة · proposed", items: [
+      ["www.cloudflare.com", "https://www.cloudflare.com/cdn-cgi/trace"],
+      ["1.1.1.1", "https://1.1.1.1/cdn-cgi/trace"],
+      ["cdnjs.cloudflare.com", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"],
+      ["pages.dev", "https://pages.dev/"],
+      ["workers.dev", "https://workers.dev/"] ] },
+    { name: "Firebase / Google", hint: "", items: [
+      ["firebase.google.com", "https://firebase.google.com/"],
+      ["firebase.googleapis.com", "https://firebase.googleapis.com/"],
+      ["identitytoolkit.googleapis.com", "https://identitytoolkit.googleapis.com/"],
+      ["firestore.googleapis.com", "https://firestore.googleapis.com/"],
+      ["www.gstatic.com", "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"],
+      ["fonts.googleapis.com", "https://fonts.googleapis.com/"] ] },
+    { name: "Supabase", hint: "", items: [
+      ["supabase.com", "https://supabase.com/"],
+      ["api.supabase.com", "https://api.supabase.com/"],
+      ["supabase.co", "https://supabase.co/"] ] },
+    { name: "GitHub", hint: "الاستضافة · hosting", items: [
+      ["github.com", "https://github.com/"],
+      ["raw.githubusercontent.com", "https://raw.githubusercontent.com/"],
+      ["pages.github.com", "https://pages.github.com/"] ] }
+  ];
+  var $ = function (id) { return document.getElementById(id); };
+  var results = {};
+
+  function probe(url) {
+    return new Promise(function (resolve) {
+      var done = false, t0 = Date.now();
+      function fin(ok, why) { if (done) return; done = true; resolve({ ok: ok, ms: Date.now() - t0, why: why }); }
+      if (!window.fetch) return fin(false, "no-fetch");
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctl) ctl.abort(); fin(false, "timeout"); }, TIMEOUT);
+      /* no-cors: أي رد من الخادم (حتى 404) يعني أن الوصول ممكن؛ الفشل أو انتهاء المهلة يعني الحجب أو انقطاع الطريق */
+      fetch(url + (url.indexOf("?") < 0 ? "?" : "&") + "_=" + Date.now(), { mode: "no-cors", cache: "no-store", credentials: "omit", signal: ctl ? ctl.signal : undefined })
+        .then(function () { clearTimeout(timer); fin(true, "ok"); })
+        .catch(function () { clearTimeout(timer); fin(false, "failed"); });
+    });
+  }
+
+  function build() {
+    var h = "";
+    GROUPS.forEach(function (g, gi) {
+      h += '<div class="card"><h2>' + g.name + (g.hint ? ' <span style="font-weight:400;color:var(--dim);font-size:.8rem">· ' + g.hint + '</span>' : '') + ' <span class="sum wait" id="sum' + gi + '"></span></h2>';
+      g.items.forEach(function (it, ii) { h += '<div class="row"><span>' + it[0] + '</span><span class="s wait" id="r' + gi + "_" + ii + '">…</span></div>'; });
+      h += "</div>";
+    });
+    $("out").innerHTML = h;
+  }
+
+  function line(g, ii) { var r = results[g.name + "|" + ii]; return r ? (r.ok ? "OK  " : "FAIL") + " " + g.items[ii][0] + (r.ok ? " (" + r.ms + "ms)" : " [" + r.why + "]") : ""; }
+
+  function report() {
+    var t = "Kalimat connection test\nCountry: " + ($("country").value || "-") + "\nProvider: " + ($("isp").value || "-") + "\nNetwork: " + $("net").value + "\nWhen: " + new Date().toISOString() + "\n";
+    GROUPS.forEach(function (g) {
+      var ok = 0; g.items.forEach(function (x, i) { if (results[g.name + "|" + i] && results[g.name + "|" + i].ok) ok++; });
+      t += "\n" + g.name + ": " + ok + "/" + g.items.length + "\n";
+      g.items.forEach(function (x, i) { t += "  " + line(g, i) + "\n"; });
+    });
+    $("txt").textContent = t; $("rep").style.display = "block";
+  }
+
+  $("run").onclick = function () {
+    var btn = $("run"); btn.disabled = true; btn.textContent = "جارٍ الفحص… · Testing…";
+    results = {}; build(); $("rep").style.display = "none";
+    var jobs = [], remaining = 0;
+    GROUPS.forEach(function (g, gi) {
+      g.items.forEach(function (it, ii) {
+        remaining++;
+        probe(it[1]).then(function (r) {
+          results[g.name + "|" + ii] = r;
+          var el = $("r" + gi + "_" + ii);
+          el.className = "s " + (r.ok ? "ok" : "bad");
+          el.textContent = r.ok ? "✓ " + r.ms + " ms" : (r.why === "timeout" ? "✗ timeout" : "✗ blocked");
+          var ok = 0; g.items.forEach(function (x, i) { var q = results[g.name + "|" + i]; if (q && q.ok) ok++; });
+          var s = $("sum" + gi); s.textContent = "(" + ok + "/" + g.items.length + ")";
+          s.className = "sum " + (ok === g.items.length ? "ok" : ok === 0 ? "bad" : "wait");
+          if (--remaining === 0) { btn.disabled = false; btn.textContent = "إعادة الاختبار · Run again"; report(); }
+        });
+      });
+    });
+  };
+
+  $("copy").onclick = function () {
+    var txt = $("txt").textContent, b = $("copy");
+    function done() { b.textContent = "تم النسخ ✓ · Copied"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () { sel(); });
+    else sel();
+    function sel() { var r = document.createRange(); r.selectNodeContents($("txt")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand("copy"); done(); } catch (e) { b.textContent = "حدّد النص وانسخه يدويًا · Select and copy manually"; } }
+  };
+})();
+</script>
+</body>
+</html>
