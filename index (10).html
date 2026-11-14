@@ -1,0 +1,3044 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b2858" id="meta-theme" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="كلمات" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="كلمات | Kalimat — مساحة عربية للمشاركة والحوار والاستماع والمشاهدة." />
+<link rel="icon" type="image/svg+xml" href="kalimat-logo.svg" />
+<link rel="manifest" href="kalimat.webmanifest" />
+<link rel="apple-touch-icon" href="kalimat-icon-180.png" />
+<title>كلمات | Kalimat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+:root{--bg:#eaf2fc;--card:#fff;--card2:#f2f7fd;--ink:#14263d;--muted:#566b86;--line:#d8e4f2;--blue:#2563b0;--blue-d:#16407c;--btn:#2563b0;--btn-h:#1b4a86;--soft:#e1edfb;--gold:#f4b942;--gold-d:#8a5a00;--danger:#c0392b;--ok:#1f8a6b;--shadow:0 6px 22px rgba(22,64,124,.08);--top1:#15407a;--top2:#0b2858;color-scheme:light;font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,"Noto Sans Arabic","Noto Naskh Arabic","Droid Arabic Naskh",Arial,sans-serif}
+[data-theme=dark]{--bg:#07142a;--card:#0e2341;--card2:#12294b;--ink:#e8f0fc;--muted:#9bb0cc;--line:#1c3861;--blue:#6db0f5;--blue-d:#a8cdfa;--btn:#2f78d0;--btn-h:#3c8de6;--soft:#14305a;--gold-d:#f4b942;--danger:#ff8a7a;--ok:#53d1ae;--shadow:0 6px 22px rgba(0,0,0,.35);--top1:#0f2d5c;--top2:#0a2146;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:84px;font-size:16px;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:inherit;line-height:1.6}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid rgba(60,141,230,.55);outline-offset:2px}
+.ic{width:1.25rem;height:1.25rem;flex:0 0 auto;display:inline-block;vertical-align:middle}
+[hidden]{display:none!important}
+.topbar{position:-webkit-sticky;position:sticky;top:0;z-index:20;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;min-height:68px;padding:0 max(18px,calc((100vw - 1240px)/2));background:linear-gradient(135deg,var(--top1),var(--top2));color:#fff;box-shadow:0 2px 12px rgba(10,30,60,.25)}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff}
+.brand svg{width:42px;height:42px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.brand-text{display:grid;line-height:1.05}
+.brand-ar{font-size:1.45rem;font-weight:700}
+.brand-en{font-family:Manrope,Arial,sans-serif;font-size:.68rem;font-weight:800;letter-spacing:.32em;color:var(--gold);direction:ltr;text-align:right}
+.top-nav{display:flex;justify-content:center;align-self:stretch;gap:4px}
+.top-nav a{position:relative;display:grid;place-content:center;justify-items:center;gap:2px;min-width:72px;border-bottom:4px solid transparent;color:rgba(255,255,255,.78);font-size:.72rem}
+.top-nav a.active{border-bottom-color:var(--gold);color:#fff}
+.top-nav a:hover{color:#fff}
+.top-tools{display:flex;gap:6px}
+.icon-btn{position:relative;display:inline-grid;place-items:center;width:42px;height:42px;border:0;border-radius:13px;background:rgba(255,255,255,.12);color:#fff}
+.icon-btn:hover{background:rgba(255,255,255,.22)}
+.badge{position:absolute;top:-4px;left:-4px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--gold);color:#102a52;font-size:.65rem;font-weight:700;line-height:18px;text-align:center}
+.layout{display:grid;grid-template-columns:250px minmax(0,640px) 280px;justify-content:center;align-items:start;gap:24px;max-width:1240px;margin:24px auto 90px;padding:0 16px}
+.sidebar,.rail{position:-webkit-sticky;position:sticky;top:90px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.card{border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow)}
+.nav-card{padding:10px}
+.nav-link{display:flex;align-items:center;gap:12px;width:100%;padding:12px 13px;border:0;border-radius:13px;background:transparent;color:var(--muted);text-align:right;position:relative}
+.nav-link:hover{background:var(--card2)}
+.nav-link.active{background:var(--soft);color:var(--blue-d);font-weight:700}
+.nav-link .badge{position:static;margin-inline-start:auto}
+.mini{display:flex;align-items:center;gap:10px;padding:12px;color:inherit}
+.who{display:grid;min-width:0;line-height:1.35}
+.who strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.9rem}
+.handle{direction:ltr;text-align:right;color:var(--muted);font-family:Arial,sans-serif;font-size:.74rem}
+.main{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}
+.avatar{display:grid;flex:0 0 auto;width:42px;height:42px;place-items:center;border-radius:14px;color:#fff;font-weight:700;overflow:hidden;background-size:cover;background-position:center}
+.avatar.sm{width:34px;height:34px;border-radius:11px;font-size:.85rem}
+.avatar.lg{width:78px;height:78px;border-radius:24px;font-size:1.6rem;border:4px solid var(--card)}
+.vf{display:inline-grid;place-items:center;width:15px;height:15px;margin-inline-start:4px;border-radius:50%;background:var(--gold);color:#102a52;vertical-align:middle}
+.vf .ic{width:10px;height:10px;stroke-width:3}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px}
+.head h1{margin:0;color:var(--blue-d);font-size:1.4rem}
+.head p{margin:3px 0 0;color:var(--muted);font-size:.82rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:.8rem}
+.chip.on{border-color:transparent;background:var(--btn);color:#fff;font-weight:600}
+.tabs{display:flex;gap:6px;padding:0 2px;overflow-x:auto}
+.tab{padding:9px 15px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--muted);white-space:nowrap}
+.tab.on{border-color:var(--line);background:var(--card);color:var(--blue-d);font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 16px;border:0;border-radius:13px;background:var(--btn);color:#fff;font-weight:600}
+.btn:hover{background:var(--btn-h)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{min-height:34px;padding:0 12px;font-size:.8rem;border-radius:11px}
+.btn.ghost{background:var(--soft);color:var(--blue-d)}
+.btn.ghost:hover{background:var(--line)}
+.btn.out{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn.danger{background:var(--danger);color:#fff}
+.btn.gold{background:var(--gold);color:#102a52}
+.composer{padding:16px 18px 12px}
+.ctop{display:flex;gap:12px;align-items:flex-start}
+.ctop textarea,.field textarea{flex:1;width:100%;min-height:78px;resize:vertical;border:0;border-bottom:1px solid var(--line);background:transparent;line-height:1.8;padding:4px 2px}
+.ctop textarea::placeholder{color:var(--muted)}
+.cfoot{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}
+.cfoot .grow{flex:1}
+.tool{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border:0;border-radius:11px;background:var(--card2);color:var(--muted);font-size:.78rem}
+.tool:hover{color:var(--blue-d);background:var(--soft)}
+.sel{padding:7px 10px;border:1px solid var(--line);border-radius:11px;background:var(--card);font-size:.78rem}
+.cnt{color:var(--muted);font-size:.76rem}
+.preview{position:relative;margin:10px 0 0}
+.preview img,.pimg{display:block;width:100%;max-height:430px;object-fit:cover;border-radius:14px;background:var(--card2)}
+.preview .x{position:absolute;top:8px;left:8px;width:32px;height:32px;border:0;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;display:grid;place-items:center}
+.emojis{display:flex;flex-wrap:wrap;gap:2px;margin-top:8px;padding:8px;border-radius:14px;background:var(--card2)}
+.emojis button{width:36px;height:36px;border:0;border-radius:9px;background:transparent;font-size:1.2rem}
+.emojis button:hover{background:var(--soft)}
+.stories{padding:14px}
+.sec{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sec h2{margin:0;color:var(--blue-d);font-size:1rem}
+.sec span{color:var(--muted);font-size:.75rem}
+.srow{display:flex;gap:9px;overflow-x:auto;padding-bottom:4px}
+.story{position:relative;flex:0 0 100px;height:140px;overflow:hidden;border:0;border-radius:16px;color:#fff;text-align:right;padding:0}
+.story .avatar{position:absolute;top:9px;right:9px;border:3px solid var(--gold)}
+.story.seen .avatar{border-color:rgba(255,255,255,.55)}
+.story .sn{position:absolute;right:9px;left:7px;bottom:9px;font-size:.72rem;font-weight:700;text-shadow:0 1px 5px rgba(0,0,0,.45)}
+.story.add{background:var(--soft)!important;color:var(--blue-d);display:grid;place-content:center;justify-items:center;gap:8px;text-align:center}
+.story.add .plus{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--btn);color:#fff}
+.post{padding:16px 18px 10px}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.au{display:flex;align-items:center;gap:10px;min-width:0}
+.meta{color:var(--muted);font-size:.72rem;white-space:nowrap;display:inline-flex;gap:5px;align-items:center}
+.meta .ic{width:.85rem;height:.85rem}
+.ptext{margin:14px 0;font-size:.95rem;line-height:1.95;white-space:pre-wrap;overflow-wrap:anywhere}
+.ptext a{color:var(--blue);font-weight:600}
+.pimg{margin:0 0 12px;cursor:zoom-in}
+.counts{display:flex;align-items:center;justify-content:space-between;padding:0 2px 8px;color:var(--muted);font-size:.74rem;gap:8px;flex-wrap:wrap}
+.acts{position:relative;display:flex;gap:2px;border-top:1px solid var(--line);padding-top:6px}
+.ab{display:inline-flex;flex:1;align-items:center;justify-content:center;gap:6px;min-height:40px;border:0;border-radius:11px;background:transparent;color:var(--muted);font-size:.78rem}
+.ab:hover{background:var(--card2)}
+.ab.on{color:var(--blue)}
+.ab.rxon{color:var(--danger)}
+.ab.rxmore{flex:0 0 28px;padding:0}
+.pop{position:absolute;z-index:15;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 34px rgba(10,30,60,.25);padding:6px}
+.pop.rx{bottom:46px;right:6px;display:flex;gap:2px}
+.pop.rx button{width:44px;height:44px;border:0;border-radius:12px;background:transparent;font-size:1.5rem}
+.pop.rx button:hover,.pop.rx button.cur{background:var(--soft);transform:scale(1.12)}
+.pop.menu{top:34px;left:0;min-width:210px;display:grid}
+.pop.menu button{display:flex;align-items:center;gap:10px;padding:10px 12px;border:0;border-radius:10px;background:transparent;text-align:right;font-size:.85rem}
+.pop.menu button:hover{background:var(--card2)}
+.pop.menu .dg{color:var(--danger)}
+.pop.menu hr{border:0;border-top:1px solid var(--line);margin:4px 0}
+.pop.menu .ok{margin-inline-start:auto;color:var(--ok)}
+.pw{position:relative}
+.comments{display:grid;gap:9px;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}
+.cm{display:flex;gap:9px}
+.cm.reply{margin-inline-start:34px}
+.cb{flex:1;min-width:0}
+.cbub{display:inline-block;max-width:100%;padding:8px 12px;border-radius:14px;background:var(--card2);font-size:.85rem;line-height:1.7;overflow-wrap:anywhere}
+.cbub strong{display:block;font-size:.8rem}
+.cbub .men{color:var(--blue);font-weight:600}
+.cacts{display:flex;gap:12px;margin:2px 6px;color:var(--muted);font-size:.72rem;flex-wrap:wrap}
+.cacts button{border:0;background:none;padding:2px 0;color:inherit;font-size:inherit}
+.cacts button:hover{color:var(--blue)}
+.cacts .liked{color:var(--danger);font-weight:700}
+.cform{display:flex;gap:8px}
+.cform input,.in{flex:1;min-width:0;padding:10px 13px;border:1px solid var(--line);border-radius:13px;background:var(--card)}
+.rchip{display:flex;align-items:center;justify-content:space-between;padding:5px 10px;border-radius:10px;background:var(--soft);color:var(--blue-d);font-size:.76rem}
+.rchip button{border:0;background:none;color:inherit}
+.search{display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--muted)}
+.search input{width:100%;height:44px;border:0;outline:0;background:transparent}
+.rowu{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--line)}
+.rowu:first-of-type{border-top:0}
+.rowu .who{flex:1}
+.side{padding:15px}
+.side h2{margin:0 0 8px;color:var(--blue-d);font-size:.95rem}
+.tag{display:flex;justify-content:space-between;padding:7px 0;color:var(--blue);font-weight:600;font-size:.85rem}
+.tag small{color:var(--muted);font-weight:400}
+.tip{background:linear-gradient(135deg,var(--soft),var(--card));border-color:var(--line)}
+.tip strong{color:var(--gold-d);font-size:.78rem}
+.tip p{margin:6px 0 0;color:var(--muted);font-size:.82rem;line-height:1.9}
+.pcard{overflow:hidden;padding-bottom:16px}
+.cover{height:130px}
+.pdet{display:flex;align-items:flex-end;gap:12px;margin:-36px 18px 0}
+.pcard h2{margin:8px 18px 0;color:var(--blue-d);font-size:1.25rem}
+.pcard .bio{margin:6px 18px;color:var(--muted);font-size:.9rem;line-height:1.8}
+.stats{display:flex;gap:22px;margin:10px 18px;color:var(--muted);font-size:.8rem}
+.stats strong{display:block;color:var(--ink);font-size:1.05rem}
+.stats button{border:0;background:none;padding:0;text-align:right}
+.pact{display:flex;gap:8px;flex-wrap:wrap;margin:0 18px}
+.empty{padding:34px 18px;color:var(--muted);text-align:center}
+.empty strong{display:block;margin-bottom:6px;color:var(--blue-d)}
+.empty p{margin:0;font-size:.85rem;line-height:1.8}
+.nrow{display:flex;gap:12px;align-items:center;padding:13px 16px;border-top:1px solid var(--line)}
+.nrow:first-child{border-top:0}
+.nrow.unread{background:var(--soft)}
+.nrow .nt{flex:1;font-size:.88rem}
+.nrow time{color:var(--muted);font-size:.72rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.msgs{display:grid;grid-template-columns:270px 1fr;gap:12px;min-height:60vh}
+.clist{overflow:hidden;align-self:start}
+.crow{display:flex;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.crow:first-child{border-top:0}
+.crow.on{background:var(--soft)}
+.crow .who{flex:1}
+.crow .last{color:var(--muted);font-size:.76rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.thread{display:flex;flex-direction:column;min-height:60vh;overflow:hidden}
+.thead{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.tbody{flex:1;display:flex;flex-direction:column;gap:8px;padding:14px;overflow-y:auto;max-height:55vh}
+.bub{max-width:78%;padding:9px 13px;border-radius:16px;background:var(--card2);overflow-wrap:anywhere;font-size:.9rem}
+.bub.me{align-self:flex-start;background:var(--btn);color:#fff}
+.bub small{display:flex;gap:8px;margin-top:3px;font-size:.66rem;opacity:.75}
+.bub small button{border:0;background:none;color:inherit;padding:0;font-size:inherit;text-decoration:underline}
+.tfoot{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.note{margin:0;padding:10px 14px;background:var(--soft);color:var(--blue-d);font-size:.76rem}
+.set{padding:6px 0}
+.set h3{margin:0;padding:12px 18px 4px;color:var(--blue-d);font-size:.92rem}
+.srow2{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line)}
+.srow2 .d{color:var(--muted);font-size:.76rem}
+.srow2 > div:first-child{flex:1;min-width:0}
+.tg{position:relative;width:46px;height:26px;border:0;border-radius:13px;background:var(--line);flex:0 0 auto}
+.tg::after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s}
+.tg[aria-checked=true]{background:var(--btn)}
+.tg[aria-checked=true]::after{right:23px}
+.mobile-nav,.fab{display:none}
+.toast{position:fixed;z-index:60;right:50%;bottom:90px;transform:translateX(50%);max-width:90vw;padding:11px 18px;border-radius:13px;background:#0f2d5c;color:#fff;box-shadow:var(--shadow);font-size:.85rem}
+.backdrop{position:fixed;z-index:40;inset:0;display:grid;place-items:center;padding:16px;background:rgba(6,18,38,.62)}
+.modal{width:min(480px,100%);max-height:92vh;overflow:auto;border-radius:22px;background:var(--card);box-shadow:0 24px 70px rgba(0,0,0,.4);outline:0}
+.modal.wide{width:min(900px,100%)}
+.mh{display:flex;align-items:center;justify-content:space-between;padding:16px 18px 8px}
+.mh h2{margin:0;color:var(--blue-d);font-size:1.05rem}
+.mb{padding:8px 18px 18px;display:grid;gap:12px}
+.mx{border:0;background:var(--card2);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.field{display:grid;gap:5px}
+.field label,.field .lb{font-size:.8rem;color:var(--muted)}
+.field input[type=text],.field textarea,.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.field textarea{min-height:90px;border-bottom:1px solid var(--line)}
+.field .err{color:var(--danger);font-size:.76rem}
+.swr{display:flex;flex-wrap:wrap;gap:8px}
+.sw input{position:absolute;opacity:0}
+.sw span{display:block;width:36px;height:36px;border-radius:50%;border:3px solid transparent;box-shadow:0 0 0 1px var(--line)}
+.sw input:checked+span{border-color:var(--card);box-shadow:0 0 0 3px var(--btn)}
+.sw.cv span{width:56px;border-radius:12px}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px}
+.ma{display:flex;gap:8px;justify-content:flex-end}
+.lightbox{padding:0;background:transparent;box-shadow:none;width:auto}
+.lightbox img{max-width:94vw;max-height:88vh;border-radius:14px;display:block}
+.sv{position:fixed;z-index:50;inset:0;display:grid;place-items:center;background:rgba(4,12,28,.88)}
+.svc{position:relative;display:grid;align-content:center;width:min(400px,100vw);height:min(720px,100vh);padding:28px 24px;color:#fff;overflow:hidden;border-radius:22px}
+.svc::before{content:"";position:absolute;inset:40% -20% -30% 20%;border-radius:50%;background:rgba(255,255,255,.12)}
+.bars{position:absolute;top:10px;right:12px;left:12px;display:flex;gap:4px}
+.bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}
+.bars i.done{background:#fff}
+.bars i.cur::after{content:"";display:block;height:100%;background:#fff;transform-origin:right;animation:fill 6s linear forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.svh{position:absolute;top:24px;right:14px;left:14px;display:flex;align-items:center;gap:10px;z-index:2}
+.svh .who{flex:1;color:#fff}.svh .handle{color:rgba(255,255,255,.75)}
+.svh button{width:38px;height:38px;border:0;border-radius:50%;background:rgba(0,0,0,.3);color:#fff;display:grid;place-items:center}
+.svt{position:relative;z-index:1;font-size:1.35rem;line-height:1.9;text-align:center;text-shadow:0 1px 8px rgba(0,0,0,.35);overflow-wrap:anywhere;white-space:pre-wrap}
+.sz{position:absolute;top:70px;bottom:0;width:38%;border:0;background:transparent;z-index:1}
+.sz.n{left:0}.sz.p{right:0}
+.spin{height:120px;border-radius:16px;margin-top:8px;display:grid;place-items:center;color:#fff;font-weight:700;text-align:center;padding:10px}
+.hero{display:grid;justify-items:center;gap:8px;padding:6px 0 4px;text-align:center}
+.hero svg{width:84px;height:84px}
+.hero .a{font-size:2rem;font-weight:700;color:var(--blue-d);line-height:1}
+.hero .e{font-family:Manrope,Arial,sans-serif;font-weight:800;letter-spacing:.4em;color:var(--blue);font-size:.8rem;direction:ltr}
+
+.field input:not([type=checkbox]):not([type=radio]){width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.auth{min-height:100vh;display:grid;place-content:center;justify-items:center;gap:14px;padding:20px;background:radial-gradient(900px 500px at 85% -10%,rgba(60,141,230,.28),transparent),linear-gradient(160deg,var(--bg),var(--soft))}
+.auth-card{width:min(440px,100%);padding:24px 24px 20px;display:grid;gap:12px}
+.auth-card h2{margin:0;color:var(--blue-d);font-size:1.15rem}
+.afm{display:grid;gap:12px}
+.hero .sub{margin:4px 0 0;color:var(--muted);font-size:.8rem}
+.pwrap{position:relative}.pwrap input{padding-right:46px!important}
+.eye{position:absolute;right:5px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;border-radius:10px;background:transparent;color:var(--muted);display:grid;place-items:center}
+.eye:hover{background:var(--card2)}
+.meter{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;width:0;transition:width .2s,background .2s}
+.mt{font-size:.74rem;color:var(--muted)}
+.alinks{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.lnk{border:0;background:none;padding:2px 0;color:var(--blue);font-size:.84rem;font-weight:600}
+.lnk:hover{text-decoration:underline}
+.dim{color:var(--muted);font-size:.84rem;line-height:1.8;margin:0}
+.codein{text-align:center;font-size:1.5rem;letter-spacing:.5em;font-family:Arial,sans-serif}
+.devbox{width:min(440px,100%);padding:13px 16px;border:1px dashed var(--gold);border-radius:16px;background:var(--card);font-size:.8rem}
+.devbox p{margin:4px 0 6px;color:var(--muted);line-height:1.8}
+.devbox .mail{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--line)}
+.devbox b{font-size:1.1rem;letter-spacing:.2em;color:var(--blue);font-family:Arial,sans-serif}
+.cover{position:relative;height:190px;background-size:cover;background-position:center}
+.pdet{display:flex;align-items:flex-end;gap:12px;margin:-56px 18px 0;position:relative}
+.avatar.xl{width:112px;height:112px;border-radius:34px;font-size:2.4rem;border:5px solid var(--card)}
+.pdet{pointer-events:none}.pdet>*{pointer-events:auto}
+.avwrap{position:relative;display:block}
+.avw{position:relative;display:block;border:0;padding:0;background:none;border-radius:34px}
+.cam{position:absolute;display:inline-flex;align-items:center;gap:6px;border:0;border-radius:11px;background:rgba(0,0,0,.55);color:#fff;padding:7px 11px;font-size:.78rem}
+.cam.cov{bottom:10px;left:10px}
+.cam.av{bottom:4px;left:4px;width:34px;height:34px;padding:0;justify-content:center;border-radius:50%;background:var(--btn);border:3px solid var(--card)}
+.pcard h2{display:flex;align-items:center;gap:4px}
+.comp{padding:14px 16px;display:grid;gap:8px}
+.comp .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.comp .bar i{display:block;height:100%;background:linear-gradient(90deg,#3c8de6,var(--gold))}
+.arow{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:.9rem;align-items:flex-start}
+.arow:first-of-type{border-top:0}
+.arow .ic{margin-top:3px;color:var(--blue)}
+.al{color:var(--muted);font-size:.74rem}
+.introbio{margin:0 0 6px;line-height:1.9;font-size:.9rem}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pgrid button{position:relative;aspect-ratio:1;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--card2)}
+.pgrid img{width:100%;height:100%;object-fit:cover;display:block}
+.pgrid span{position:absolute;bottom:0;right:0;left:0;padding:3px 6px;background:rgba(0,0,0,.55);color:#fff;font-size:.68rem}
+.prompt{display:flex;align-items:center;gap:10px;padding:12px 16px;color:var(--muted)}
+.pinlab{display:inline-flex;gap:5px;align-items:center;margin-top:10px;color:var(--gold-d);font-size:.74rem;font-weight:600}
+.cv-prev{background-size:cover;background-position:center}
+.inline2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.cover{height:140px}.avatar.xl{width:92px;height:92px;border-radius:28px;font-size:2rem}.pdet{margin-top:-46px}.inline2{grid-template-columns:1fr}.auth{padding:14px}}
+@media(max-width:1020px){.layout{grid-template-columns:230px minmax(0,1fr)}.rail{display:none}}
+@media(max-width:700px){
+.topbar{min-height:58px;padding:0 12px;gap:8px;grid-template-columns:1fr auto}
+.top-nav,.sidebar{display:none}
+.brand svg{width:36px;height:36px}.brand-ar{font-size:1.25rem}
+.layout{display:block;margin:12px auto 96px;padding:0 10px}
+.main{gap:11px}
+.head{padding:13px 15px}.head h1{font-size:1.2rem}
+.post{padding:14px 12px 8px}.ptext{font-size:.9rem}
+.ab{font-size:.7rem;gap:4px}.ab .ic{width:1.1rem;height:1.1rem}
+.story{flex-basis:90px;height:124px}
+.msgs{grid-template-columns:1fr}.msgs.has-chat .clist{display:none}.msgs:not(.has-chat) .thread{display:none}
+.mobile-nav{position:fixed;z-index:20;right:0;left:0;bottom:0;display:flex;justify-content:space-around;align-items:center;padding:6px 6px max(6px,env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line)}
+.mobile-nav a{position:relative;display:grid;justify-items:center;gap:1px;min-width:62px;padding:4px 6px;color:var(--muted);font-size:.66rem;border-radius:10px}
+.mobile-nav a.active{color:var(--blue);font-weight:700}
+.mobile-nav .badge{top:-2px;left:8px}
+.fab{display:grid;place-items:center;width:52px;height:52px;margin-top:-22px;border:0;border-radius:18px;background:linear-gradient(135deg,var(--blue-d),#3c8de6);color:#fff;box-shadow:0 6px 16px rgba(22,64,124,.45)}
+.toast{bottom:84px}
+.pop.rx button{width:40px;height:40px}
+}
+
+.install-btn{display:inline-flex;align-items:center;gap:7px;height:42px;padding:0 14px;border:0;border-radius:13px;background:var(--gold);color:#0b2858;font-weight:700;font-size:.8rem}
+.install-btn:hover{filter:brightness(1.07)}
+.brand img{width:42px;height:42px;border-radius:12px}
+.brand img.wm{width:auto;height:36px;border-radius:0;filter:none}
+.brand-en{align-self:center;margin-top:6px}
+.wm-blue{width:auto;max-width:78%}
+[data-theme=dark] .wm-blue{filter:brightness(0) invert(1)}
+.camwrap{position:relative;border-radius:16px;overflow:hidden;background:#000;aspect-ratio:4/3}
+.camwrap video{width:100%;height:100%;object-fit:cover;display:block}
+.camwrap.front video{transform:scaleX(-1)}
+.bgpost{display:grid;place-items:center;min-height:200px;margin:12px 0;padding:24px;border-radius:16px;color:#fff;text-align:center;font-size:1.35rem;font-weight:700;line-height:1.8;overflow-wrap:anywhere;white-space:pre-wrap}
+.bgpost p{margin:0}
+.ctop textarea.bgta{min-height:150px;border-radius:14px;padding:16px;text-align:center;font-size:1.25rem;font-weight:700;border:0}
+.bgta::placeholder{color:rgba(255,255,255,.75)}
+.sw-btn{width:34px;height:34px;border-radius:50%;border:3px solid transparent;box-shadow:0 0 0 1px var(--line)}
+.sw-btn.on{border-color:var(--card);box-shadow:0 0 0 3px var(--btn)}
+.poll{display:grid;gap:8px;margin:10px 0 12px}
+.popt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card2);overflow:hidden;text-align:right}
+.popt i{position:absolute;top:0;bottom:0;right:0;background:var(--soft);z-index:0}
+.popt span,.popt b{position:relative;z-index:1}
+.popt.mine{border-color:var(--btn)}
+.popt.mine i{background:rgba(47,120,208,.28)}
+.pmeta{color:var(--muted);font-size:.74rem}
+.pedit{display:grid;gap:8px;margin-top:8px;padding:10px;border-radius:14px;background:var(--card2)}
+.embed{display:block;margin:8px 0 12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card2);cursor:pointer}
+.embed.unavail{color:var(--muted);cursor:default;font-size:.85rem}
+.feel{font-weight:400;color:var(--muted);font-size:.74rem}
+.quote{margin-bottom:5px;padding:4px 9px;border-inline-start:3px solid var(--gold);border-radius:6px;background:rgba(0,0,0,.12);font-size:.76rem;opacity:.9}
+.mimg{display:block;max-width:100%;max-height:260px;border-radius:12px;margin-bottom:4px;cursor:zoom-in}
+.bub audio{display:block;max-width:100%;height:36px;margin:2px 0}
+.rec{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line);background:var(--soft)}
+.rec .pulse{width:10px;height:10px;border-radius:50%;background:#e0392b;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.tfoot{gap:6px}
+.tfoot .icon-b{width:42px;height:42px;border:0;border-radius:12px;background:var(--card2);color:var(--muted);display:grid;place-items:center;flex:0 0 auto}
+.tfoot .icon-b:hover,.tfoot .icon-b.on{background:var(--soft);color:var(--blue-d)}
+.svc.hasimg::before{display:none}
+.svt.ov{position:absolute;bottom:34px;right:18px;left:18px;padding:10px 14px;border-radius:14px;background:rgba(0,0,0,.45);font-size:1.1rem}
+.rxrow{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.rxrow:first-child{border-top:0}
+@media(max-width:700px){.brand img{width:36px;height:36px}.brand img.wm{width:auto;height:30px}.brand-en{font-size:.6rem;letter-spacing:.24em}.hide-m{display:none!important}.install-btn .lbl{display:none}.install-btn{width:42px;padding:0;justify-content:center}.bgpost{min-height:160px;font-size:1.15rem}.tfoot{padding:10px 8px}.tfoot .icon-b{width:38px;height:38px}.tfoot .btn{padding:0 12px;min-width:40px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.modnote{display:flex;gap:10px;align-items:flex-start;margin:8px 0;padding:10px 12px;border-radius:12px;background:var(--soft);border:1px solid var(--line);color:var(--blue-d)}
+.modnote svg{flex:0 0 auto;margin-top:2px}.modnote p{margin:2px 0 0;color:var(--text);font-size:.9rem}
+.mstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.mstats>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center;display:grid;gap:2px}
+.mstats b{font-size:1.2rem;color:var(--blue-d)}.mstats span{font-size:.7rem;color:var(--muted)}
+.modr{padding:14px 16px}.mrh{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+@media(max-width:560px){.mstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@supports not (width:min(1px,2px)){.modal,.auth-card,.devbox,.svc{width:100%}.modal{max-width:480px}.modal.wide{max-width:900px}.auth-card,.devbox{max-width:440px}.svc{max-width:400px;height:100vh;max-height:720px}.topbar{padding:0 18px}.mobile-nav{padding:6px}}
+@supports not (margin-inline-start:1px){.nav-link .badge{margin-right:auto}.vf{margin-right:4px}.pop.menu .ok{margin-right:auto}.cm.reply{margin-right:34px}.quote{border-right:3px solid var(--gold)}}
+@supports not (inset:0){.backdrop,.sv{top:0;right:0;bottom:0;left:0}.svc::before{top:40%;right:-20%;bottom:-30%;left:20%}}
+@supports not (aspect-ratio:1){.pgrid button{height:0;padding-bottom:100%}.pgrid img{position:absolute;top:0;left:0}.camwrap{height:0;padding-bottom:75%}.camwrap video{position:absolute;top:0;left:0}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal-root"></div>
+<div id="story-root"></div>
+<div id="layer-root"></div>
+<div id="toast" class="toast" role="status" hidden></div>
+<input type="file" id="file-post" accept="image/*" hidden />
+<input type="file" id="file-avatar" accept="image/*" hidden />
+<input type="file" id="file-cover" accept="image/*" hidden />
+<input type="file" id="file-any" accept="image/*" hidden />
+<input type="file" id="file-import" accept="application/json,.json" hidden />
+<script>
+(function () {
+  var ok = true;
+  try { ok = !!(window.Promise && window.JSON && window.localStorage && document.querySelector && Array.prototype.forEach && window.CSS && CSS.supports && CSS.supports("--a", "0")); } catch (e) { ok = false; }
+  function show() {
+    if (window.__oldShown) return; window.__oldShown = true;
+    function put() { document.body.innerHTML = '<div style="font-family:sans-serif;direction:rtl;text-align:center;padding:40px 20px;color:#0b2858;max-width:480px;margin:0 auto"><h1 style="margin:0 0 12px">كلمات · Kalimat</h1><p>متصفحك قديم ولا يدعم بعض ميزات المنصة.</p><p>يرجى تحديثه أو فتح الرابط عبر Chrome أو Firefox أو Safari أو Edge.</p><p dir="ltr" style="color:#566b86;font-size:.9rem">Your browser is too old. Please update it or open this page in a current browser.</p></div>'; }
+    if (document.body) put(); else document.addEventListener("DOMContentLoaded", put);
+  }
+  window.__showOld = show;
+  if (!ok) show();
+  window.addEventListener("error", function (e) { if (!window.__ready && e && /SyntaxError|Unexpected|Invalid or unexpected/i.test(String(e.message || ""))) show(); });
+})();
+</script>
+<script>
+/* سدّ ثغرات المتصفحات الأقدم (تعمل فقط إن كانت الدالة مفقودة) */
+(function () {
+  var O = Object, A = Array.prototype, S = String.prototype, E = window.Element && Element.prototype;
+  if (!O.entries) O.entries = function (o) { var k = O.keys(o), i = k.length, r = new Array(i); while (i--) r[i] = [k[i], o[k[i]]]; return r; };
+  if (!O.values) O.values = function (o) { return O.keys(o).map(function (k) { return o[k]; }); };
+  if (!O.assign) O.assign = function (t) { for (var i = 1; i < arguments.length; i++) { var s = arguments[i]; if (s) for (var k in s) if (O.prototype.hasOwnProperty.call(s, k)) t[k] = s[k]; } return t; };
+  if (!A.includes) A.includes = function (x, f) { for (var i = f || 0; i < this.length; i++) { if (this[i] === x || (x !== x && this[i] !== this[i])) return true; } return false; };
+  if (!A.find) A.find = function (fn, t) { for (var i = 0; i < this.length; i++) if (fn.call(t, this[i], i, this)) return this[i]; };
+  if (!A.findIndex) A.findIndex = function (fn, t) { for (var i = 0; i < this.length; i++) if (fn.call(t, this[i], i, this)) return i; return -1; };
+  if (!S.includes) S.includes = function (s, p) { return this.indexOf(s, p || 0) !== -1; };
+  if (!S.startsWith) S.startsWith = function (s, p) { p = p || 0; return this.substr(p, s.length) === s; };
+  if (!S.endsWith) S.endsWith = function (s, l) { var t = String(this); if (l === undefined || l > t.length) l = t.length; return t.substring(l - s.length, l) === s; };
+  if (!S.repeat) S.repeat = function (n) { var r = "", s = String(this); while (n-- > 0) r += s; return r; };
+  if (!S.padStart) S.padStart = function (n, p) { var s = String(this); p = p === undefined ? " " : String(p); while (s.length < n && p) s = p + s; return s.length > n ? s.slice(s.length - n) : s; };
+  if (!S.padEnd) S.padEnd = function (n, p) { var s = String(this); p = p === undefined ? " " : String(p); while (s.length < n && p) s += p; return s.slice(0, n); };
+  if (window.Promise && !Promise.prototype.finally) Promise.prototype.finally = function (f) { var P = this.constructor || Promise; return this.then(function (v) { return P.resolve(f()).then(function () { return v; }); }, function (e) { return P.resolve(f()).then(function () { throw e; }); }); };
+  if (E) {
+    if (!E.matches) E.matches = E.msMatchesSelector || E.webkitMatchesSelector;
+    if (!E.closest) E.closest = function (s) { var el = this; while (el && el.nodeType === 1) { if (el.matches(s)) return el; el = el.parentElement || el.parentNode; } return null; };
+  }
+  if (!Number.isFinite) Number.isFinite = function (v) { return typeof v === "number" && isFinite(v); };
+  if (!Number.isInteger) Number.isInteger = function (v) { return typeof v === "number" && isFinite(v) && Math.floor(v) === v; };
+  if (window.crypto === undefined && window.msCrypto) window.crypto = window.msCrypto;
+  if (window.crypto && !window.crypto.subtle && window.crypto.webkitSubtle) window.crypto.subtle = window.crypto.webkitSubtle;
+})();
+</script>
+<script>
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+const L_ = "A-Za-zªµºÀ-ÖØ-öø-ʯͰ-ϿЀ-ԯԱ-ևא-תؠ-يٮ-ۓەۺ-ۿܐ-ݏݐ-ݿࢠ-ࣿऀ-෿฀-໿Ḁ-῿぀-ヿ㐀-䶿一-鿿가-힯ﭐ-﷿ﹰ-ﻼ";
+const M_ = "̀-ͯ҃-҉֑-ֽؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۤۧۨ-ۭ࣓-ࣿ";
+const N_ = "0-9٠-٩۰-۹";
+const LN_ = L_ + N_;
+const KEY = "kalimat-v2";
+const ME = "me";
+const VERSION = "2.2";
+const LOGO_SRC = "kalimat-logo.svg";
+const TONES = ["#2f78d0", "#1f9d8a", "#d9922a", "#7a5fc7", "#d4627a", "#4a8fd9", "#16407c"];
+const COVERS = [
+    "linear-gradient(120deg,#3c8de6,#16407c)",
+    "linear-gradient(120deg,#16407c,#f4b942 150%)",
+    "linear-gradient(120deg,#5fb0f5,#2563b0 60%,#0f2d5c)",
+    "linear-gradient(120deg,#1f9d8a,#2563b0)",
+    "linear-gradient(120deg,#7a5fc7,#2f78d0)",
+    "linear-gradient(120deg,#0f2d5c,#3c8de6 70%,#f4b942)"
+];
+const STORY_BG = [
+    "linear-gradient(160deg,#3c8de6,#16407c)",
+    "linear-gradient(160deg,#16407c,#0a2146)",
+    "linear-gradient(160deg,#5fb0f5,#2563b0)",
+    "linear-gradient(160deg,#f4b942,#c9791a)",
+    "linear-gradient(160deg,#1f9d8a,#16407c)",
+    "linear-gradient(160deg,#7a5fc7,#2f78d0)"
+];
+const RX = { love: "❤️", like: "👍", haha: "😂", wow: "😮", sad: "😢" };
+const RX_LABEL = { love: "أحببته", like: "أعجبني", haha: "أضحكني", wow: "أدهشني", sad: "أحزنني" };
+const EMOJIS = ["😀", "😂", "😍", "🥰", "😎", "🤔", "😢", "😮", "🙏", "👏", "💙", "❤️", "🔥", "✨", "🌿", "☕", "📖", "🎶", "🌙", "☀️", "🌸", "🎉", "👍", "💡"];
+const VIS = { public: ["عام", "globe"], followers: ["المتابعون", "users"], me: ["أنا فقط", "lock"] };
+const REPORT_REASONS = ["محتوى مسيء أو مؤذٍ", "إزعاج أو محتوى مكرر", "معلومات مضللة", "انتحال شخصية", "أخرى"];
+const DAY = 86400000;
+const P = {
+    home: '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10Z"/>',
+    compass: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
+    bell: '<path d="M6 9a6 6 0 0 1 12 0c0 6 2 7.5 2 7.5H4S6 15 6 9Z"/><path d="M10 20a2 2 0 0 0 4 0"/>',
+    chat: '<path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/>',
+    bookmark: '<path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-4-6 4V4.8Z"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    sliders: '<path d="M4 6h8M18 6h2M4 12h2M12 12h8M4 18h10M20 18h0"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/>',
+    search: '<circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    heart: '<path d="M20.8 8.8c0 5.2-8.8 11-8.8 11s-8.8-5.8-8.8-11a4.8 4.8 0 0 1 8.8-2.6 4.8 4.8 0 0 1 8.8 2.6Z"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.7 10.7 6.6-4.4m-6.6 7 6.6 4.1"/>',
+    send: '<path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13"/>',
+    dots: '<circle cx="5" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="12" r="1.5" fill="currentColor"/>',
+    image: '<rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m4 18 5-5 4 4 3-3 4 4"/>',
+    smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14a4.2 4.2 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+    trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
+    edit: '<path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16v4Z"/>',
+    back: '<path d="M4 12h16M14 6l6 6-6 6"/>',
+    close: '<path d="M6 6l12 12M18 6 6 18"/>',
+    check: '<path d="m5 12.5 4.5 4.5L19 7"/>',
+    eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+    flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+    reply: '<path d="M9 8 4 13l5 5M4 13h10a6 6 0 0 1 6 6"/>',
+    download: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
+    upload: '<path d="M12 16V5M7 9l5-5 5 5M5 20h14"/>',
+    ban: '<circle cx="12" cy="12" r="9"/><path d="m6 6 12 12"/>',
+    mute: '<path d="M4 9v6h4l5 4V5L8 9H4ZM17 9l4 6M21 9l-4 6"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    eyeoff: '<path d="M3 3l18 18M10.6 5.1A9.7 9.7 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4M6.5 6.7C3.8 8.5 2 12 2 12s3.6 7 10 7c1.5 0 2.8-.4 4-.9"/>',
+    logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',
+    camera: '<path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="14" r="3.5"/>',
+    briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    cap: '<path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/>',
+    pin: '<path d="M12 17v5M8 3h8l-1 6 3 3H6l3-3-1-6Z"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    key: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M16 7l3 3"/>',
+    cake: '<path d="M4 20h16v-6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v6ZM8 12V8M12 12V7M16 12V8"/>',
+    mappin: '<path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    shield: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/>',
+    mic: '<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
+    repeat: '<path d="m17 2 4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',
+    poll: '<path d="M5 20V10M12 20V4M19 20v-7"/>',
+    palette: '<path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2-.6-1.2.2-2.5 1.6-2.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/>',
+    copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+    flip: '<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>'
+};
+const ic = (n, c = "") => `<svg class="ic ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n] || ""}</svg>`;
+const logoMark = (s = 40) => `<img src="${LOGO_SRC}" width="${s}" height="${s}" alt="" decoding="async">`;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (v) => String(v !== null && v !== void 0 ? v : "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const uid = (p) => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const clone = (o) => JSON.parse(JSON.stringify(o));
+function fmt(n) {
+    n = Math.max(0, Number(n) || 0);
+    if (n >= 1e6)
+        return Number((n / 1e6).toFixed(1)).toLocaleString("ar-EG") + " مليون";
+    if (n >= 1e3)
+        return Number((n / 1e3).toFixed(1)).toLocaleString("ar-EG") + " ألف";
+    return n.toLocaleString("ar-EG");
+}
+function unit(n, w) {
+    if (n === 1)
+        return w[0];
+    if (n === 2)
+        return w[1];
+    if (n >= 3 && n <= 10)
+        return fmt(n) + " " + w[2];
+    return fmt(n) + " " + w[3];
+}
+function count(n, w, zero) { return n === 0 ? zero : unit(n, w); }
+function ago(t) {
+    const s = Math.max(0, Math.floor((Date.now() - t) / 1000));
+    if (s < 45)
+        return "الآن";
+    const m = Math.floor(s / 60);
+    if (m < 60)
+        return "قبل " + unit(Math.max(1, m), ["دقيقة", "دقيقتين", "دقائق", "دقيقة"]);
+    const h = Math.floor(m / 60);
+    if (h < 24)
+        return "قبل " + unit(h, ["ساعة", "ساعتين", "ساعات", "ساعة"]);
+    const d = Math.floor(h / 24);
+    if (d < 30)
+        return "قبل " + unit(d, ["يوم", "يومين", "أيام", "يومًا"]);
+    return new Date(t).toLocaleDateString("ar", { year: "numeric", month: "short", day: "numeric" });
+}
+function clock(t) { return new Date(t).toLocaleTimeString("ar", { hour: "2-digit", minute: "2-digit" }); }
+function richText(text) {
+    return String(text !== null && text !== void 0 ? text : "").split(new RegExp("(#[" + LN_ + "_]+|https?:\\/\\/[^\\s<]+)", "g")).map((part) => {
+        if (new RegExp("^#[" + LN_ + "_]+$").test(part))
+            return `<a href="#/tag/${encodeURIComponent(part.slice(1))}">${esc(part)}</a>`;
+        if (/^https?:\/\//.test(part))
+            return `<a href="${esc(part)}" target="_blank" rel="noopener noreferrer nofollow">${esc(part)}</a>`;
+        return esc(part);
+    }).join("");
+}
+function validName(n) { return new RegExp("^[" + L_ + M_ + "][" + L_ + M_ + "\\s.'-]{1,39}$").test(n.trim()); }
+function validHandle(h) { return /^[a-z0-9_.]{3,20}$/i.test(h); }
+const FEELINGS = ["😊 سعيد", "🥰 ممتن", "🤩 متحمس", "😢 حزين", "😴 متعب", "🌟 متفائل", "😌 مرتاح", "🤔 يفكّر"];
+function cleanPoll(pl) {
+    if (!pl || !Array.isArray(pl.options))
+        return null;
+    const o = pl.options.filter((x) => x && typeof x.t === "string" && x.t.trim()).slice(0, 4).map((x) => ({ t: x.t.slice(0, 60), votes: Math.max(0, Number.isFinite(x.votes) ? Math.floor(x.votes) : 0) }));
+    if (o.length < 2)
+        return null;
+    return { options: o, myVote: Number.isInteger(pl.myVote) && pl.myVote >= 0 && pl.myVote < o.length ? pl.myVote : null };
+}
+const REL = ["", "غير مرتبط", "في علاقة", "مخطوب/ة", "متزوج/ة", "الأمر معقّد"];
+const GENDERS = ["", "ذكر", "أنثى", "أفضّل عدم الذكر"];
+function cleanAbout(a) {
+    a = a && typeof a === "object" ? a : {};
+    const s = (x, n) => (typeof x === "string" ? x.trim().slice(0, n) : "");
+    return { work: s(a.work, 80), education: s(a.education, 80), city: s(a.city, 60), hometown: s(a.hometown, 60), relation: REL.includes(a.relation) ? a.relation : "", gender: GENDERS.includes(a.gender) ? a.gender : "", birthday: /^\d{4}-\d{2}-\d{2}$/.test(a.birthday || "") ? a.birthday : "", website: typeof a.website === "string" && /^https?:\/\/[^\s]+$/.test(a.website) ? a.website.slice(0, 200) : "" };
+}
+function makeSeed(myName = "عضو جديد", myHandle = "member") {
+    const now = Date.now();
+    const U = (id, name, handle, bio, tone, o = {}) => (Object.assign(Object.assign({ id, name, handle, bio, tone, avatarImg: null, coverImg: null, cover: tone % COVERS.length, followed: false, followsMe: false, followerCount: 0, verified: false, joined: now - 30 * DAY, detailsVis: "public", showEmail: false, showBirthday: true, pinned: null }, o), { about: cleanAbout(o.about) }));
+    const users = [
+        U(ME, myName, myHandle, "", 0, { followerCount: 0, joined: now }),
+        U("team", "فريق كلمات", "kalimat", "الحساب الرسمي لمنصة كلمات.", 6, { followed: true, verified: true, followerCount: 5200 }),
+        U("u1", "نور الحربي", "noor.draws", "رسامة ومحبّة للألوان الهادئة", 1, { followed: true, followsMe: true, followerCount: 1840, about: { work: "رسامة مستقلة", education: "كلية الفنون الجميلة", city: "الرياض", hometown: "المدينة المنورة" } }),
+        U("u2", "سالم الراشد", "salem.reads", "كتب، مقاهٍ، وأسئلة كثيرة", 2, { followed: true, followsMe: true, followerCount: 972, about: { work: "محرر ومكتبي", education: "جامعة الملك سعود", city: "الرياض" } }),
+        U("u3", "مها الزهراني", "maha.inmotion", "أحكي عن المدن كما أراها", 3, { followerCount: 3250, about: { work: "كاتبة رحلات", city: "جدة", hometown: "جدة", relation: "في علاقة" } }),
+        U("u4", "راكان فهد", "rakan.cooks", "وصفات من مطبخ البيت", 5, { followerCount: 741, about: { work: "طاهٍ منزلي", city: "الدمام" } }),
+        U("u5", "جود السبيعي", "joud.grows", "أتعلم كيف أبطئ قليلاً", 4, { followed: true, followerCount: 1284, about: { education: "علم النبات", city: "أبها", relation: "غير مرتبط" } })
+    ];
+    const Pst = (id, a, text, ago_, rx, comments = [], o = {}) => (Object.assign({ id, authorId: a, text, image: null, createdAt: now - ago_, edited: false, visibility: "public", commentsOff: false, reactions: rx, myReaction: null, saved: false, views: 0, shares: 0, comments }, o));
+    const Cm = (id, a, text, ago_, likes = 0, parentId = null) => ({ id, authorId: a, text, at: now - ago_, likes, liked: false, parentId, edited: false });
+    const posts = [
+        Pst("p0", "team", "أهلاً بك في كلمات ✨\nهذه نسخة تجريبية تُحفظ بياناتها على جهازك فقط. اكتب أول #حكاية لك، وجرّب التفاعل والتعليق والقصص والرسائل.", 3 * 60000, { love: 41, like: 12 }, [Cm("c0", "u1", "مرحباً بالجميع! 💙", 2 * 60000, 3)]),
+        Pst("p1", "u1", "أحب اللحظة التي يصبح فيها الرسم أقلّ عناداً، وأبدأ أرى ما كنت أحاول قوله من البداية. هذه الصفحة أخذت مني صباحاً كاملاً، لكنها صارت تشبه الضوء الذي كان على الطاولة. #رسم", 18 * 60000, { love: 28, like: 8, wow: 2 }, [Cm("c1", "u2", "جميلة هذه الفكرة.", 12 * 60000, 2), Cm("c2", "u1", "شكراً سالم! @salem.reads", 9 * 60000, 1, "c1")], { saved: true }),
+        Pst("p2", "u2", "أنهيت اليوم كتاباً ظلّ ينتظرني على الرف منذ الشتاء. الغريب أنني وصلت إليه في الوقت المناسب تماماً. أظن أن بعض الكتب تعرف متى تنادينا. #كتب", 54 * 60000, { like: 15, love: 6 }, [Cm("c3", "u3", "ما اسم الكتاب؟", 40 * 60000, 0)]),
+        Pst("p3", "u3", "مشيت بلا وجهة في جدة القديمة، وكل زقاق فتح لي حكاية جديدة. أحياناً أفضل طريقة لاكتشاف مكان هي أن نترك الخريطة في البيت. #سفر", 3 * 3600000, { love: 70, wow: 18, like: 6 }, [Cm("c4", "u5", "وصف جميل للمدينة.", 2 * 3600000, 4)]),
+        Pst("p4", "u5", "نبتت أول ورقة جديدة في نبتتي الصغيرة. أعرف أن هذا خبر عادي جداً، لكنني أردت أن أشاركه مع أحد. الأشياء الصغيرة تستحق الاحتفاء أيضاً. #حكاية", 8 * 3600000, { love: 40, like: 17 }, [], { saved: true }),
+        Pst("p5", "u4", "جرّبت أضيف الليمون الأسود للعدس، والنتيجة أدفأ مما توقعت. الوصفة ليست دقيقة أبداً؛ قليل من هذا، ورشة من ذاك، ووقت كافٍ على نار هادئة. #وصفات", 23 * 3600000, { love: 21, haha: 4, like: 18 }),
+        Pst("p6", "team", "سؤال اليوم: متى تفضّل القراءة؟ #استطلاع", 40 * 60000, { like: 9, love: 3 }, [], { poll: { options: [{ t: "في الصباح الباكر", votes: 34 }, { t: "بعد الظهر", votes: 12 }, { t: "قبل النوم", votes: 57 }, { t: "في أي وقت", votes: 21 }], myVote: null } })
+    ];
+    posts.forEach((p, i) => { p.views = 40 + i * 37; });
+    const stories = [
+        { id: "s1", authorId: "u1", text: "صباح هادئ، وقليل من الألوان على الصفحة.", bg: 0, createdAt: now - 40 * 60000 },
+        { id: "s2", authorId: "u2", text: "صفحة جديدة، وقهوة لا تزال دافئة ☕", bg: 3, createdAt: now - 2 * 3600000 },
+        { id: "s3", authorId: "u5", text: "ورقة خضراء صغيرة تجعل الصباح أجمل 🌿", bg: 4, createdAt: now - 5 * 3600000 }
+    ];
+    const notifs = [
+        { id: "n1", type: "system", userId: "team", text: "مرحباً بك في كلمات! ابدأ بكتابة منشورك الأول.", href: "#/home", at: now - 60000, read: false },
+        { id: "n2", type: "follow", userId: "u1", text: "بدأت بمتابعتك", href: "#/user/u1", at: now - 30 * 60000, read: false },
+        { id: "n3", type: "follow", userId: "u2", text: "بدأ بمتابعتك", href: "#/user/u2", at: now - 3 * 3600000, read: false }
+    ];
+    const chats = {
+        team: [{ id: "m1", from: "team", text: "أهلاً بك في كلمات! 🌿 المحادثات في هذه النسخة تُحفظ على جهازك فقط.", at: now - 2 * 60000 }],
+        u1: [{ id: "m2", from: "u1", text: "مرحباً! سعيدة بانضمامك إلى كلمات.", at: now - 20 * 60000 }]
+    };
+    return {
+        v: 2, onboarded: false, users, posts, stories, notifs, chats, chatRead: {}, blocked: [], muted: [], hidden: [], reports: [], viewedStories: [],
+        settings: { theme: "auto", fs: "m", notify: true, hideLists: false, defVis: "public", defComments: true }
+    };
+}
+function normalize(r) {
+    if (!r || typeof r !== "object")
+        return null;
+    const arr = (x) => (Array.isArray(x) ? x : []);
+    const num = (x, d = 0) => (Number.isFinite(x) ? x : d);
+    const str = (x, d = "") => (typeof x === "string" ? x : d);
+    const now = Date.now();
+    const users = arr(r.users).filter((u) => u && typeof u.id === "string").map((u) => ({
+        id: u.id, name: str(u.name, "عضو"), handle: str(u.handle, u.id), bio: str(u.bio), tone: Math.abs(num(u.tone)) % TONES.length,
+        avatarImg: typeof u.avatarImg === "string" && u.avatarImg.startsWith("data:image/") ? u.avatarImg : null,
+        cover: Math.abs(num(u.cover)) % COVERS.length, followed: !!u.followed, followsMe: !!u.followsMe,
+        followerCount: Math.max(0, num(u.followerCount)), verified: !!u.verified, joined: num(u.joined, now),
+        coverImg: typeof u.coverImg === "string" && u.coverImg.startsWith("data:image/") ? u.coverImg : null, about: cleanAbout(u.about),
+        detailsVis: VIS[u.detailsVis] ? u.detailsVis : "public", showEmail: !!u.showEmail, showBirthday: u.showBirthday !== false, pinned: typeof u.pinned === "string" ? u.pinned : null
+    }));
+    if (!users.some((u) => u.id === ME))
+        return null;
+    const ids = new Set(users.map((u) => u.id));
+    const posts = arr(r.posts).filter((p) => p && typeof p.id === "string" && ids.has(p.authorId)).map((p) => {
+        const rx = {};
+        Object.keys(RX).forEach((k) => { rx[k] = Math.max(0, num(p.reactions && p.reactions[k])); });
+        return {
+            id: p.id, authorId: p.authorId, text: str(p.text), image: typeof p.image === "string" && p.image.startsWith("data:image/") ? p.image : null,
+            createdAt: num(p.createdAt, now), edited: !!p.edited, visibility: VIS[p.visibility] ? p.visibility : "public", commentsOff: !!p.commentsOff,
+            reactions: rx, myReaction: RX[p.myReaction] ? p.myReaction : null, saved: !!p.saved, bg: Number.isInteger(p.bg) && p.bg >= 0 && p.bg < STORY_BG.length ? p.bg : null, feeling: FEELINGS.includes(p.feeling) ? p.feeling : "", repostOf: typeof p.repostOf === "string" ? p.repostOf : null, poll: cleanPoll(p.poll), views: Math.max(0, num(p.views)), shares: Math.max(0, num(p.shares)),
+            comments: arr(p.comments).filter((c) => c && typeof c.id === "string" && typeof c.text === "string").map((c) => ({
+                id: c.id, authorId: ids.has(c.authorId) ? c.authorId : ME, text: c.text, at: num(c.at, now), likes: Math.max(0, num(c.likes)), liked: !!c.liked,
+                parentId: typeof c.parentId === "string" ? c.parentId : null, edited: !!c.edited
+            }))
+        };
+    });
+    const base = makeSeed();
+    const s = r.settings || {};
+    return {
+        v: 2, onboarded: !!r.onboarded, users, posts,
+        stories: arr(r.stories).filter((x) => x && ids.has(x.authorId) && typeof x.text === "string").map((x) => ({ id: str(x.id, uid("s")), authorId: x.authorId, text: x.text, bg: Math.abs(num(x.bg)) % STORY_BG.length, img: typeof x.img === "string" && x.img.startsWith("data:image/") ? x.img : null, createdAt: num(x.createdAt, now) })),
+        notifs: arr(r.notifs).filter((n) => n && typeof n.id === "string").map((n) => ({ id: n.id, type: str(n.type, "system"), userId: ids.has(n.userId) ? n.userId : "team", text: str(n.text), href: str(n.href, "#/home").startsWith("#/") ? n.href : "#/home", at: num(n.at, now), read: !!n.read })),
+        chats: (() => { const o = {}; if (r.chats && typeof r.chats === "object")
+            Object.keys(r.chats).forEach((k) => { if (ids.has(k))
+                o[k] = arr(r.chats[k]).filter((m) => m && typeof m.text === "string").map((m) => ({ id: str(m.id, uid("m")), from: m.from === ME ? ME : k, text: m.text, at: num(m.at, now), img: typeof m.img === "string" && m.img.startsWith("data:image/") ? m.img : null, audio: typeof m.audio === "string" && m.audio.startsWith("data:audio/") ? m.audio : null, dur: Math.min(120, Math.max(0, num(m.dur))), reply: m.reply && typeof m.reply.text === "string" ? { text: m.reply.text.slice(0, 80), mine: !!m.reply.mine } : null })); }); return o; })(),
+        chatRead: r.chatRead && typeof r.chatRead === "object" ? r.chatRead : {},
+        blocked: arr(r.blocked).filter((x) => ids.has(x)), muted: arr(r.muted).filter((x) => ids.has(x)), hidden: arr(r.hidden).filter((x) => typeof x === "string"),
+        reports: arr(r.reports).slice(-200), viewedStories: arr(r.viewedStories).filter((x) => typeof x === "string"),
+        settings: {
+            theme: ["auto", "light", "dark"].includes(s.theme) ? s.theme : base.settings.theme, fs: ["s", "m", "l"].includes(s.fs) ? s.fs : "m",
+            notify: s.notify !== false, hideLists: !!s.hideLists, defVis: VIS[s.defVis] ? s.defVis : "public", defComments: s.defComments !== false
+        }
+    };
+}
+const AUTH_KEY = "kalimat-auth-v1", SESSION_KEY = "kalimat-session", ITER = 150000;
+let state = null, acct = null, storeKey = null;
+function loadAuth() {
+    try {
+        const a = JSON.parse(localStorage.getItem(AUTH_KEY) || "null");
+        if (a && Array.isArray(a.accounts))
+            return { accounts: a.accounts.filter((x) => x && x.id && x.email && x.hash && x.salt), inbox: Array.isArray(a.inbox) ? a.inbox.slice(-10) : [], pending: a.pending && typeof a.pending === "object" ? a.pending : {} };
+    }
+    catch (e) {
+        console.warn("تعذّر قراءة الحسابات", e);
+    }
+    return { accounts: [], inbox: [], pending: {} };
+}
+let auth = loadAuth();
+function saveAuth() { try {
+    localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
+}
+catch (e) {
+    toast("تعذّر الحفظ في هذا المتصفح.");
+} }
+function handleFrom(email) {
+    let h = email.split("@")[0].toLowerCase().replace(/[^a-z0-9_.]/g, "").slice(0, 16);
+    if (h.length < 3)
+        h = "member" + h;
+    const taken = new Set(["kalimat", "noor.draws", "salem.reads", "maha.inmotion", "rakan.cooks", "joud.grows"]);
+    let c = h, i = 1;
+    while (taken.has(c))
+        c = h + (i++);
+    return c;
+}
+function loadState(a) {
+    try {
+        const n = normalize(JSON.parse(localStorage.getItem(storeKey) || "null"));
+        if (n)
+            return n;
+    }
+    catch (e) {
+        console.warn("تعذّر قراءة البيانات", e);
+    }
+    const s = normalize(makeSeed(a.name, handleFrom(a.email)));
+    try {
+        localStorage.setItem(storeKey, JSON.stringify(s));
+    }
+    catch (e) { }
+    return s;
+}
+let saveT;
+function save(now) {
+    if (!state || !storeKey)
+        return;
+    const run = () => { try {
+        localStorage.setItem(storeKey, JSON.stringify(state));
+    }
+    catch (e) {
+        toast("تعذّر الحفظ، قد تكون مساحة المتصفح ممتلئة.");
+        console.error(e);
+    } };
+    clearTimeout(saveT);
+    if (now)
+        run();
+    else
+        saveT = setTimeout(run, 250);
+}
+window.addEventListener("pagehide", () => save(true));
+const b64 = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf)));
+const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+const newSalt = () => b64(crypto.getRandomValues(new Uint8Array(16)));
+const code6 = () => String(crypto.getRandomValues(new Uint32Array(1))[0] % 1000000).padStart(6, "0");
+function hashPw(pw_1, salt_1) {
+    return __awaiter(this, arguments, void 0, function* (pw, salt, iter = ITER) {
+        if (!(window.crypto && crypto.subtle))
+            throw new Error("nocrypto");
+        const k = yield crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveBits"]);
+        return b64(yield crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: unb64(salt), iterations: iter }, k, 256));
+    });
+}
+const normEmail = (e) => String(e || "").trim().toLowerCase();
+const emailOk = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e) && e.length <= 120;
+const pwOk = (p) => p.length >= 8 && new RegExp("[" + L_ + "]").test(p) && /\d/.test(p);
+function pwScore(p) {
+    let s = 0;
+    if (p.length >= 8)
+        s++;
+    if (p.length >= 12)
+        s++;
+    if (/[a-z\u00DF-\u00F6\u00F8-\u00FF]/.test(p) && /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/.test(p))
+        s++;
+    if (/\d/.test(p))
+        s++;
+    if (new RegExp("[^" + LN_ + "]").test(p))
+        s++;
+    return Math.min(4, p.length < 8 ? Math.min(s, 1) : Math.max(1, s - 1));
+}
+function updateMeter(inp) {
+    const w = inp.closest(".field");
+    if (!w)
+        return;
+    const m = w.querySelector(".meter i"), t = w.querySelector(".mt"), v = inp.value;
+    const L = ["ضعيفة جداً", "ضعيفة", "متوسطة", "جيدة", "قوية"], C = ["#c0392b", "#e0792b", "#d9a52a", "#4aa3df", "#1f8a6b"];
+    const sc = v ? pwScore(v) : 0;
+    m.style.width = v ? (sc + 1) * 20 + "%" : "0";
+    m.style.background = C[sc];
+    t.textContent = v ? "قوة كلمة المرور: " + L[sc] : "٨ أحرف على الأقل، وتشمل حرفاً ورقماً";
+}
+const MAIL_SUBJ = { verify: "رمز تأكيد بريدك في كلمات", reset: "رمز استعادة كلمة المرور", email: "رمز تأكيد البريد الجديد" };
+function sendCode(kind, to, extra = {}, force = false) {
+    const pk = kind + ":" + to, old = auth.pending[pk];
+    if (!force && old && Date.now() - old.sentAt < 30000)
+        return { wait: Math.ceil((30000 - (Date.now() - old.sentAt)) / 1000) };
+    const code = code6();
+    auth.pending[pk] = Object.assign({ code, exp: Date.now() + 600000, attempts: 0, sentAt: Date.now() }, extra);
+    auth.inbox.push({ id: uid("i"), to, kind, code, at: Date.now() });
+    auth.inbox = auth.inbox.slice(-10);
+    saveAuth();
+    return { ok: true };
+}
+function checkCode(kind, to, code) {
+    const p = auth.pending[kind + ":" + to];
+    if (!p || Date.now() > p.exp)
+        return "انتهت صلاحية الرمز، اطلب رمزاً جديداً.";
+    if (p.attempts >= 5)
+        return "تجاوزت عدد المحاولات، اطلب رمزاً جديداً.";
+    if (String(code).trim() !== p.code) {
+        p.attempts++;
+        saveAuth();
+        return "الرمز غير صحيح.";
+    }
+    return null;
+}
+function devBox() {
+    const l = [...auth.inbox].reverse().slice(0, 3);
+    return `<aside class="devbox" aria-label="صندوق البريد التجريبي"><strong>📬 صندوق البريد التجريبي</strong><p>لا يوجد خادم بريد في النسخة المحلية، لذلك تظهر الرسائل هنا. عند الربط مع Firebase سيصل الرمز إلى بريدك الحقيقي ويُحذف هذا الصندوق.</p>${l.length ? l.map((m) => `<div class="mail"><span>إلى ${esc(m.to)}<br><small>${esc(MAIL_SUBJ[m.kind] || "")}</small></span><b dir="ltr">${esc(m.code)}</b></div>`).join("") : '<p class="dim">لا توجد رسائل بعد.</p>'}</aside>`;
+}
+function startSession(a, remember) {
+    try {
+        localStorage.removeItem(SESSION_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
+        (remember ? localStorage : sessionStorage).setItem(SESSION_KEY, a.id);
+    }
+    catch (e) { }
+    enterApp(a);
+}
+function enterApp(a) {
+    acct = a;
+    storeKey = "kalimat-v3:" + a.id;
+    state = loadState(a);
+    Object.assign(ui, { composer: { img: null, vis: state.settings.defVis, off: !state.settings.defComments, emoji: false }, drafts: {}, open: new Set(), reply: {}, rx: null, menu: null, chat: null, sv: null, chatReply: null, chatEmoji: false, storyImg: null });
+    route();
+    render({ top: true });
+}
+function logout() {
+    try {
+        localStorage.removeItem(SESSION_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
+    }
+    catch (e) { }
+    save(true);
+    acct = null;
+    state = null;
+    storeKey = null;
+    ui.sv = null;
+    $("#story-root").innerHTML = "";
+    $("#modal-root").innerHTML = "";
+    closeLayer();
+    recStop(true);
+    ui.auth = { screen: "login", email: "" };
+    renderAuth();
+}
+function errs(form) { $$(".err", form).forEach((e) => { e.textContent = ""; }); return (n, m) => { const s = form.querySelector(`[data-err="${n}"]`); if (s)
+    s.textContent = m; return false; }; }
+function guarded(form, fn) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const btn = form.querySelector("button[type=submit]");
+        if (btn)
+            btn.disabled = true;
+        try {
+            yield fn();
+        }
+        catch (e) {
+            console.error(e);
+            toast(e.message === "nocrypto" ? "المتصفح لا يدعم التشفير في هذا السياق؛ افتح الموقع عبر https." : "حدث خطأ غير متوقع.");
+        }
+        finally {
+            if (btn && btn.isConnected)
+                btn.disabled = false;
+        }
+    });
+}
+const AUTH_FORMS = {
+    register(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), name = String(fd.get("name")).trim(), email = normEmail(fd.get("email")), pw = String(fd.get("password")), pw2 = String(fd.get("password2"));
+            let bad = false;
+            const B = (n, m) => { e(n, m); bad = true; };
+            if (!validName(name))
+                B("name", "الاسم حروف فقط (٢–٤٠) دون رموز أو إيموجي.");
+            if (!emailOk(email))
+                B("email", "اكتب بريداً إلكترونياً صحيحاً.");
+            if (!pwOk(pw))
+                B("password", "٨ أحرف على الأقل وتشمل حرفاً ورقماً.");
+            else if (pw !== pw2)
+                B("password2", "كلمتا المرور غير متطابقتين.");
+            if (!fd.get("terms"))
+                B("terms", "يجب الموافقة على الشروط للمتابعة.");
+            if (bad)
+                return;
+            const exist = auth.accounts.find((a) => a.email === email);
+            if (exist && exist.verified)
+                return e("email", "هذا البريد مسجّل بالفعل. سجّل الدخول أو استعد كلمة المرور.");
+            const salt = newSalt(), hash = yield hashPw(pw, salt);
+            if (exist)
+                Object.assign(exist, { name, salt, hash, iter: ITER, fails: 0, lockUntil: 0 });
+            else
+                auth.accounts.push({ id: uid("a"), email, name, salt, hash, iter: ITER, verified: false, createdAt: Date.now(), fails: 0, lockUntil: 0 });
+            sendCode("verify", email, {}, true);
+            ui.auth = { screen: "verify", email };
+            renderAuth();
+            toast("أرسلنا رمز التأكيد إلى بريدك");
+        });
+    },
+    verify(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), email = ui.auth.email, a = auth.accounts.find((x) => x.email === email);
+            const msg = checkCode("verify", email, fd.get("code"));
+            if (msg)
+                return e("code", msg);
+            if (!a)
+                return e("code", "الحساب غير موجود.");
+            a.verified = true;
+            delete auth.pending["verify:" + email];
+            saveAuth();
+            startSession(a, true);
+            toast("تم تأكيد بريدك. أهلاً بك في كلمات!");
+        });
+    },
+    login(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), email = normEmail(fd.get("email")), pw = String(fd.get("password")), a = auth.accounts.find((x) => x.email === email);
+            if (!emailOk(email) || !pw)
+                return e("password", "أدخل البريد وكلمة المرور.");
+            if (a && a.lockUntil > Date.now())
+                return e("password", `محاولات كثيرة. حاول بعد ${fmt(Math.ceil((a.lockUntil - Date.now()) / 1000))} ثانية.`);
+            const ok = a ? (yield hashPw(pw, a.salt, a.iter)) === a.hash : (yield hashPw(pw, newSalt()), false);
+            if (!ok) {
+                if (a) {
+                    a.fails = (a.fails || 0) + 1;
+                    if (a.fails >= 5)
+                        a.lockUntil = Date.now() + Math.min(900000, 60000 * Math.pow(2, (a.fails - 5)));
+                    saveAuth();
+                }
+                return e("password", "البريد أو كلمة المرور غير صحيحة.");
+            }
+            a.fails = 0;
+            a.lockUntil = 0;
+            saveAuth();
+            if (!a.verified) {
+                sendCode("verify", email, {}, true);
+                ui.auth = { screen: "verify", email };
+                renderAuth();
+                return toast("أكّد بريدك أولاً. أرسلنا رمزاً جديداً.");
+            }
+            startSession(a, !!fd.get("remember"));
+        });
+    },
+    forgot(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), email = normEmail(fd.get("email"));
+            if (!emailOk(email))
+                return e("email", "اكتب بريداً إلكترونياً صحيحاً.");
+            const a = auth.accounts.find((x) => x.email === email && x.verified);
+            if (a)
+                sendCode("reset", email);
+            ui.auth = { screen: "reset", email };
+            renderAuth();
+            toast("إن كان البريد مسجّلاً فقد أرسلنا إليه رمزاً.");
+        });
+    },
+    reset(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), email = ui.auth.email, pw = String(fd.get("password")), pw2 = String(fd.get("password2")), a = auth.accounts.find((x) => x.email === email && x.verified);
+            const msg = checkCode("reset", email, fd.get("code"));
+            if (msg || !a)
+                return e("code", msg || "الرمز غير صحيح.");
+            if (!pwOk(pw))
+                return e("password", "٨ أحرف على الأقل وتشمل حرفاً ورقماً.");
+            if (pw !== pw2)
+                return e("password2", "كلمتا المرور غير متطابقتين.");
+            a.salt = newSalt();
+            a.hash = yield hashPw(pw, a.salt);
+            a.iter = ITER;
+            a.fails = 0;
+            a.lockUntil = 0;
+            delete auth.pending["reset:" + email];
+            saveAuth();
+            ui.auth = { screen: "login", email };
+            renderAuth();
+            toast("تم تغيير كلمة المرور. سجّل الدخول الآن.");
+        });
+    },
+    chgpw(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), cur = String(fd.get("cur")), np = String(fd.get("password")), np2 = String(fd.get("password2"));
+            if ((yield hashPw(cur, acct.salt, acct.iter)) !== acct.hash)
+                return e("cur", "كلمة المرور الحالية غير صحيحة.");
+            if (!pwOk(np))
+                return e("password", "٨ أحرف على الأقل وتشمل حرفاً ورقماً.");
+            if (np === cur)
+                return e("password", "اختر كلمة مرور مختلفة عن الحالية.");
+            if (np !== np2)
+                return e("password2", "كلمتا المرور غير متطابقتين.");
+            acct.salt = newSalt();
+            acct.hash = yield hashPw(np, acct.salt);
+            acct.iter = ITER;
+            saveAuth();
+            closeModal();
+            toast("تم تغيير كلمة المرور");
+        });
+    },
+    chgemail(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), cur = String(fd.get("cur")), ne = normEmail(fd.get("email"));
+            if ((yield hashPw(cur, acct.salt, acct.iter)) !== acct.hash)
+                return e("cur", "كلمة المرور غير صحيحة.");
+            if (!emailOk(ne))
+                return e("email", "اكتب بريداً إلكترونياً صحيحاً.");
+            if (ne === acct.email || auth.accounts.some((a) => a.email === ne))
+                return e("email", "هذا البريد مستخدم بالفعل.");
+            sendCode("email", ne, { accId: acct.id }, true);
+            emailVerifyModal(ne);
+        });
+    },
+    chgemailverify(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form), ne = form.dataset.email, msg = checkCode("email", ne, fd.get("code"));
+            if (msg || auth.pending["email:" + ne].accId !== acct.id)
+                return e("code", msg || "الرمز غير صحيح.");
+            acct.email = ne;
+            delete auth.pending["email:" + ne];
+            saveAuth();
+            closeModal();
+            render();
+            toast("تم تغيير البريد الإلكتروني");
+        });
+    },
+    delacct(form, fd) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const e = errs(form);
+            if ((yield hashPw(String(fd.get("cur")), acct.salt, acct.iter)) !== acct.hash)
+                return e("cur", "كلمة المرور غير صحيحة.");
+            closeModal();
+            confirmBox("سيُحذف حسابك وكل بياناتك من هذا الجهاز نهائياً ولا يمكن التراجع. متابعة؟", "حذف نهائي", () => {
+                const id = acct.id, em = acct.email;
+                auth.accounts = auth.accounts.filter((a) => a.id !== id);
+                Object.keys(auth.pending).forEach((k) => { if (k.endsWith(":" + em))
+                    delete auth.pending[k]; });
+                saveAuth();
+                try {
+                    localStorage.removeItem("kalimat-v3:" + id);
+                }
+                catch (x) { }
+                state = null;
+                storeKey = null;
+                logout();
+                toast("تم حذف الحساب");
+            });
+        });
+    }
+};
+const ui = {
+    view: "home", param: null, drafts: {}, open: new Set(), rx: null, menu: null, shown: 10, sort: "new", feed: "all", tab: "all",
+    composer: { img: null, vis: "public", off: false, emoji: false }, reply: {}, ptab: "posts", psub: "followers", auth: { screen: "login", email: "" }, tmpCover: undefined, avatarDirect: false, coverDirect: false, chat: null, sv: null, confirmFn: null, tmpAvatar: undefined, seen: new Set()
+};
+const me = () => state.users.find((u) => u.id === ME);
+const user = (id) => state.users.find((u) => u.id === id) || me();
+const post = (id) => state.posts.find((p) => p.id === id);
+const isBlocked = (id) => state.blocked.includes(id);
+const rxTotal = (p) => Object.values(p.reactions).reduce((a, b) => a + b, 0);
+function toast(msg) {
+    const el = $("#toast");
+    el.textContent = msg;
+    el.hidden = false;
+    clearTimeout(toast.t);
+    toast.t = setTimeout(() => { el.hidden = true; }, 2600);
+}
+function avatar(u, cls = "") {
+    const style = u.avatarImg ? `background-image:url('${u.avatarImg}')` : `background:${TONES[u.tone % TONES.length]}`;
+    return `<span class="avatar ${cls}" style="${style}" role="img" aria-label="${esc(u.name)}">${u.avatarImg ? "" : esc([...u.name][0] || "؟")}</span>`;
+}
+const vf = (u) => (u.verified ? `<span class="vf" title="حساب رسمي">${ic("check")}</span>` : "");
+function applyTheme() {
+    const t = state ? state.settings.theme : "auto";
+    const dark = t === "dark" || (t === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    document.documentElement.style.fontSize = { s: "15px", m: "16px", l: "18px" }[state ? state.settings.fs : "m"];
+    $("#meta-theme").content = dark ? "#0a2146" : "#0b2858";
+}
+(function () { try {
+    const mq = matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener)
+        mq.addEventListener("change", applyTheme);
+    else if (mq.addListener)
+        mq.addListener(applyTheme);
+}
+catch (e) { } })();
+const MOD_KEY = "kalimat-mod-v1", ADMIN_EMAILS = ["kalimat2026go@gmail.com"];
+function loadMod() {
+    try {
+        const m = JSON.parse(localStorage.getItem(MOD_KEY) || "null");
+        if (m && typeof m === "object")
+            return {
+                reports: Array.isArray(m.reports) ? m.reports.slice(-500) : [],
+                notes: m.notes && typeof m.notes === "object" ? m.notes : {},
+                removed: m.removed && typeof m.removed === "object" ? m.removed : {},
+                mods: Array.isArray(m.mods) ? m.mods.filter((x) => typeof x === "string").slice(0, 20) : [],
+                log: Array.isArray(m.log) ? m.log.slice(-100) : []
+            };
+    }
+    catch (err) { }
+    return { reports: [], notes: {}, removed: {}, mods: [], log: [] };
+}
+let mod = loadMod();
+function saveMod() { try {
+    localStorage.setItem(MOD_KEY, JSON.stringify(mod));
+}
+catch (err) {
+    toast("تعذّر حفظ بيانات الإشراف.");
+} }
+const isAdmin = () => !!(acct && acct.verified && ADMIN_EMAILS.indexOf(acct.email) > -1);
+const isMod = () => isAdmin() || !!(acct && acct.verified && mod.mods.indexOf(acct.email) > -1);
+const modOpenCount = () => mod.reports.filter((r) => r.status === "open").length;
+function modLog(text) { mod.log.push({ at: Date.now(), text }); mod.log = mod.log.slice(-100); }
+function fileReport(p, reason, note) {
+    const a = user(p.authorId);
+    let r = mod.reports.find((x) => x.postId === p.id && x.status === "open");
+    if (!r) {
+        r = { id: uid("r"), postId: p.id, authorName: a.name, authorHandle: a.handle, excerpt: (p.text || "").slice(0, 240), hasImage: !!p.image, reasons: {}, notes: [], reporters: [], count: 0, status: "open", at: Date.now() };
+        mod.reports.push(r);
+    }
+    if (r.reporters.indexOf(acct.id) > -1)
+        return;
+    r.reporters.push(acct.id);
+    r.count++;
+    r.reasons[reason] = (r.reasons[reason] || 0) + 1;
+    if (note) {
+        r.notes.push(note.slice(0, 300));
+        r.notes = r.notes.slice(-5);
+    }
+    saveMod();
+}
+function modNoteModal(pid) {
+    const cur = mod.notes[pid] ? mod.notes[pid].text : "";
+    modal("ملاحظة الإشراف", `<form data-form="modnote" data-post="${esc(pid)}" style="display:grid;gap:10px"><p style="margin:0;color:var(--muted);font-size:.85rem">تظهر الملاحظة للجميع تحت المنشور بوصفها من فريق الإشراف، ولا يُغيَّر نص صاحب المنشور. اتركها فارغة لحذفها.</p><div class="field"><textarea name="text" maxlength="280" placeholder="مثال: تم التحقق من المعلومة، المصدر...">${esc(cur)}</textarea></div><div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">حفظ</button></div></form>`);
+}
+function modRemove(pid) {
+    confirmBox("إزالة هذا المنشور؟ سيختفي عن الجميع، ويمكنك إعادته من لوحة الإشراف.", "إزالة", () => {
+        mod.removed[pid] = { at: Date.now() };
+        mod.reports.forEach((x) => { if (x.postId === pid && x.status === "open")
+            x.status = "removed"; });
+        modLog("أزال منشوراً");
+        saveMod();
+        closeModal();
+        if (ui.view === "post")
+            location.hash = "#/mod";
+        else
+            render();
+        toast("أُزيل المنشور");
+    });
+}
+function viewMod() {
+    if (!isMod())
+        return head("الإشراف", "") + emptyBox("غير متاح", "هذا القسم مخصّص لفريق الإشراف فقط.");
+    const tab = ui.modTab === "done" || (ui.modTab === "team" && isAdmin()) ? ui.modTab : "open";
+    const open = mod.reports.filter((r) => r.status === "open"), done = mod.reports.filter((r) => r.status !== "open");
+    const tabs = [["open", "بلاغات جديدة (" + fmt(open.length) + ")"], ["done", "المُعالَجة"]].concat(isAdmin() ? [["team", "الفريق والسجل"]] : []).map(([k, l]) => `<button class="tab ${tab === k ? "on" : ""}" role="tab" aria-selected="${tab === k}" data-act="mod-tab" data-t="${k}">${l}</button>`).join("");
+    const stats = `<div class="mstats"><div><b>${fmt(open.length)}</b><span>بلاغات مفتوحة</span></div><div><b>${fmt(done.length)}</b><span>معالَجة</span></div><div><b>${fmt(Object.keys(mod.removed).length)}</b><span>منشورات مُزالة</span></div><div><b>${fmt(auth.accounts.length)}</b><span>حسابات على الجهاز</span></div></div>`;
+    const STATUS = { dismissed: "رُفض البلاغ", removed: "أُزيل المنشور", restored: "أُعيد المنشور" };
+    const card = (r) => {
+        const p = post(r.postId), isRem = !!mod.removed[r.postId], rs = Object.keys(r.reasons).map((k) => `<span class="chip on" style="cursor:default">${esc(k)} ×${fmt(r.reasons[k])}</span>`).join("");
+        const acts = r.status === "open" ? `<div class="ma" style="justify-content:flex-start;flex-wrap:wrap">${p ? `<a class="btn sm ghost" href="#/post/${esc(r.postId)}">عرض المنشور</a>` : ""}<button class="btn sm ghost" data-act="mod-note" data-post="${esc(r.postId)}">${ic("shield")} ملاحظة</button><button class="btn sm danger" data-act="mod-remove" data-post="${esc(r.postId)}">${ic("trash")} إزالة</button><button class="btn sm out" data-act="mod-dismiss" data-rep="${esc(r.id)}">رفض البلاغ</button></div>`
+            : `<div class="ma" style="justify-content:flex-start;align-items:center"><span class="d" style="color:var(--muted);font-size:.8rem">${STATUS[r.status] || ""}</span>${isRem ? `<button class="btn sm out" data-act="mod-restore" data-post="${esc(r.postId)}">إعادة المنشور</button>` : ""}</div>`;
+        return `<article class="card modr"><div class="mrh"><strong>${esc(r.authorName)} <span class="handle">@${esc(r.authorHandle)}</span></strong><span class="chip on" style="cursor:default">${unit(r.count, ["بلاغ", "بلاغان", "بلاغات", "بلاغًا"])}</span></div><div class="chips" style="margin:6px 0">${rs}</div>
+      <p class="ptext" style="margin:6px 0">${r.excerpt ? richText(r.excerpt) : '<span class="d" style="color:var(--muted)">منشور بلا نص</span>'}${r.hasImage ? ' <span class="d" style="color:var(--muted)">· يحتوي صورة</span>' : ""}</p>
+      ${r.notes.length ? `<div class="d" style="color:var(--muted);font-size:.8rem">${r.notes.map((n) => "«" + esc(n) + "»").join(" ")}</div>` : ""}${acts}</article>`;
+    };
+    let body;
+    if (tab === "team") {
+        body = `<section class="card set"><h3>المشرفون</h3>
+      <div class="srow2"><div><div dir="ltr" style="text-align:right">${esc(ADMIN_EMAILS[0])}</div><div class="d">المدير</div></div></div>
+      ${mod.mods.map((m) => `<div class="srow2"><div dir="ltr" style="text-align:right">${esc(m)}</div><button class="btn sm danger" data-act="mod-del" data-email="${esc(m)}">إزالة</button></div>`).join("")}
+      <form class="srow2" data-form="modadd" style="align-items:flex-start"><div class="field" style="flex:1;margin:0"><input name="email" type="email" dir="ltr" placeholder="بريد المشرف الجديد" autocomplete="off" /><small class="err" data-err="email"></small></div><button class="btn sm" type="submit">إضافة</button></form></section>
+      <section class="card set"><h3>سجل نشاط الإشراف</h3>${mod.log.length ? mod.log.slice().reverse().slice(0, 30).map((l) => `<div class="srow2"><div>${esc(l.text)}</div><span class="d">${ago(l.at)}</span></div>`).join("") : '<div class="srow2"><div class="d">لا نشاط بعد.</div></div>'}</section>`;
+    }
+    else {
+        const list = (tab === "open" ? open.slice().sort((a, b) => b.count - a.count || b.at - a.at) : done.slice().reverse().slice(0, 50));
+        body = list.length ? list.map(card).join("") : emptyBox(tab === "open" ? "لا بلاغات جديدة" : "لا بلاغات معالَجة", tab === "open" ? "كل شيء هادئ الآن." : "ستظهر هنا البلاغات بعد معالجتها.");
+    }
+    return head("لوحة الإشراف", "تلقّي البلاغات ومتابعة سير العمل") + stats + `<div class="tabs" role="tablist">${tabs}</div>` + body +
+        `<section class="card side tip"><strong>الخصوصية أولاً</strong><p>لا يرى المشرف إلا المنشورات المُبلَّغ عنها وسبب البلاغ. لا وصول إلى الرسائل الخاصة ولا إلى البريد أو كلمات المرور، وهوية المُبلِّغ لا تُعرض. كل إجراء يُسجَّل.</p></section>`;
+}
+function canSee(p) {
+    if (state.hidden.includes(p.id) || isBlocked(p.authorId) || mod.removed[p.id])
+        return false;
+    if (p.authorId === ME)
+        return true;
+    if (state.muted.includes(p.authorId))
+        return false;
+    if (p.visibility === "me")
+        return false;
+    if (p.visibility === "followers" && !user(p.authorId).followed)
+        return false;
+    return true;
+}
+function sortPosts(list, mode) {
+    const a = [...list];
+    if (mode === "old")
+        return a.sort((x, y) => x.createdAt - y.createdAt);
+    if (mode === "top")
+        return a.sort((x, y) => (rxTotal(y) + y.comments.length * 2) - (rxTotal(x) + x.comments.length * 2));
+    return a.sort((x, y) => y.createdAt - x.createdAt);
+}
+const unreadNotifs = () => state.notifs.filter((n) => !n.read).length;
+const lastRead = (id) => state.chatRead[id] || 0;
+const unreadChats = () => Object.keys(state.chats).filter((id) => !isBlocked(id)).reduce((s, id) => s + state.chats[id].filter((m) => m.from !== ME && m.at > lastRead(id)).length, 0);
+function trending() {
+    const m = new Map();
+    state.posts.filter(canSee).forEach((p) => { (p.text.match(new RegExp("#[" + LN_ + "_]+", "g")) || []).forEach((t) => { const k = t.slice(1).toLowerCase(); m.set(k, (m.get(k) || 0) + 1); }); });
+    return [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
+}
+const suggestions = () => state.users.filter((u) => u.id !== ME && !u.followed && !isBlocked(u.id));
+function route() {
+    if (rec.r)
+        recStop(true);
+    let h = location.hash.replace(/^#\/?/, "") || "home";
+    const parts = h.split("/").map((x) => { try {
+        return decodeURIComponent(x);
+    }
+    catch (e) {
+        return x;
+    } });
+    const [a, b] = parts;
+    ui.rx = null;
+    ui.menu = null;
+    ui.shown = 10;
+    ui.ptab = "posts";
+    ui.chatReply = null;
+    ui.chatEmoji = false;
+    const views = ["home", "explore", "notifications", "messages", "saved", "profile", "settings", "mod"];
+    if (a === "user") {
+        ui.view = b === ME ? "profile" : "user";
+        ui.param = b;
+    }
+    else if (a === "post") {
+        ui.view = "post";
+        ui.param = b;
+    }
+    else if (a === "tag") {
+        ui.view = "explore";
+        ui.param = null;
+        ui.drafts.q = "#" + (b || "");
+        ui.tab = "all";
+    }
+    else if (a === "messages") {
+        ui.view = "messages";
+        ui.chat = b || null;
+        if (b)
+            state.chatRead[b] = Date.now(), save();
+    }
+    else if (views.includes(a)) {
+        ui.view = a;
+        ui.param = null;
+    }
+    else
+        ui.view = "home";
+}
+function navItems() {
+    return [
+        ["home", "الرئيسية", "home", "#/home", 0],
+        ["explore", "استكشاف", "compass", "#/explore", 0],
+        ["notifications", "الإشعارات", "bell", "#/notifications", unreadNotifs()],
+        ["messages", "الرسائل", "chat", "#/messages", unreadChats()],
+        ["saved", "المحفوظات", "bookmark", "#/saved", 0],
+        ["profile", "ملفي", "user", "#/profile", 0]
+    ];
+}
+const bdg = (n) => (n > 0 ? `<span class="badge">${n > 99 ? "99+" : fmt(n)}</span>` : "");
+function shell(inner) {
+    const m = me();
+    const items = navItems();
+    const act = (v) => (ui.view === v || (v === "profile" && ui.view === "user" && ui.param === ME) ? "active" : "");
+    return `
+  <header class="topbar">
+    <a class="brand" href="#/home" aria-label="كلمات Kalimat — الرئيسية"><img class="wm" src="kalimat-wordmark-white.svg" alt="كلمات" height="36" decoding="async"><span class="brand-en">KALIMAT</span></a>
+    <nav class="top-nav" aria-label="التنقل العلوي">${items.map(([v, l, i, h, b]) => `<a href="${h}" class="${act(v)}" ${act(v) ? 'aria-current="page"' : ""}>${ic(i)}<span>${l}</span>${bdg(b)}</a>`).join("")}</nav>
+    <div class="top-tools">
+      <button class="install-btn" data-act="install" data-install aria-label="تثبيت التطبيق">${ic("download")}<span class="lbl">تثبيت التطبيق</span></button>
+      <a class="icon-btn hide-m" href="#/explore" data-act="focus-search" aria-label="بحث">${ic("search")}</a>
+      <a class="icon-btn" href="#/messages" aria-label="الرسائل" style="position:relative">${ic("chat")}${bdg(unreadChats())}</a>
+      <a class="icon-btn" href="#/settings" aria-label="الإعدادات">${ic("sliders")}</a>
+      ${isMod() ? `<a class="icon-btn" href="#/mod" aria-label="الإشراف" title="الإشراف" style="position:relative">${ic("shield")}${bdg(modOpenCount())}</a>` : ""}
+    </div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar" aria-label="القائمة">
+      <nav class="card nav-card">${items.map(([v, l, i, h, b]) => `<a href="${h}" class="nav-link ${act(v)}" ${act(v) ? 'aria-current="page"' : ""}>${ic(i)}<span>${l}</span>${bdg(b)}</a>`).join("")}
+        <a href="#/settings" class="nav-link ${ui.view === "settings" ? "active" : ""}">${ic("sliders")}<span>الإعدادات</span></a>
+        ${isMod() ? `<a href="#/mod" class="nav-link ${ui.view === "mod" ? "active" : ""}">${ic("shield")}<span>الإشراف</span>${bdg(modOpenCount())}</a>` : ""}</nav>
+      <a class="card mini" href="#/profile">${avatar(m, "sm")}<span class="who"><strong>${esc(m.name)}</strong><span class="handle">@${esc(m.handle)}</span></span></a>
+    </aside>
+    <main class="main" id="main">${inner}</main>
+    <aside class="rail" aria-label="اقتراحات">${rail()}</aside>
+  </div>
+  <nav class="mobile-nav" aria-label="التنقل">
+    <a href="#/home" class="${act("home")}">${ic("home")}<span>الرئيسية</span></a>
+    <a href="#/explore" class="${act("explore")}">${ic("compass")}<span>استكشاف</span></a>
+    <button class="fab" data-act="fab" aria-label="منشور جديد">${ic("plus")}</button>
+    <a href="#/notifications" class="${act("notifications")}">${ic("bell")}<span>الإشعارات</span>${bdg(unreadNotifs())}</a>
+    <a href="#/profile" class="${act("profile")}">${ic("user")}<span>ملفي</span></a>
+  </nav>`;
+}
+function personRow(u, extra = "") {
+    return `<div class="rowu"><a href="#/user/${esc(u.id)}">${avatar(u, "sm")}</a><a class="who" href="#/user/${esc(u.id)}"><strong>${esc(u.name)}${vf(u)}</strong><span class="handle">@${esc(u.handle)} · ${count(u.followerCount, ["متابع واحد", "متابعان", "متابعين", "متابعًا"], "بلا متابعين")}</span></a>${extra || (u.id === ME ? "" : followBtn(u))}</div>`;
+}
+const followBtn = (u) => `<button class="btn sm ${u.followed ? "out" : ""}" data-act="follow" data-user="${esc(u.id)}">${u.followed ? "تتابعه" : "تابع"}</button>`;
+function rail() {
+    const tr = trending(), sg = suggestions().slice(0, 4);
+    return `
+  <form class="search" data-form="search" role="search">${ic("search")}<input data-key="rq" type="search" placeholder="ابحث في كلمات..." aria-label="بحث" /></form>
+  <section class="card side"><h2>الوسوم الرائجة</h2>${tr.length ? tr.slice(0, 5).map(([t, n]) => `<a class="tag" href="#/tag/${encodeURIComponent(t)}"><span>#${esc(t)}</span><small>${unit(n, ["منشور", "منشوران", "منشورات", "منشورًا"])}</small></a>`).join("") : '<p class="d" style="margin:0;color:var(--muted);font-size:.82rem">لا توجد وسوم بعد.</p>'}</section>
+  <section class="card side"><h2>حكايات قد تعجبك</h2>${sg.length ? sg.map((u) => personRow(u)).join("") : '<p style="margin:0;color:var(--muted);font-size:.82rem">تتابع الجميع بالفعل 🎉</p>'}</section>
+  <section class="card side tip"><strong>من كلمات إليك</strong><p>لا تحتاج إلى مناسبة كبيرة. شارك تفصيلاً صغيراً، فقد يكون بداية حكاية جميلة.</p></section>`;
+}
+function head(title, sub, extra = "") { return `<section class="card head"><div><h1>${title}</h1>${sub ? `<p>${sub}</p>` : ""}</div>${extra}</section>`; }
+function pollEditor(pl) {
+    return `<div class="pedit"><strong style="font-size:.85rem;color:var(--blue-d)">خيارات الاستطلاع</strong>${Array.from({ length: pl.n }, (_, i) => `<input class="in" data-key="po${i}" maxlength="60" placeholder="الخيار ${fmt(i + 1)}" aria-label="الخيار ${fmt(i + 1)}" autocomplete="off" />`).join("")}<div style="display:flex;gap:8px;flex-wrap:wrap">${pl.n < 4 ? `<button type="button" class="btn sm ghost" data-act="poll-add">${ic("plus")} إضافة خيار</button>` : ""}<button type="button" class="btn sm out" data-act="poll-toggle">إلغاء الاستطلاع</button></div></div>`;
+}
+function pollOpts() {
+    const pl = ui.composer.poll;
+    return pl ? Array.from({ length: pl.n }, (_, i) => String(ui.drafts["po" + i] || "").trim().slice(0, 60)).filter(Boolean) : [];
+}
+function canPublish() {
+    const t = String(ui.drafts.post || "").trim(), c = ui.composer;
+    if (c.poll)
+        return !!t && pollOpts().length >= 2;
+    return !!(t || c.img);
+}
+function composerHtml() {
+    const m = me(), c = ui.composer, d = ui.drafts.post || "";
+    const bgOn = c.bg != null && !c.img && !c.poll;
+    return `<form class="card composer" data-form="post">
+    <div class="ctop">${avatar(m)}<textarea data-key="post" class="${bgOn ? "bgta" : ""}" ${bgOn ? `style="background:${STORY_BG[c.bg]};color:#fff"` : ""} maxlength="500" placeholder="شارك أفكارك..." aria-label="اكتب منشوراً">${esc(d)}</textarea></div>
+    ${c.poll ? pollEditor(c.poll) : ""}
+    ${c.img ? `<div class="preview"><img src="${c.img}" alt="معاينة الصورة" /><button type="button" class="x" data-act="img-clear" aria-label="إزالة الصورة">${ic("close")}</button></div>` : ""}
+    ${c.bgOpen && !c.img && !c.poll ? `<div class="swr" style="margin-top:8px">${STORY_BG.map((g, i) => `<button type="button" class="sw-btn ${c.bg === i ? "on" : ""}" style="background:${g}" data-act="bg-set" data-i="${i}" aria-label="خلفية ${fmt(i + 1)}"></button>`).join("")}</div>` : ""}
+    ${c.emoji ? `<div class="emojis">${EMOJIS.map((e) => `<button type="button" data-act="emoji" data-e="${e}" aria-label="${e}">${e}</button>`).join("")}</div>` : ""}
+    <div class="cfoot">
+      <button type="button" class="tool" data-act="img-pick">${ic("image")} صورة</button>
+      <button type="button" class="tool" data-act="cam-post">${ic("camera")} كاميرا</button>
+      <button type="button" class="tool" data-act="poll-toggle">${ic("poll")} استطلاع</button>
+      <button type="button" class="tool" data-act="bg-toggle">${ic("palette")} خلفية</button>
+      <button type="button" class="tool" data-act="emoji-toggle">${ic("smile")} رموز</button>
+      <select class="sel" data-comp="feel" aria-label="الشعور"><option value="">الشعور</option>${FEELINGS.map((f) => `<option value="${esc(f)}" ${c.feel === f ? "selected" : ""}>${esc(f)}</option>`).join("")}</select>
+      <select class="sel" data-comp="vis" aria-label="من يرى المنشور">${Object.entries(VIS).map(([k, v]) => `<option value="${k}" ${c.vis === k ? "selected" : ""}>${v[0]}</option>`).join("")}</select>
+      <label class="tool"><input type="checkbox" data-comp="off" ${c.off ? "checked" : ""}/> إغلاق التعليقات</label>
+      <span class="grow"></span>
+      <span class="cnt"><span id="cnt">${d.length}</span> / 500</span>
+      <button class="btn" type="submit" id="pub" ${canPublish() ? "" : "disabled"}>${ic("plus")} شارك لحظتك</button>
+    </div></form>`;
+}
+function storiesHtml() {
+    const list = activeStories();
+    const groups = storyGroups(list);
+    return `<section class="card stories"><div class="sec"><h2>قصص اليوم</h2><span>تختفي بعد ٢٤ ساعة</span></div><div class="srow">
+    <button class="story add" data-act="story-add" aria-label="أضف قصة">${`<span class="plus">${ic("plus")}</span>`}<span style="font-size:.75rem;font-weight:700">قصتك</span></button>
+    ${groups.map((g) => { const u = user(g.id), last = g.items[g.items.length - 1], seen = g.items.every((s) => state.viewedStories.includes(s.id)); return `<button class="story ${seen ? "seen" : ""}" style="background:${last.img ? `url('${last.img}') center/cover` : STORY_BG[last.bg]}" data-act="story-open" data-user="${esc(g.id)}" aria-label="عرض قصة ${esc(u.name)}">${avatar(u, "sm")}<span class="sn">${g.id === ME ? "قصتك" : esc(u.name)}</span></button>`; }).join("")}
+  </div></section>`;
+}
+function activeStories() { return state.stories.filter((s) => Date.now() - s.createdAt < DAY && !isBlocked(s.authorId) && !state.muted.includes(s.authorId) && (s.authorId === ME || user(s.authorId).followed)).sort((a, b) => a.createdAt - b.createdAt); }
+function storyGroups(list) {
+    const map = new Map();
+    list.forEach((s) => { if (!map.has(s.authorId))
+        map.set(s.authorId, []); map.get(s.authorId).push(s); });
+    const ids = [...map.keys()].sort((a, b) => (a === ME ? -1 : b === ME ? 1 : map.get(b).slice(-1)[0].createdAt - map.get(a).slice(-1)[0].createdAt));
+    return ids.map((id) => ({ id, items: map.get(id) }));
+}
+function postHtml(p, detail = false) {
+    const a = user(p.authorId), mine = p.authorId === ME, total = rxTotal(p), open = detail || ui.open.has(p.id);
+    const top = Object.entries(p.reactions).filter(([, n]) => n > 0).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([k]) => RX[k]).join("");
+    const my = p.myReaction;
+    const vis = VIS[p.visibility];
+    return `<article class="card post" data-pid="${esc(p.id)}" id="post-${esc(p.id)}">
+    <div class="ph"><div class="au"><a href="#/user/${esc(a.id)}">${avatar(a)}</a><a class="who" href="#/user/${esc(a.id)}"><strong>${esc(a.name)}${vf(a)}${p.feeling ? ` <small class="feel">يشعر ${esc(p.feeling)}</small>` : ""}</strong><span class="handle">@${esc(a.handle)}</span></a></div>
+      <div class="pw"><span class="meta">${mine && p.visibility !== "public" ? ic(vis[1]) : ""}<a href="#/post/${esc(p.id)}">${ago(p.createdAt)}${p.edited ? " · عُدّل" : ""}</a>
+      <button class="ab" style="flex:0 0 34px;min-height:34px" data-act="menu" data-post="${esc(p.id)}" data-pop aria-label="خيارات المنشور" aria-haspopup="menu" aria-expanded="${ui.menu === p.id}">${ic("dots")}</button></span>${ui.menu === p.id ? menuHtml(p) : ""}</div></div>
+    ${p.id === a.pinned && (ui.view === "profile" || ui.view === "user") ? `<span class="pinlab">${ic("pin")} منشور مثبّت</span>` : ""}
+    ${p.text ? (p.bg != null && !p.image && !p.poll && !p.repostOf ? `<div class="bgpost" style="background:${STORY_BG[p.bg]}"><p>${richText(p.text)}</p></div>` : `<p class="ptext">${richText(p.text)}</p>`) : ""}
+    ${mod.notes[p.id] ? `<div class="modnote">${ic("shield")}<div><strong>ملاحظة من فريق الإشراف</strong><p>${richText(mod.notes[p.id].text)}</p></div></div>` : ""}
+    ${p.poll ? pollHtml(p) : ""}
+    ${p.repostOf ? embedHtml(p.repostOf, true) : ""}
+    ${p.image ? `<img class="pimg" src="${p.image}" alt="صورة المنشور" data-act="lightbox" data-post="${esc(p.id)}" loading="lazy" />` : ""}
+    <div class="counts"><span ${total ? `role="button" tabindex="0" style="cursor:pointer" data-act="rx-list" data-post="${esc(p.id)}"` : ""}>${total ? `${top} ${unit(total, ["تفاعل واحد", "تفاعلان", "تفاعلات", "تفاعلًا"])}` : "كن أول من يتفاعل"}</span>
+      <span>${count(p.comments.length, ["تعليق واحد", "تعليقان", "تعليقات", "تعليقًا"], "لا تعليقات")} · ${fmt(p.views)} مشاهدة${p.shares ? " · " + unit(p.shares, ["مشاركة", "مشاركتان", "مشاركات", "مشاركة"]) : ""}</span></div>
+    <div class="acts pw">
+      <button class="ab ${my ? "rxon" : ""}" data-act="react" data-post="${esc(p.id)}" aria-pressed="${!!my}">${my ? `<span style="font-size:1.1rem">${RX[my]}</span><span>${RX_LABEL[my]}</span>` : `${ic("heart")}<span>تفاعل</span>`}</button>
+      <button class="ab rxmore" data-act="rxpick" data-post="${esc(p.id)}" data-pop aria-label="اختر تفاعلاً" aria-expanded="${ui.rx === p.id}">▾</button>
+      <button class="ab ${open ? "on" : ""}" data-act="comments" data-post="${esc(p.id)}" aria-expanded="${open}">${ic("chat")}<span>تعليق</span></button>
+      <button class="ab ${p.saved ? "on" : ""}" data-act="save" data-post="${esc(p.id)}" aria-pressed="${p.saved}">${ic("bookmark")}<span>${p.saved ? "محفوظ" : "حفظ"}</span></button>
+      <button class="ab" data-act="share" data-post="${esc(p.id)}">${ic("share")}<span>مشاركة</span></button>
+      ${ui.rx === p.id ? `<div class="pop rx" role="menu">${Object.entries(RX).map(([k, e]) => `<button class="${my === k ? "cur" : ""}" data-act="rx" data-post="${esc(p.id)}" data-type="${k}" aria-label="${RX_LABEL[k]}" title="${RX_LABEL[k]}">${e}</button>`).join("")}</div>` : ""}
+    </div>
+    ${open ? commentsHtml(p) : ""}
+  </article>`;
+}
+function menuHtml(p) {
+    const mine = p.authorId === ME, u = user(p.authorId), muted = state.muted.includes(u.id);
+    const b = (act, icon, label, cls = "", extra = "") => `<button class="${cls}" role="menuitem" data-act="${act}" data-post="${esc(p.id)}" ${extra}>${ic(icon)}<span>${label}</span></button>`;
+    if (mine)
+        return `<div class="pop menu" role="menu">
+    ${b("post-edit", "edit", "تعديل المنشور")}
+    ${b("post-pin", "pin", me().pinned === p.id ? "إلغاء التثبيت من ملفي" : "تثبيت في ملفي")}
+    ${Object.entries(VIS).map(([k, v]) => b("post-vis", v[1], "الخصوصية: " + v[0] + (p.visibility === k ? '<span class="ok">✓</span>' : ""), "", `data-vis="${k}"`)).join("")}
+    ${b("post-comments", "chat", p.commentsOff ? "فتح التعليقات" : "إغلاق التعليقات")}
+    ${b("post-copy", "link", "نسخ الرابط")}${b("post-repost", "repeat", "إعادة نشر")}<hr>${b("post-del", "trash", "حذف المنشور", "dg")}</div>`;
+    return `<div class="pop menu" role="menu">
+    ${b("post-copy", "link", "نسخ الرابط")}${b("post-repost", "repeat", "إعادة نشر على ملفي")}${b("post-hide", "eyeoff", "إخفاء هذا المنشور")}
+    <button role="menuitem" data-act="mute-user" data-user="${esc(u.id)}">${ic("mute")}<span>${muted ? "إلغاء كتم" : "كتم"} ${esc(u.name)}</span></button>
+    <button class="dg" role="menuitem" data-act="block-user" data-user="${esc(u.id)}">${ic("ban")}<span>حظر ${esc(u.name)}</span></button>
+    ${b("report", "flag", "إبلاغ عن المنشور", "dg")}
+    ${isMod() ? `<hr>${b("mod-note", "shield", "إشراف: ملاحظة على المنشور")}${b("mod-remove", "trash", "إشراف: إزالة المنشور", "dg")}` : ""}</div>`;
+}
+function commentsHtml(p) {
+    const tops = p.comments.filter((c) => !c.parentId).sort((a, b) => a.at - b.at);
+    const visible = (c) => !isBlocked(c.authorId);
+    const one = (c, reply) => {
+        const a = user(c.authorId), canDel = c.authorId === ME || p.authorId === ME;
+        return `<div class="cm ${reply ? "reply" : ""}" id="cm-${esc(c.id)}">${avatar(a, "sm")}<div class="cb"><div class="cbub"><strong>${esc(a.name)}</strong>${richText(c.text).replace(/(^|\s)@([a-z0-9_.]+)/gi, '$1<span class="men">@$2</span>')}</div>
+      <div class="cacts"><span>${ago(c.at)}${c.edited ? " · عُدّل" : ""}</span><button class="${c.liked ? "liked" : ""}" data-act="cm-like" data-post="${esc(p.id)}" data-cm="${esc(c.id)}" aria-pressed="${c.liked}">${c.liked ? "أعجبك" : "إعجاب"}${c.likes ? " · " + fmt(c.likes) : ""}</button>
+      ${p.commentsOff ? "" : `<button data-act="cm-reply" data-post="${esc(p.id)}" data-cm="${esc(c.id)}">رد</button>`}
+      ${c.authorId === ME ? `<button data-act="cm-edit" data-post="${esc(p.id)}" data-cm="${esc(c.id)}">تعديل</button>` : ""}
+      ${canDel ? `<button data-act="cm-del" data-post="${esc(p.id)}" data-cm="${esc(c.id)}">حذف</button>` : ""}</div></div></div>`;
+    };
+    const list = tops.filter(visible).map((c) => one(c, false) + p.comments.filter((r) => r.parentId === c.id && visible(r)).sort((a, b) => a.at - b.at).map((r) => one(r, true)).join("")).join("");
+    const rep = ui.reply[p.id];
+    const form = p.commentsOff ? `<p class="note" style="border-radius:12px">التعليقات مغلقة على هذا المنشور.</p>` :
+        `${rep ? `<div class="rchip"><span>الرد على ${esc(rep.name)}</span><button data-act="reply-cancel" data-post="${esc(p.id)}" aria-label="إلغاء الرد">${ic("close")}</button></div>` : ""}
+     <form class="cform" data-form="comment" data-post="${esc(p.id)}"><input data-key="c:${esc(p.id)}" maxlength="300" placeholder="اكتب تعليقاً..." aria-label="اكتب تعليقاً" autocomplete="off" /><button class="btn sm" type="submit" aria-label="إرسال التعليق">${ic("send")}</button></form>`;
+    return `<div class="comments">${list || '<p style="margin:0;color:var(--muted);font-size:.8rem;text-align:center">لا توجد تعليقات بعد.</p>'}${form}</div>`;
+}
+const emptyBox = (t, s) => `<div class="card empty"><strong>${t}</strong><p>${s}</p></div>`;
+function feedList(posts, emptyT, emptyS) {
+    if (!posts.length)
+        return emptyBox(emptyT, emptyS);
+    const shown = posts.slice(0, ui.shown);
+    return `<section class="feed" style="display:grid;grid-template-columns:minmax(0,1fr);gap:14px">${shown.map((p) => postHtml(p)).join("")}</section>${posts.length > shown.length ? `<button class="btn ghost" data-act="more" style="justify-self:center">عرض المزيد (${fmt(posts.length - shown.length)})</button>` : ""}`;
+}
+function viewHome() {
+    let posts = state.posts.filter(canSee);
+    if (ui.feed === "following")
+        posts = posts.filter((p) => p.authorId === ME || user(p.authorId).followed);
+    posts = sortPosts(posts, ui.sort);
+    const chips = [["new", "الأحدث"], ["old", "الأقدم"], ["top", "الأكثر تفاعلاً"]].map(([k, l]) => `<button class="chip ${ui.sort === k ? "on" : ""}" data-act="sort" data-s="${k}" aria-pressed="${ui.sort === k}">${l}</button>`).join("");
+    return head("مساحتك اليومية", "مساحة صغيرة لكل ما يستحق أن يُحكى", `<div class="chips" role="group" aria-label="ترتيب المنشورات">${chips}</div>`) + composerHtml() + storiesHtml() +
+        `<div class="tabs" role="tablist"><button class="tab ${ui.feed === "all" ? "on" : ""}" role="tab" aria-selected="${ui.feed === "all"}" data-act="feed" data-m="all">كل الحكايات</button><button class="tab ${ui.feed === "following" ? "on" : ""}" role="tab" aria-selected="${ui.feed === "following"}" data-act="feed" data-m="following">أتابعهم</button></div>` +
+        feedList(posts, "لا توجد منشورات هنا بعد", ui.feed === "following" ? "تابع بعض الأشخاص ليظهر محتواهم هنا." : "شارك حكاية لتظهر هنا.");
+}
+function viewExplore() {
+    const q = (ui.drafts.q || "").trim().toLowerCase();
+    const tabs = [["all", "الكل"], ["people", "أشخاص"], ["posts", "منشورات"], ["tags", "وسوم"]].map(([k, l]) => `<button class="tab ${ui.tab === k ? "on" : ""}" role="tab" aria-selected="${ui.tab === k}" data-act="tab" data-t="${k}">${l}</button>`).join("");
+    let html = head("استكشاف", "ابحث عن أشخاص ومنشورات ووسوم") + `<label class="search" style="display:flex">${ic("search")}<input data-key="q" type="search" placeholder="ابحث عن شخص أو كلمة أو #وسم" value="${esc(ui.drafts.q || "")}" aria-label="بحث" autofocus /></label><div class="tabs" role="tablist">${tabs}</div>`;
+    const people = state.users.filter((u) => u.id !== ME && !isBlocked(u.id));
+    const tr = trending();
+    if (!q) {
+        if (ui.tab !== "posts")
+            html += `<section class="card side"><h2>الوسوم الرائجة</h2>${tr.length ? tr.map(([t, n]) => `<a class="tag" href="#/tag/${encodeURIComponent(t)}"><span>#${esc(t)}</span><small>${unit(n, ["منشور", "منشوران", "منشورات", "منشورًا"])}</small></a>`).join("") : "<p style='margin:0;color:var(--muted)'>لا توجد وسوم بعد.</p>"}</section>`;
+        if (ui.tab !== "tags")
+            html += `<section class="card side"><h2>أشخاص</h2>${people.map((u) => personRow(u)).join("")}</section>`;
+        if (ui.tab === "all" || ui.tab === "posts")
+            html += `<div class="sec"><h2 style="color:var(--blue-d);font-size:1rem;margin:4px 4px 0">الأكثر تفاعلاً</h2></div>` + feedList(sortPosts(state.posts.filter(canSee), "top"), "لا توجد منشورات", "");
+        return html;
+    }
+    const isTag = q.startsWith("#"), term = q.replace(/^#/, "");
+    const pm = people.filter((u) => `${u.name} ${u.handle} ${u.bio}`.toLowerCase().includes(term));
+    const tm = tr.filter(([t]) => t.includes(term));
+    const postsM = sortPosts(state.posts.filter(canSee).filter((p) => {
+        const a = user(p.authorId);
+        return isTag ? (p.text.toLowerCase().match(new RegExp("#[" + LN_ + "_]+", "g")) || []).includes("#" + term) : `${p.text} ${a.name} ${a.handle}`.toLowerCase().includes(term);
+    }), "new");
+    if (!isTag && (ui.tab === "all" || ui.tab === "people") && pm.length)
+        html += `<section class="card side"><h2>أشخاص</h2>${pm.map((u) => personRow(u)).join("")}</section>`;
+    if (!isTag && (ui.tab === "all" || ui.tab === "tags") && tm.length)
+        html += `<section class="card side"><h2>وسوم</h2>${tm.map(([t, n]) => `<a class="tag" href="#/tag/${encodeURIComponent(t)}"><span>#${esc(t)}</span><small>${unit(n, ["منشور", "منشوران", "منشورات", "منشورًا"])}</small></a>`).join("")}</section>`;
+    if (ui.tab === "all" || ui.tab === "posts" || isTag)
+        html += feedList(postsM, "", "");
+    if (!pm.length && !postsM.length && !tm.length)
+        html += emptyBox("لم نعثر على ما تبحث عنه", "جرّب كلمات أخرى، ربما تجد ما تقصده.");
+    return html;
+}
+function viewSaved() {
+    const posts = sortPosts(state.posts.filter((p) => p.saved && canSee(p)), "new");
+    return head("المحفوظات", "لحظات احتفظت بها لتعود إليها") + feedList(posts, "لم تحفظ أي حكاية بعد", "اضغط «حفظ» تحت أي منشور ليظهر هنا.");
+}
+function viewNotifs() {
+    const list = [...state.notifs].filter((n) => !isBlocked(n.userId)).sort((a, b) => b.at - a.at);
+    return head("الإشعارات", unreadNotifs() ? count(unreadNotifs(), ["إشعار جديد", "إشعاران جديدان", "إشعارات جديدة", "إشعارًا جديدًا"], "") : "لا جديد حالياً", `<button class="btn sm ghost" data-act="notif-all" ${unreadNotifs() ? "" : "disabled"}>${ic("check")} تحديد الكل كمقروء</button>`) +
+        (list.length ? `<section class="card">${list.map((n) => { const u = user(n.userId); return `<a class="nrow ${n.read ? "" : "unread"}" href="${esc(n.href)}" data-nid="${esc(n.id)}">${avatar(u, "sm")}<span class="nt"><strong>${esc(u.name)}</strong> ${esc(n.text)}<br><time>${ago(n.at)}</time></span>${n.read ? "" : '<span class="dot" aria-label="غير مقروء"></span>'}</a>`; }).join("")}</section>` : emptyBox("لا توجد إشعارات", "ستظهر هنا المتابعات والتفاعلات."));
+}
+const msgPreview = (m) => m.text || (m.img ? "📷 صورة" : m.audio ? "🎤 رسالة صوتية" : "");
+const mmss = (s) => Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+function viewMessages() {
+    const ids = Object.keys(state.chats).filter((id) => !isBlocked(id) && state.chats[id].length).sort((a, b) => state.chats[b].slice(-1)[0].at - state.chats[a].slice(-1)[0].at);
+    const list = `<section class="card clist"><div class="sec" style="padding:12px 14px 0"><h2>المحادثات</h2><button class="btn sm" data-act="chat-new">${ic("plus")} جديدة</button></div>${ids.length ? ids.map((id) => {
+        const u = user(id), ms = state.chats[id], last = ms[ms.length - 1], un = ms.filter((m) => m.from !== ME && m.at > lastRead(id)).length;
+        return `<a class="crow ${ui.chat === id ? "on" : ""}" href="#/messages/${esc(id)}">${avatar(u, "sm")}<span class="who"><strong>${esc(u.name)}</strong><span class="last">${last.from === ME ? "أنت: " : ""}${esc(msgPreview(last))}</span></span>${bdg(un).replace('class="badge"', 'class="badge" style="position:static"')}</a>`;
+    }).join("") : '<p class="empty" style="margin:0">لا توجد محادثات بعد.</p>'}</section>`;
+    let thread;
+    if (ui.chat && state.users.some((u) => u.id === ui.chat) && ui.chat !== ME) {
+        const u = user(ui.chat), ms = state.chats[ui.chat] || [], k = "m:" + u.id;
+        const rp = ui.chatReply && ui.chatReply.user === u.id ? ui.chatReply : null, recording = rec.r && rec.user === u.id;
+        const bub = (m) => `<div class="bub ${m.from === ME ? "me" : ""}" id="msg-${esc(m.id)}">${m.reply ? `<div class="quote">${esc(m.reply.mine ? "أنت" : u.name)}: ${esc(m.reply.text)}</div>` : ""}${m.img ? `<img class="mimg" src="${m.img}" alt="صورة" data-act="msg-img" data-user="${esc(u.id)}" data-msg="${esc(m.id)}" loading="lazy" />` : ""}${m.audio ? `<audio controls preload="metadata" src="${m.audio}"></audio>` : ""}${m.text ? `<span>${richText(m.text)}</span>` : ""}<small><span>${clock(m.at)}</span><button data-act="msg-reply" data-user="${esc(u.id)}" data-msg="${esc(m.id)}">رد</button>${m.text ? `<button data-act="msg-copy" data-user="${esc(u.id)}" data-msg="${esc(m.id)}">نسخ</button>` : ""}${m.from === ME ? `<button data-act="msg-del" data-user="${esc(u.id)}" data-msg="${esc(m.id)}">حذف</button>` : ""}</small></div>`;
+        thread = `<section class="card thread"><div class="thead"><a class="icon-btn" style="background:var(--card2);color:var(--ink)" href="#/messages" aria-label="رجوع">${ic("back")}</a>${avatar(u, "sm")}<a class="who" href="#/user/${esc(u.id)}" style="flex:1"><strong>${esc(u.name)}${vf(u)}</strong><span class="handle">@${esc(u.handle)}</span></a>${ms.length ? `<button class="btn sm ghost" data-act="chat-clear" data-user="${esc(u.id)}">مسح</button>` : ""}</div>
+      <p class="note">المحادثات في هذه النسخة تُحفظ على جهازك فقط.</p>
+      <div class="tbody" id="tbody">${ms.length ? ms.map(bub).join("") : '<p class="empty" style="margin:auto">ابدأ المحادثة بأول رسالة.</p>'}</div>
+      ${rp ? `<div class="rchip" style="margin:0 12px"><span>رد على: ${esc(rp.text)}</span><button data-act="chat-reply-cancel" aria-label="إلغاء الرد">${ic("close")}</button></div>` : ""}
+      ${ui.chatEmoji ? `<div class="emojis" style="margin:0 12px">${EMOJIS.map((e) => `<button type="button" data-act="chat-emoji" data-e="${e}" data-user="${esc(u.id)}" aria-label="${e}">${e}</button>`).join("")}</div>` : ""}
+      ${recording ? `<div class="rec"><span class="pulse"></span><span>جارٍ التسجيل</span><b id="rect">0:00</b><span style="flex:1"></span><button class="btn sm out" data-act="rec-cancel">إلغاء</button><button class="btn sm" data-act="rec-stop">${ic("send")} إرسال</button></div>` :
+            `<form class="tfoot" data-form="chat" data-user="${esc(u.id)}"><button type="button" class="icon-b ${ui.chatEmoji ? "on" : ""}" data-act="chat-emoji-toggle" aria-label="رموز">${ic("smile")}</button><button type="button" class="icon-b" data-act="chat-cam" data-user="${esc(u.id)}" aria-label="كاميرا">${ic("camera")}</button><button type="button" class="icon-b" data-act="chat-img" data-user="${esc(u.id)}" aria-label="صورة">${ic("image")}</button><input class="in" data-key="${k}" maxlength="1000" placeholder="اكتب رسالة..." aria-label="رسالة" autocomplete="off" /><button type="button" class="icon-b" data-act="rec-start" data-user="${esc(u.id)}" aria-label="رسالة صوتية">${ic("mic")}</button><button class="btn" type="submit" aria-label="إرسال">${ic("send")}</button></form>`}</section>`;
+    }
+    else
+        thread = `<section class="card thread" style="place-content:center">${emptyBox("اختر محادثة", "أو ابدأ محادثة جديدة مع أحد الأعضاء.")}</section>`;
+    return head("الرسائل", "تواصل مباشر مع الأعضاء") + `<div class="msgs ${ui.chat ? "has-chat" : ""}">${list}${thread}</div>`;
+}
+const canSeeDetails = (u) => u.id === ME || u.detailsVis === "public" || (u.detailsVis === "followers" && u.followed);
+const coverStyle = (u) => (u.coverImg ? `background-image:url('${u.coverImg}')` : `background:${COVERS[u.cover % COVERS.length]}`);
+function aboutList(u) {
+    const a = u.about || {}, mine = u.id === ME, out = [];
+    const R = (i, l, v) => { if (v)
+        out.push(`<div class="arow">${ic(i)}<div><div class="al">${l}</div><div>${v}</div></div></div>`); };
+    R("briefcase", "العمل", esc(a.work));
+    R("cap", "الدراسة", esc(a.education));
+    R("mappin", "يقيم في", esc(a.city));
+    R("home", "من", esc(a.hometown));
+    R("heart", "الحالة الاجتماعية", esc(a.relation));
+    R("user", "الجنس", esc(a.gender));
+    if (a.birthday && (mine || u.showBirthday))
+        R("cake", "تاريخ الميلاد", esc(new Date(a.birthday + "T00:00:00").toLocaleDateString("ar", { day: "numeric", month: "long", year: "numeric" })));
+    if (a.website)
+        R("link", "الموقع", `<a href="${esc(a.website)}" target="_blank" rel="noopener noreferrer nofollow">${esc(a.website)}</a>`);
+    if (mine && u.showEmail && acct)
+        R("mail", "البريد", esc(acct.email));
+    R("clock", "انضم إلى كلمات", esc(new Date(u.joined).toLocaleDateString("ar", { month: "long", year: "numeric" })));
+    return out;
+}
+function completeness(u) {
+    const a = u.about || {};
+    const items = [[!!u.avatarImg, "أضف صورة شخصية", "avatar-quick"], [!!u.coverImg, "أضف صورة غلاف", "cover-pick"], [!!u.bio, "اكتب نبذة عنك", "profile-edit"], [!!(a.work || a.education), "أضف عملك أو دراستك", "details-edit"], [!!a.city, "أضف مدينتك", "details-edit"], [!!a.relation, "أضف حالتك الاجتماعية", "details-edit"]];
+    return { pct: Math.round(items.filter((i) => i[0]).length / items.length * 100), todo: items.filter((i) => !i[0]) };
+}
+function viewProfile(id) {
+    const u = state.users.find((x) => x.id === id);
+    if (!u)
+        return emptyBox("الحساب غير موجود", "ربما حُذف أو أن الرابط غير صحيح.");
+    const mine = u.id === ME;
+    if (!mine && isBlocked(u.id))
+        return emptyBox("حسابٌ محظور", "ألغِ الحظر من الإعدادات إن أردت رؤية هذا الحساب.");
+    const own = state.posts.filter((p) => p.authorId === u.id && (mine ? true : canSee(p) || (state.muted.includes(u.id) && p.visibility !== "me" && !state.hidden.includes(p.id))));
+    const followers = mine ? state.users.filter((x) => x.id !== ME && x.followsMe).length + u.followerCount : u.followerCount;
+    const followingN = mine ? state.users.filter((x) => x.id !== ME && x.followed).length : Math.max(0, Math.round(u.followerCount / 7));
+    const showD = canSeeDetails(u), first = u.name.split(" ")[0];
+    const avatarEl = u.avatarImg ? `<button class="avw" data-act="lightbox-user" data-user="${esc(u.id)}" data-kind="avatar" aria-label="عرض الصورة الشخصية">${avatar(u, "xl")}</button>` : `<span class="avw">${avatar(u, "xl")}</span>`;
+    const act = mine ? `<button class="btn" data-act="profile-edit">${ic("edit")} تعديل الملف</button><button class="btn ghost" data-act="details-edit">${ic("briefcase")} تعديل التفاصيل</button><button class="btn out" data-act="share-profile" data-user="${esc(u.id)}">${ic("share")} مشاركة</button>` :
+        `${followBtn(u).replace('class="btn sm', 'class="btn')}<a class="btn ghost" href="#/messages/${esc(u.id)}" data-act="open-chat" data-user="${esc(u.id)}">${ic("chat")} رسالة</a><button class="btn out" data-act="share-profile" data-user="${esc(u.id)}">${ic("share")} مشاركة</button><button class="btn out" data-act="mute-user" data-user="${esc(u.id)}">${ic("mute")} ${state.muted.includes(u.id) ? "إلغاء الكتم" : "كتم"}</button><button class="btn out" data-act="block-user" data-user="${esc(u.id)}">${ic("ban")} حظر</button>`;
+    const head2 = `<section class="card pcard"><div class="cover" style="${coverStyle(u)}">${mine ? `<button class="cam cov" data-act="cover-pick">${ic("camera")} تعديل الغلاف</button>` : ""}</div>
+    <div class="pdet"><span class="avwrap">${avatarEl}${mine ? `<button class="cam av" data-act="avatar-quick" aria-label="تغيير الصورة الشخصية">${ic("camera")}</button>` : ""}</span><span class="handle" style="padding-bottom:8px">@${esc(u.handle)}</span></div>
+    <h2>${esc(u.name)}${vf(u)}</h2><p class="bio">${u.bio ? esc(u.bio) : mine ? "أضف نبذة عنك من «تعديل الملف»." : ""}</p>
+    <div class="stats"><span><strong>${fmt(own.length)}</strong>منشور</span><button data-act="ptab" data-t="people" data-s="followers"><strong>${fmt(followers)}</strong>متابع</button><button data-act="ptab" data-t="people" data-s="following"><strong>${fmt(followingN)}</strong>يتابع</button></div>
+    <div class="pact">${act}</div></section>`;
+    const tabs = [["posts", "المنشورات"], ["about", "نبذة"], ["photos", "الصور"], ["people", "المتابعون"]].map(([k, l]) => `<button class="tab ${ui.ptab === k ? "on" : ""}" role="tab" aria-selected="${ui.ptab === k}" data-act="ptab" data-t="${k}">${l}</button>`).join("");
+    let body = "";
+    if (ui.ptab === "posts") {
+        const c = mine ? completeness(u) : null;
+        const comp = c && c.pct < 100 ? `<section class="card comp"><div class="sec" style="margin:0"><h2>اكتمال ملفك الشخصي</h2><span>${fmt(c.pct)}٪</span></div><div class="bar"><i style="width:${c.pct}%"></i></div><div class="chips">${c.todo.map((i) => `<button class="chip" data-act="${i[2]}">${i[1]}</button>`).join("")}</div></section>` : "";
+        const rows = showD ? aboutList(u).slice(0, 4) : [];
+        const intro = `<section class="card side"><h2>التفاصيل</h2>${u.bio ? `<p class="introbio">${esc(u.bio)}</p>` : ""}${rows.join("") || (mine ? '<p class="dim">أضف تفاصيلك ليتعرّف عليك الآخرون.</p>' : "")}<button class="btn ghost sm" data-act="${mine ? "details-edit" : "ptab"}" data-t="about" style="margin-top:8px">${mine ? `${ic("edit")} تعديل التفاصيل` : "عرض كل التفاصيل"}</button></section>`;
+        const prompt = mine ? `<a class="card prompt" href="#/home" data-act="fab">${avatar(u, "sm")}<span>شارك أفكارك يا ${esc(first)}...</span></a>` : "";
+        const pinned = own.find((p) => p.id === u.pinned);
+        const list = [...(pinned ? [pinned] : []), ...sortPosts(own.filter((p) => p !== pinned), "new")];
+        body = comp + intro + prompt + feedList(list, mine ? "لم تشارك لحظة بعد" : "لا توجد منشورات", mine ? "اكتب أول حكاية لك من الصفحة الرئيسية." : "لم ينشر هذا العضو شيئاً بعد.");
+    }
+    else if (ui.ptab === "about") {
+        body = showD ? `<section class="card side"><h2>نبذة</h2><p class="introbio">${u.bio ? esc(u.bio) : '<span class="dim">لا توجد نبذة.</span>'}</p></section><section class="card side"><h2>التفاصيل</h2>${aboutList(u).join("")}${mine ? `<p class="dim" style="margin-top:6px">تظهر هذه التفاصيل لـ: ${VIS[u.detailsVis][0]}</p><button class="btn ghost sm" data-act="details-edit" style="margin-top:8px">${ic("edit")} تعديل التفاصيل</button>` : ""}</section>` : emptyBox("التفاصيل غير متاحة", "يخصّ هذا العضو تفاصيله بمتابعيه فقط.");
+    }
+    else if (ui.ptab === "photos") {
+        const imgs = own.filter((p) => p.image);
+        const cells = [u.avatarImg ? `<button data-act="lightbox-user" data-user="${esc(u.id)}" data-kind="avatar"><img src="${u.avatarImg}" alt="الصورة الشخصية" loading="lazy"><span>الصورة الشخصية</span></button>` : "", u.coverImg ? `<button data-act="lightbox-user" data-user="${esc(u.id)}" data-kind="cover"><img src="${u.coverImg}" alt="الغلاف" loading="lazy"><span>الغلاف</span></button>` : "", ...imgs.map((p) => `<button data-act="lightbox" data-post="${esc(p.id)}"><img src="${p.image}" alt="صورة منشور" loading="lazy"></button>`)].filter(Boolean);
+        body = `<section class="card side"><h2>الصور (${fmt(cells.length)})</h2>${cells.length ? `<div class="pgrid">${cells.join("")}</div>` : '<p class="dim">لا توجد صور بعد.</p>'}</section>`;
+    }
+    else {
+        if (mine) {
+            const sub = ui.psub, q = (ui.drafts.pq || "").trim().toLowerCase();
+            let people = sub === "followers" ? state.users.filter((x) => x.id !== ME && x.followsMe) : state.users.filter((x) => x.id !== ME && x.followed);
+            people = people.filter((x) => !isBlocked(x.id) && (!q || `${x.name} ${x.handle}`.toLowerCase().includes(q)));
+            body = `<div class="chips"><button class="chip ${sub === "followers" ? "on" : ""}" data-act="psub" data-s="followers">المتابعون</button><button class="chip ${sub === "following" ? "on" : ""}" data-act="psub" data-s="following">أتابعهم</button></div><label class="search" style="display:flex">${ic("search")}<input data-key="pq" type="search" placeholder="ابحث في القائمة..." aria-label="بحث في القائمة" /></label><section class="card side">${people.map((x) => personRow(x)).join("") || '<p class="dim">لا أحد هنا بعد.</p>'}</section>`;
+        }
+        else
+            body = emptyBox(`${fmt(followers)} متابع`, "قوائم الأعضاء الآخرين غير متاحة في هذه النسخة.");
+    }
+    return head2 + `<div class="tabs" role="tablist">${tabs}</div>` + body;
+}
+function viewPost(id) {
+    const p = post(id);
+    if (!p || !canSee(p))
+        return head("المنشور", "") + emptyBox("المنشور غير متاح", "ربما حُذف أو أُخفي أو أن الرابط غير صحيح.") + `<a class="btn ghost" href="#/home" style="justify-self:center">العودة للرئيسية</a>`;
+    return `<a class="btn ghost" href="#/home" style="justify-self:start">${ic("back")} رجوع</a>` + postHtml(p, true);
+}
+function toggle(key, label, desc) {
+    return `<div class="srow2"><div><div>${label}</div><div class="d">${desc}</div></div><button class="tg" role="switch" aria-checked="${!!state.settings[key]}" aria-label="${label}" data-act="set-toggle" data-key2="${key}"></button></div>`;
+}
+function viewSettings() {
+    const s = state.settings, bl = state.blocked.map((id) => state.users.find((u) => u.id === id)).filter(Boolean), mu = state.muted.map((id) => state.users.find((u) => u.id === id)).filter(Boolean);
+    const seg = (k, opts) => `<div class="chips" role="group">${opts.map(([v, l]) => `<button class="chip ${s[k] === v ? "on" : ""}" data-act="set-val" data-key2="${k}" data-v="${v}" aria-pressed="${s[k] === v}">${l}</button>`).join("")}</div>`;
+    return head("الإعدادات", "خصّص تجربتك في كلمات") +
+        `<section class="card set"><h3>الحساب والأمان</h3><div class="srow2"><div><div>${esc(me().name)}</div><div class="d">@${esc(me().handle)}</div></div><button class="btn sm" data-act="profile-edit">${ic("edit")} تعديل</button></div>
+      <div class="srow2"><div><div dir="ltr" style="text-align:right">${esc(acct.email)}</div><div class="d">البريد الإلكتروني — ${acct.verified ? "مؤكَّد ✓" : "غير مؤكَّد"}</div></div><button class="btn sm ghost" data-act="chg-email">${ic("mail")} تغيير</button></div>
+      <div class="srow2"><div><div>كلمة المرور</div><div class="d">يُنصح بتغييرها بشكل دوري.</div></div><button class="btn sm ghost" data-act="chg-pw">${ic("key")} تغيير</button></div>
+      <div class="srow2"><div><div>تسجيل الخروج</div><div class="d">من هذا الجهاز فقط.</div></div><button class="btn sm out" data-act="logout">${ic("logout")} خروج</button></div>
+      <div class="srow2"><div><div>حذف الحساب</div><div class="d">يحذف حسابك وبياناتك من هذا الجهاز نهائياً.</div></div><button class="btn sm danger" data-act="del-account">حذف</button></div></section>
+    <section class="card set"><h3>المظهر</h3>
+      <div class="srow2"><div>السمة</div>${seg("theme", [["auto", "تلقائي"], ["light", "فاتح"], ["dark", "داكن"]])}</div>
+      <div class="srow2"><div>حجم الخط</div>${seg("fs", [["s", "صغير"], ["m", "متوسط"], ["l", "كبير"]])}</div></section>
+    <section class="card set"><h3>الخصوصية والنشر</h3>
+      <div class="srow2"><div>الخصوصية الافتراضية للمنشورات</div>${seg("defVis", Object.entries(VIS).map(([k, v]) => [k, v[0]]))}</div>
+      ${toggle("defComments", "السماح بالتعليقات افتراضياً", "يمكنك تغييرها لكل منشور على حدة.")}
+      ${toggle("hideLists", "إخفاء قائمة متابعيك", "لن يتمكن الآخرون من رؤية قوائمك.")}
+      ${toggle("notify", "تفعيل الإشعارات", "إظهار الإشعارات وشارتها في التطبيق.")}</section>
+    <section class="card set"><h3>الحسابات المحظورة (${fmt(bl.length)})</h3>${bl.length ? bl.map((u) => `<div class="srow2"><div>${esc(u.name)}<div class="d">@${esc(u.handle)}</div></div><button class="btn sm out" data-act="unblock" data-user="${esc(u.id)}">إلغاء الحظر</button></div>`).join("") : '<div class="srow2"><div class="d">لا توجد حسابات محظورة.</div></div>'}
+      <h3>الحسابات المكتومة (${fmt(mu.length)})</h3>${mu.length ? mu.map((u) => `<div class="srow2"><div>${esc(u.name)}<div class="d">@${esc(u.handle)}</div></div><button class="btn sm out" data-act="mute-user" data-user="${esc(u.id)}">إلغاء الكتم</button></div>`).join("") : '<div class="srow2"><div class="d">لا توجد حسابات مكتومة.</div></div>'}</section>
+    <section class="card set" data-install><h3>التطبيق</h3><div class="srow2"><div><div>تثبيت كلمات على جهازك</div><div class="d">يعمل كتطبيق مستقل من الشاشة الرئيسية، ويفتح أسرع حتى مع ضعف الإنترنت.</div></div><button class="btn sm gold" data-act="install">${ic("download")} تثبيت</button></div></section>
+    <section class="card set"><h3>بياناتك</h3>
+      <div class="srow2"><div>تصدير نسخة احتياطية<div class="d">ملف JSON بكل منشوراتك ورسائلك.</div></div><button class="btn sm ghost" data-act="export">${ic("download")} تصدير</button></div>
+      <div class="srow2"><div>استيراد نسخة<div class="d">يستبدل البيانات الحالية.</div></div><button class="btn sm ghost" data-act="import-pick">${ic("upload")} استيراد</button></div>
+      <div class="srow2"><div>إعادة البيانات التجريبية<div class="d">يحذف بياناتك ويعيد البداية.</div></div><button class="btn sm danger" data-act="reset">إعادة ضبط</button></div></section>
+    <section class="card set"><h3>حول</h3><div class="srow2"><div class="hero" style="justify-items:start;text-align:right;padding:0">${logoMark(54)}<div><span class="e" style="font-size:.95rem">KALIMAT</span><div class="d" style="font-size:.76rem;color:var(--muted)">الإصدار ${VERSION} — نسخة محلية تُحفظ بياناتها على هذا الجهاز.</div></div></div></div>
+      <div class="srow2"><div><div>إعداد: ياسر الحسين</div><div class="d"><a href="mailto:kalimat2026go@gmail.com" dir="ltr" style="color:var(--blue)">kalimat2026go@gmail.com</a></div></div></div></section>`;
+}
+function pwField(id, name, label, ac, meter) {
+    return `<div class="field"><label for="${id}">${label}</label><div class="pwrap"><input id="${id}" name="${name}" type="password" dir="ltr" autocomplete="${ac}" required ${meter ? "data-meter" : ""} /><button type="button" class="eye" data-act="pw-eye" aria-label="إظهار كلمة المرور">${ic("eye")}</button></div>${meter ? '<div class="meter"><i></i></div><span class="mt"></span>' : ""}<span class="err" data-err="${name}"></span></div>`;
+}
+function renderAuth() {
+    applyTheme();
+    const s = ui.auth.screen, em = esc(ui.auth.email || "");
+    const emailF = (val, ro) => `<div class="field"><label for="a-e">البريد الإلكتروني</label><input id="a-e" name="email" type="email" dir="ltr" autocomplete="username" required value="${val}" ${ro ? "readonly" : ""} /><span class="err" data-err="email"></span></div>`;
+    const hero = `<div class="hero"><img class="wm-blue" src="kalimat-wordmark.svg" alt="كلمات" height="76" decoding="async"><span class="e">KALIMAT</span><p class="sub">مساحة للجميع للمشاركة والحوار والاستماع والمشاهدة</p></div>`;
+    let body = "", dev = false;
+    if (s === "login")
+        body = `<form data-form="login" class="afm"><h2>تسجيل الدخول</h2>${emailF(em)}${pwField("a-p", "password", "كلمة المرور", "current-password", false)}<label class="opt" style="border:0;padding:0"><input type="checkbox" name="remember" checked> تذكّرني على هذا الجهاز</label><button class="btn" type="submit">دخول</button><div class="alinks"><button type="button" class="lnk" data-act="auth-go" data-s="forgot">نسيت كلمة المرور؟</button><button type="button" class="lnk" data-act="auth-go" data-s="register">إنشاء حساب جديد</button></div></form>`;
+    else if (s === "register")
+        body = `<form data-form="register" class="afm"><h2>إنشاء حساب جديد</h2><div class="field"><label for="a-n">الاسم الكامل</label><input id="a-n" name="name" type="text" maxlength="40" autocomplete="name" required /><span class="err" data-err="name"></span></div>${emailF(em)}${pwField("a-p", "password", "كلمة المرور", "new-password", true)}${pwField("a-p2", "password2", "تأكيد كلمة المرور", "new-password", false)}<div class="field"><label class="opt" style="border:0;padding:0"><input type="checkbox" name="terms"> أوافق على <button type="button" class="lnk" data-act="terms">الشروط والخصوصية</button></label><span class="err" data-err="terms"></span></div><button class="btn" type="submit">إنشاء الحساب</button><div class="alinks"><button type="button" class="lnk" data-act="auth-go" data-s="login">لديّ حساب بالفعل</button></div></form>`;
+    else if (s === "verify") {
+        dev = true;
+        body = `<form data-form="verify" class="afm"><h2>تأكيد البريد الإلكتروني</h2><p class="dim">أرسلنا رمزاً من ٦ أرقام إلى <b dir="ltr">${em}</b>. صلاحيته ١٠ دقائق.</p><div class="field"><label for="a-c">رمز التأكيد</label><input id="a-c" name="code" class="codein" inputmode="numeric" autocomplete="one-time-code" maxlength="6" dir="ltr" required /><span class="err" data-err="code"></span></div><button class="btn" type="submit">تأكيد</button><div class="alinks"><button type="button" class="lnk" data-act="resend" data-kind="verify">إعادة إرسال الرمز</button><button type="button" class="lnk" data-act="auth-go" data-s="login">رجوع</button></div></form>`;
+    }
+    else if (s === "forgot")
+        body = `<form data-form="forgot" class="afm"><h2>نسيت كلمة المرور؟</h2><p class="dim">اكتب بريدك الإلكتروني وسنرسل إليك رمزاً لإعادة تعيين كلمة المرور.</p>${emailF(em)}<button class="btn" type="submit">إرسال الرمز</button><div class="alinks"><button type="button" class="lnk" data-act="auth-go" data-s="login">رجوع لتسجيل الدخول</button></div></form>`;
+    else {
+        dev = true;
+        body = `<form data-form="reset" class="afm"><h2>إعادة تعيين كلمة المرور</h2><p class="dim">أدخل الرمز المرسل إلى <b dir="ltr">${em}</b> ثم اختر كلمة مرور جديدة.</p><div class="field"><label for="a-c">الرمز</label><input id="a-c" name="code" class="codein" inputmode="numeric" autocomplete="one-time-code" maxlength="6" dir="ltr" required /><span class="err" data-err="code"></span></div>${pwField("a-p", "password", "كلمة المرور الجديدة", "new-password", true)}${pwField("a-p2", "password2", "تأكيد كلمة المرور", "new-password", false)}<button class="btn" type="submit">حفظ كلمة المرور</button><div class="alinks"><button type="button" class="lnk" data-act="resend" data-kind="reset">إعادة إرسال الرمز</button><button type="button" class="lnk" data-act="auth-go" data-s="login">رجوع</button></div></form>`;
+    }
+    $("#app").innerHTML = `<div class="auth"><div class="card auth-card">${hero}${body}</div><button class="btn gold sm" data-act="install" data-install>${ic("download")} ثبّت التطبيق على جهازك</button>${dev ? devBox() : ""}</div>`;
+    $$("#app form").forEach((fm) => { fm.noValidate = true; });
+    refreshInstall();
+    $$("[data-meter]").forEach(updateMeter);
+    const f = $("#app input:not([readonly])");
+    if (f)
+        f.focus();
+}
+function render(opts = {}) {
+    if (!acct || !state)
+        return renderAuth();
+    const f = document.activeElement, fk = f && f.dataset ? f.dataset.key : null, st = f && f.selectionStart, en = f && f.selectionEnd, y = window.scrollY;
+    applyTheme();
+    const v = ui.view;
+    const inner = v === "home" ? viewHome() : v === "explore" ? viewExplore() : v === "notifications" ? viewNotifs() : v === "messages" ? viewMessages() : v === "saved" ? viewSaved() :
+        v === "profile" ? viewProfile(ME) : v === "user" ? viewProfile(ui.param) : v === "post" ? viewPost(ui.param) : v === "settings" ? viewSettings() : v === "mod" ? viewMod() : "";
+    $("#app").innerHTML = shell(inner);
+    $$("[data-key]").forEach((el) => { const k = el.dataset.key; if (ui.drafts[k] != null && el.tagName !== "BUTTON")
+        el.value = ui.drafts[k]; });
+    if (fk) {
+        const el = $(`[data-key="${CSS.escape(fk)}"]`);
+        if (el) {
+            el.focus();
+            try {
+                if (st != null)
+                    el.setSelectionRange(st, en);
+            }
+            catch (e) { }
+        }
+    }
+    if (opts.top)
+        window.scrollTo(0, 0);
+    else
+        window.scrollTo(0, y);
+    const tb = $("#tbody");
+    if (tb)
+        tb.scrollTop = tb.scrollHeight;
+    observeViews();
+    refreshInstall();
+}
+let io;
+function observeViews() {
+    if (!("IntersectionObserver" in window))
+        return;
+    io && io.disconnect();
+    io = new IntersectionObserver((es) => es.forEach((e) => {
+        if (!e.isIntersecting)
+            return;
+        const id = e.target.dataset.pid;
+        if (ui.seen.has(id))
+            return;
+        ui.seen.add(id);
+        const p = post(id);
+        if (p && p.authorId !== ME) {
+            p.views++;
+            save();
+        }
+    }), { threshold: 0.6 });
+    $$(".post[data-pid]").forEach((el) => io.observe(el));
+}
+function modal(title, body, cls = "") {
+    $("#modal-root").innerHTML = `<div class="backdrop"><div class="modal ${cls}" role="dialog" aria-modal="true" aria-label="${esc(title)}" tabindex="-1"><div class="mh"><h2>${esc(title)}</h2><button class="mx" data-act="modal-close" aria-label="إغلاق">${ic("close")}</button></div><div class="mb">${body}</div></div></div>`;
+    const m = $(".modal");
+    $$("form", m).forEach((fm) => { fm.noValidate = true; });
+    const f = m.querySelector("[autofocus],textarea,input[type=text]");
+    (f || m).focus();
+}
+const closeModal = () => { $("#modal-root").innerHTML = ""; ui.tmpAvatar = undefined; ui.tmpCover = undefined; };
+function confirmBox(msg, label, fn, danger = true) {
+    ui.confirmFn = fn;
+    modal("تأكيد", `<p style="margin:0;line-height:1.9">${esc(msg)}</p><div class="ma"><button class="btn out" data-act="modal-close">إلغاء</button><button class="btn ${danger ? "danger" : ""}" data-act="confirm-ok">${esc(label)}</button></div>`);
+}
+function textModal(title, form, value, max, extra = "") {
+    modal(title, `<form data-form="${form}" ${extra}><div class="field"><textarea name="text" maxlength="${max}" autofocus>${esc(value)}</textarea></div><div class="ma" style="margin-top:12px"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">حفظ</button></div></form>`);
+}
+function profileModal() {
+    const m = me();
+    ui.tmpAvatar = undefined;
+    ui.tmpCover = undefined;
+    modal("تعديل الملف الشخصي", `<form data-form="profile" style="display:grid;gap:12px">
+    <div class="field"><span class="lb">الصورة الشخصية</span><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span class="av-prev">${avatar(m, "lg")}</span><button type="button" class="btn sm ghost" data-act="avatar-pick">${ic("camera")} صورة / كاميرا</button><button type="button" class="btn sm out" data-act="avatar-clear">إزالة</button></div></div>
+    <div class="field"><span class="lb">صورة الغلاف</span><div class="cv-prev" style="height:84px;border-radius:12px;${coverStyle(m)}"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn sm ghost" data-act="cover-modal-pick">${ic("camera")} صورة / كاميرا</button><button type="button" class="btn sm out" data-act="cover-clear">إزالة الصورة</button></div></div>
+    <div class="field"><span class="lb">لون الصورة الرمزية</span><div class="swr">${TONES.map((c, i) => `<label class="sw"><input type="radio" name="tone" value="${i}" ${m.tone === i ? "checked" : ""}><span style="background:${c}"></span></label>`).join("")}</div></div>
+    <div class="field"><span class="lb">لون الغلاف (عند عدم وجود صورة)</span><div class="swr">${COVERS.map((c, i) => `<label class="sw cv"><input type="radio" name="cover" value="${i}" ${m.cover === i ? "checked" : ""}><span style="background:${c}"></span></label>`).join("")}</div></div>
+    <div class="field"><label for="pf-n">الاسم</label><input id="pf-n" name="name" type="text" maxlength="40" value="${esc(m.name)}" required /><span class="err" data-err="name"></span></div>
+    <div class="field"><label for="pf-h">المعرّف</label><input id="pf-h" name="handle" type="text" dir="ltr" maxlength="20" value="${esc(m.handle)}" required /><span class="err" data-err="handle"></span></div>
+    <div class="field"><label for="pf-b">نبذة</label><textarea id="pf-b" name="bio" maxlength="160">${esc(m.bio)}</textarea></div>
+    <div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">حفظ</button></div></form>`);
+}
+function detailsModal() {
+    const m = me(), a = m.about;
+    const sel = (name, list, val) => `<select name="${name}">${list.map((x) => `<option value="${esc(x)}" ${x === val ? "selected" : ""}>${x || "—"}</option>`).join("")}</select>`;
+    modal("تعديل التفاصيل", `<form data-form="details" style="display:grid;gap:12px">
+    <div class="field"><label for="d-w">العمل</label><input id="d-w" name="work" type="text" maxlength="80" value="${esc(a.work)}" /></div>
+    <div class="field"><label for="d-e">الدراسة</label><input id="d-e" name="education" type="text" maxlength="80" value="${esc(a.education)}" /></div>
+    <div class="inline2"><div class="field"><label for="d-c">يقيم في</label><input id="d-c" name="city" type="text" maxlength="60" value="${esc(a.city)}" /></div><div class="field"><label for="d-h">من</label><input id="d-h" name="hometown" type="text" maxlength="60" value="${esc(a.hometown)}" /></div></div>
+    <div class="inline2"><div class="field"><label>الحالة الاجتماعية</label>${sel("relation", REL, a.relation)}</div><div class="field"><label>الجنس</label>${sel("gender", GENDERS, a.gender)}</div></div>
+    <div class="field"><label for="d-b">تاريخ الميلاد</label><input id="d-b" name="birthday" type="date" value="${esc(a.birthday)}" max="${new Date().toISOString().slice(0, 10)}" /></div>
+    <div class="field"><label for="d-s">الموقع الإلكتروني</label><input id="d-s" name="website" type="text" dir="ltr" maxlength="200" placeholder="https://" value="${esc(a.website)}" /><span class="err" data-err="website"></span></div>
+    <div class="field"><label>من يرى هذه التفاصيل؟</label><select name="detailsVis">${Object.entries(VIS).map(([k, v]) => `<option value="${k}" ${m.detailsVis === k ? "selected" : ""}>${v[0]}</option>`).join("")}</select></div>
+    <label class="opt"><input type="checkbox" name="showBirthday" ${m.showBirthday ? "checked" : ""}> إظهار تاريخ الميلاد</label>
+    <label class="opt"><input type="checkbox" name="showEmail" ${m.showEmail ? "checked" : ""}> إظهار بريدي الإلكتروني</label>
+    <div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">حفظ</button></div></form>`);
+}
+function pwModal() {
+    modal("تغيير كلمة المرور", `<form data-form="chgpw" style="display:grid;gap:12px">${pwField("m-c", "cur", "كلمة المرور الحالية", "current-password", false)}${pwField("m-n", "password", "كلمة المرور الجديدة", "new-password", true)}${pwField("m-n2", "password2", "تأكيد كلمة المرور", "new-password", false)}<div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">حفظ</button></div></form>`);
+    $$("[data-meter]").forEach(updateMeter);
+}
+function emailModal() {
+    modal("تغيير البريد الإلكتروني", `<form data-form="chgemail" style="display:grid;gap:12px"><div class="field"><label for="m-e">البريد الجديد</label><input id="m-e" name="email" type="email" dir="ltr" required /><span class="err" data-err="email"></span></div>${pwField("m-c", "cur", "كلمة المرور الحالية", "current-password", false)}<p class="dim">سنرسل رمز تأكيد إلى البريد الجديد.</p><div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">إرسال الرمز</button></div></form>`);
+}
+function emailVerifyModal(ne) {
+    modal("تأكيد البريد الجديد", `<form data-form="chgemailverify" data-email="${esc(ne)}" style="display:grid;gap:12px"><p class="dim">أدخل الرمز المرسل إلى <b dir="ltr">${esc(ne)}</b>.</p><div class="field"><input name="code" class="codein" inputmode="numeric" maxlength="6" dir="ltr" required aria-label="رمز التأكيد" /><span class="err" data-err="code"></span></div>${devBox()}<div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">تأكيد</button></div></form>`);
+}
+function delModal() {
+    modal("حذف الحساب", `<form data-form="delacct" style="display:grid;gap:12px"><p class="dim">أدخل كلمة المرور لتأكيد حذف الحساب وكل بياناتك.</p>${pwField("m-c", "cur", "كلمة المرور", "current-password", false)}<div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn danger" type="submit">متابعة</button></div></form>`);
+}
+function termsModal() {
+    modal("الشروط والخصوصية", `<div class="dim" style="line-height:2"><p>• كن محترماً، ولا تنشر ما يؤذي الآخرين أو يخالف القانون.</p><p>• أنت مسؤول عمّا تنشره، ويمكن للمنصة إخفاء المحتوى المخالف.</p><p>• لا نبيع بياناتك. في هذه النسخة المحلية تُحفظ بياناتك على جهازك فقط.</p><p>• كلمة مرورك لا تُحفظ نصاً، بل تُخزَّن مشفّرة بصيغة لا يمكن عكسها.</p><p>• يمكنك تصدير بياناتك أو حذف حسابك في أي وقت من الإعدادات.</p></div><div class="ma"><button class="btn" data-act="modal-close">فهمت</button></div>`);
+}
+function listModal(kind, id) {
+    const u = user(id), mine = id === ME;
+    if (!mine && state.settings.hideLists && false)
+        return;
+    let people;
+    if (mine)
+        people = kind === "followers" ? state.users.filter((x) => x.id !== ME && x.followsMe) : state.users.filter((x) => x.id !== ME && x.followed);
+    else
+        people = [];
+    const title = kind === "followers" ? "المتابعون" : "يتابع";
+    const body = !mine ? `<p style="margin:0;color:var(--muted);text-align:center;line-height:1.9">قوائم الأعضاء الآخرين غير متاحة في هذه النسخة.</p>` :
+        people.length ? people.map((p) => personRow(p)).join("") : `<p style="margin:0;color:var(--muted);text-align:center">القائمة فارغة.</p>`;
+    modal(title + " — " + u.name, body);
+}
+function reportModal(pid) {
+    modal("إبلاغ عن منشور", `<form data-form="report" data-post="${esc(pid)}" style="display:grid;gap:10px"><p style="margin:0;color:var(--muted);font-size:.85rem">اختر سبب الإبلاغ:</p>${REPORT_REASONS.map((r, i) => `<label class="opt"><input type="radio" name="reason" value="${esc(r)}" ${i === 0 ? "checked" : ""}> ${esc(r)}</label>`).join("")}
+    <div class="field"><textarea name="note" maxlength="300" placeholder="تفاصيل إضافية (اختياري)"></textarea></div><div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn danger" type="submit">إرسال البلاغ</button></div></form>`);
+}
+function storyModal() {
+    ui.storyImg = null;
+    modal("قصة جديدة", `<form data-form="story" style="display:grid;gap:12px"><div class="spin" id="sp" style="background:${STORY_BG[0]}">معاينة قصتك</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn sm ghost" data-act="story-img-pick">${ic("camera")} صورة / كاميرا</button><button type="button" class="btn sm out" data-act="story-img-clear">إزالة الصورة</button></div>
+    <div class="field"><textarea name="text" maxlength="160" placeholder="اكتب شيئاً قصيراً..." autofocus></textarea></div>
+    <div class="swr">${STORY_BG.map((c, i) => `<label class="sw"><input type="radio" name="bg" value="${i}" ${i === 0 ? "checked" : ""}><span style="background:${c}"></span></label>`).join("")}</div>
+    <div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">انشر القصة</button></div></form>`);
+}
+function newChatModal() {
+    const people = state.users.filter((u) => u.id !== ME && !isBlocked(u.id));
+    modal("محادثة جديدة", people.map((u) => `<div class="rowu"><span>${avatar(u, "sm")}</span><span class="who"><strong>${esc(u.name)}</strong><span class="handle">@${esc(u.handle)}</span></span><a class="btn sm" href="#/messages/${esc(u.id)}" data-act="modal-close">مراسلة</a></div>`).join(""));
+}
+function openStories(authorId) {
+    const groups = storyGroups(activeStories());
+    const gi = groups.findIndex((g) => g.id === authorId);
+    if (gi < 0)
+        return;
+    ui.sv = { gi, idx: 0, groups };
+    drawStory();
+}
+function drawStory() {
+    const sv = ui.sv;
+    if (!sv) {
+        $("#story-root").innerHTML = "";
+        return;
+    }
+    const g = sv.groups[sv.gi], s = g.items[sv.idx], u = user(g.id);
+    if (!state.viewedStories.includes(s.id)) {
+        state.viewedStories.push(s.id);
+        save();
+    }
+    $("#story-root").innerHTML = `<div class="sv" role="dialog" aria-modal="true" aria-label="قصة ${esc(u.name)}"><div class="svc ${s.img ? "hasimg" : ""}" style="background:${s.img ? `url('${s.img}') center/cover no-repeat, #000` : STORY_BG[s.bg]}">
+    <div class="bars">${g.items.map((_, i) => `<i class="${i < sv.idx ? "done" : i === sv.idx ? "cur" : ""}"></i>`).join("")}</div>
+    <div class="svh">${avatar(u, "sm")}<span class="who"><strong>${esc(u.name)}</strong><span class="handle">${ago(s.createdAt)}</span></span>${g.id === ME ? `<button data-act="story-del" aria-label="حذف القصة">${ic("trash")}</button>` : ""}<button data-act="story-close" aria-label="إغلاق">${ic("close")}</button></div>
+    ${s.text ? `<p class="svt ${s.img ? "ov" : ""}">${esc(s.text)}</p>` : ""}
+    <button class="sz n" data-act="story-next" aria-label="التالي"></button><button class="sz p" data-act="story-prev" aria-label="السابق"></button></div></div>`;
+    $("#story-root .sv .svh button:last-child").focus();
+}
+function storyNext() {
+    const sv = ui.sv;
+    if (!sv)
+        return;
+    const g = sv.groups[sv.gi];
+    if (sv.idx < g.items.length - 1)
+        sv.idx++;
+    else if (sv.gi < sv.groups.length - 1) {
+        sv.gi++;
+        sv.idx = 0;
+    }
+    else
+        return storyClose();
+    drawStory();
+}
+function storyPrev() {
+    const sv = ui.sv;
+    if (!sv)
+        return;
+    if (sv.idx > 0)
+        sv.idx--;
+    else if (sv.gi > 0) {
+        sv.gi--;
+        sv.idx = sv.groups[sv.gi].items.length - 1;
+    }
+    drawStory();
+}
+function storyClose() { ui.sv = null; $("#story-root").innerHTML = ""; render(); }
+function setReaction(pid, type) {
+    const p = post(pid);
+    if (!p)
+        return;
+    if (p.myReaction)
+        p.reactions[p.myReaction] = Math.max(0, p.reactions[p.myReaction] - 1);
+    if (p.myReaction === type)
+        p.myReaction = null;
+    else {
+        p.myReaction = type;
+        p.reactions[type]++;
+    }
+    ui.rx = null;
+    save();
+    render();
+}
+function toggleFollow(id) {
+    const u = state.users.find((x) => x.id === id);
+    if (!u || u.id === ME)
+        return;
+    u.followed = !u.followed;
+    u.followerCount = Math.max(0, u.followerCount + (u.followed ? 1 : -1));
+    save();
+    render();
+    toast(u.followed ? `بدأت بمتابعة ${u.name}` : `ألغيت متابعة ${u.name}`);
+}
+function sharePost(p) {
+    const url = location.href.split("#")[0] + "#/post/" + encodeURIComponent(p.id);
+    const done = () => { p.shares++; save(); render(); };
+    if (navigator.share)
+        navigator.share({ title: "حكاية على كلمات", text: p.text.slice(0, 120), url }).then(() => { done(); toast("تمت المشاركة"); }).catch((e) => { if (e.name !== "AbortError")
+            toast("تعذّرت المشاركة الآن."); });
+    else
+        copyText(url).then(() => { done(); toast("نُسخ رابط الحكاية"); });
+}
+function copyText(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText)
+        return navigator.clipboard.writeText(t).catch(() => { toast("انسخ الرابط من شريط العنوان"); });
+    toast("انسخ الرابط من شريط العنوان");
+    return Promise.resolve();
+}
+function blockUser(id) {
+    const u = user(id);
+    confirmBox(`حظر ${u.name}؟ لن ترى منشوراته أو رسائله، وستُلغى متابعته.`, "حظر", () => {
+        if (!state.blocked.includes(id))
+            state.blocked.push(id);
+        if (u.followed) {
+            u.followed = false;
+            u.followerCount = Math.max(0, u.followerCount - 1);
+        }
+        save();
+        closeModal();
+        if (ui.view === "user")
+            location.hash = "#/home";
+        else
+            render();
+        toast(`تم حظر ${u.name}`);
+    });
+}
+function compress(file, max, square, q) {
+    return new Promise((res, rej) => {
+        if (!file || !file.type.startsWith("image/"))
+            return rej(new Error("type"));
+        const url = URL.createObjectURL(file), img = new Image();
+        img.onload = () => {
+            const iw = img.naturalWidth, ih = img.naturalHeight;
+            let sx = 0, sy = 0, sw = iw, sh = ih, w, h;
+            if (square) {
+                const m = Math.min(iw, ih);
+                sx = (iw - m) / 2;
+                sy = (ih - m) / 2;
+                sw = sh = m;
+                w = h = Math.min(max, m);
+            }
+            else {
+                const r = Math.min(1, max / Math.max(iw, ih));
+                w = Math.round(iw * r);
+                h = Math.round(ih * r);
+            }
+            const c = document.createElement("canvas");
+            c.width = w;
+            c.height = h;
+            const x = c.getContext("2d");
+            x.fillStyle = "#fff";
+            x.fillRect(0, 0, w, h);
+            x.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+            URL.revokeObjectURL(url);
+            res(c.toDataURL("image/jpeg", q));
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); rej(new Error("img")); };
+        img.src = url;
+    });
+}
+function download(name, text) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "application/json" }));
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+let deferredInstall = null, anyCb = null, camStream = null;
+const rec = { r: null, chunks: [], t0: 0, timer: null, user: null, cancel: false };
+const isStandalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+function refreshInstall() { const hide = isStandalone(); $$("[data-install]").forEach((el) => { el.hidden = hide; }); }
+window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); deferredInstall = e; });
+window.addEventListener("appinstalled", () => { deferredInstall = null; refreshInstall(); toast("تم تثبيت كلمات على جهازك 🎉"); });
+window.addEventListener("offline", () => toast("أنت غير متصل بالإنترنت. يمكنك متابعة التصفح."));
+window.addEventListener("online", () => toast("عاد الاتصال بالإنترنت"));
+function installApp() {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (deferredInstall) {
+            const ev = deferredInstall;
+            deferredInstall = null;
+            ev.prompt();
+            try {
+                const r = yield ev.userChoice;
+                toast(r.outcome === "accepted" ? "جارٍ تثبيت كلمات..." : "يمكنك التثبيت لاحقاً من الإعدادات");
+            }
+            catch (e) { }
+            return;
+        }
+        installHelp();
+    });
+}
+function installHelp() {
+    const ol = (a) => `<ol style="margin:0;padding-right:20px;padding-inline-start:20px;line-height:2.1">${a.map((x) => `<li>${x}</li>`).join("")}</ol>`;
+    let body;
+    if (!/^https?:$/.test(location.protocol))
+        body = `<p class="dim">التثبيت يعمل فقط عندما تفتح المنصة من رابطها على الإنترنت (https)، وليس من ملف محلي على الجهاز.</p>`;
+    else if (isIOS())
+        body = ol(["اضغط زر المشاركة ⬆️ في متصفح Safari", "اختر «إضافة إلى الشاشة الرئيسية»", "اضغط «إضافة»"]);
+    else
+        body = ol(["افتح قائمة المتصفح ⋮", "اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية»", "أكّد التثبيت"]) + `<p class="dim">في كروم على الكمبيوتر تظهر أيضاً أيقونة التثبيت في شريط العنوان.</p>`;
+    layer("تثبيت كلمات", `${body}<div class="ma"><button class="btn" data-act="layer-close">حسناً</button></div>`);
+}
+function layer(title, body, cls = "") {
+    $("#layer-root").innerHTML = `<div class="backdrop" style="z-index:70"><div class="modal ${cls}" role="dialog" aria-modal="true" aria-label="${esc(title)}" tabindex="-1"><div class="mh"><h2>${esc(title)}</h2><button class="mx" data-act="layer-close" aria-label="إغلاق">${ic("close")}</button></div><div class="mb">${body}</div></div></div>`;
+    const m = $("#layer-root .modal");
+    if (m)
+        m.focus();
+}
+function stopCam() { if (camStream) {
+    camStream.getTracks().forEach((t) => t.stop());
+    camStream = null;
+} }
+function closeLayer() { stopCam(); $("#layer-root").innerHTML = ""; }
+const pickFile = (cb) => { anyCb = cb; $("#file-any").click(); };
+function pickSource(title, cb) {
+    ui.srcCb = cb;
+    layer(title, `<div style="display:grid;gap:10px"><button class="btn" data-act="src-cam">${ic("camera")} التقاط بالكاميرا</button><button class="btn ghost" data-act="src-file">${ic("image")} اختيار من الجهاز</button></div>`);
+}
+function camFail(msg) { layer("الكاميرا", `<p class="dim">${esc(msg)}</p><div class="ma"><button class="btn out" data-act="layer-close">إغلاق</button><button class="btn" data-act="src-file">${ic("image")} اختيار من الجهاز</button></div>`); }
+function cameraModal(cb_1) {
+    return __awaiter(this, arguments, void 0, function* (cb, facing = "user") {
+        ui.camCb = cb;
+        ui.srcCb = cb;
+        ui.camFacing = facing;
+        const md = navigator.mediaDevices;
+        if (!md || !md.getUserMedia)
+            return camFail("الكاميرا غير متاحة في هذا المتصفح أو هذا السياق.");
+        layer("الكاميرا", `<div class="camwrap ${facing === "user" ? "front" : ""}"><video id="cam-v" autoplay playsinline muted></video></div><div class="ma" style="justify-content:center"><button class="btn out" data-act="cam-flip" aria-label="قلب الكاميرا">${ic("flip")}</button><button class="btn" id="cam-shot" data-act="cam-shot" disabled>${ic("camera")} التقاط</button></div>`);
+        try {
+            stopCam();
+            const s = yield md.getUserMedia({ video: { facingMode: facing, width: { ideal: 1280 } }, audio: false });
+            const v = $("#cam-v");
+            if (!v) {
+                s.getTracks().forEach((t) => t.stop());
+                return;
+            }
+            camStream = s;
+            v.srcObject = s;
+            yield v.play().catch(() => { });
+            const b = $("#cam-shot");
+            if (b)
+                b.disabled = false;
+        }
+        catch (e) {
+            camFail("تعذّر الوصول إلى الكاميرا. امنح الإذن من المتصفح، أو اختر صورة من جهازك.");
+        }
+    });
+}
+function showImage(src) { $("#modal-root").innerHTML = `<div class="backdrop" role="dialog" aria-modal="true" aria-label="الصورة"><div class="modal lightbox" tabindex="-1"><img src="${src}" alt="الصورة" /></div></div>`; }
+const composerPhoto = (f) => compress(f, 1080, false, 0.72).then((d) => { ui.composer.img = d; ui.composer.bg = null; render(); }).catch(() => toast("تعذّر قراءة الصورة."));
+const chatPhoto = (to, f) => compress(f, 900, false, 0.7).then((img) => sendMsg(to, { img })).catch(() => toast("تعذّر قراءة الصورة."));
+function sendMsg(to, part) {
+    const rp = ui.chatReply && ui.chatReply.user === to ? ui.chatReply : null;
+    (state.chats[to] = state.chats[to] || []).push(Object.assign(Object.assign({ id: uid("m"), from: ME, text: "", img: null, audio: null, dur: 0 }, part), { reply: rp ? { text: rp.text, mine: rp.mine } : null, at: Date.now() }));
+    state.chatRead[to] = Date.now();
+    ui.chatReply = null;
+    save(true);
+    render();
+}
+function recStart(to) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!navigator.mediaDevices || !window.MediaRecorder)
+            return toast("التسجيل الصوتي غير مدعوم في هذا المتصفح.");
+        try {
+            const stream = yield navigator.mediaDevices.getUserMedia({ audio: true });
+            const mt = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg;codecs=opus"].find((t) => MediaRecorder.isTypeSupported(t)) || "";
+            const r = new MediaRecorder(stream, mt ? { mimeType: mt, audioBitsPerSecond: 24000 } : { audioBitsPerSecond: 24000 });
+            rec.r = r;
+            rec.chunks = [];
+            rec.cancel = false;
+            rec.t0 = Date.now();
+            rec.user = to;
+            r.ondataavailable = (e) => { if (e.data && e.data.size)
+                rec.chunks.push(e.data); };
+            r.onstop = () => {
+                stream.getTracks().forEach((t) => t.stop());
+                clearInterval(rec.timer);
+                const dur = Math.max(1, Math.round((Date.now() - rec.t0) / 1000)), blob = new Blob(rec.chunks, { type: r.mimeType || "audio/webm" }), dest = rec.user, cancelled = rec.cancel;
+                rec.r = null;
+                if (cancelled || !blob.size) {
+                    render();
+                    return;
+                }
+                const fr = new FileReader();
+                fr.onload = () => sendMsg(dest, { audio: fr.result, dur });
+                fr.readAsDataURL(blob);
+            };
+            r.start(250);
+            rec.timer = setInterval(() => { const s = Math.floor((Date.now() - rec.t0) / 1000), el = $("#rect"); if (el)
+                el.textContent = mmss(s); if (s >= 60)
+                recStop(false); }, 250);
+            render();
+        }
+        catch (e) {
+            toast("تعذّر الوصول إلى الميكروفون. امنح الإذن من المتصفح.");
+        }
+    });
+}
+function recStop(cancel) { if (rec.r && rec.r.state !== "inactive") {
+    rec.cancel = !!cancel;
+    rec.r.stop();
+} }
+function pollHtml(p) {
+    const o = p.poll.options, total = o.reduce((s, x) => s + x.votes, 0), voted = p.poll.myVote != null, show = voted || p.authorId === ME;
+    return `<div class="poll" role="group" aria-label="استطلاع">${o.map((x, i) => { const pc = total ? Math.round(x.votes / total * 100) : 0; return `<button type="button" class="popt ${p.poll.myVote === i ? "mine" : ""}" data-act="vote" data-post="${esc(p.id)}" data-i="${i}" aria-pressed="${p.poll.myVote === i}">${show ? `<i style="width:${pc}%"></i>` : ""}<span>${esc(x.t)}</span>${show ? `<b>${fmt(pc)}٪</b>` : ""}</button>`; }).join("")}<div class="pmeta">${count(total, ["صوت واحد", "صوتان", "أصوات", "صوتًا"], "لا أصوات بعد")}${voted ? " · يمكنك تغيير تصويتك" : ""}</div></div>`;
+}
+function embedHtml(id, link) {
+    const o = post(id);
+    if (!o || !canSee(o))
+        return `<div class="embed unavail">المنشور الأصلي غير متاح.</div>`;
+    const a = user(o.authorId);
+    return `<div class="embed" ${link ? `role="link" tabindex="0" data-act="goto" data-href="#/post/${esc(o.id)}"` : ""}><span class="au">${avatar(a, "sm")}<span class="who"><strong>${esc(a.name)}${vf(a)}</strong><span class="handle">${ago(o.createdAt)}</span></span></span>${o.text ? `<p class="ptext" style="margin:8px 0">${richText(o.text)}</p>` : ""}${o.image ? `<img class="pimg" style="margin:0;cursor:default" src="${o.image}" alt="" loading="lazy" />` : ""}</div>`;
+}
+document.addEventListener("click", (e) => {
+    var _a, _b;
+    const t = e.target;
+    if (t.classList && t.classList.contains("backdrop")) {
+        if (t.closest("#layer-root"))
+            closeLayer();
+        else
+            closeModal();
+        return;
+    }
+    if ((ui.menu || ui.rx) && !t.closest(".pop") && !t.closest("[data-pop]")) {
+        ui.menu = null;
+        ui.rx = null;
+        render();
+    }
+    const nid = t.closest("[data-nid]");
+    if (nid) {
+        const n = state.notifs.find((x) => x.id === nid.dataset.nid);
+        if (n) {
+            n.read = true;
+            save();
+        }
+    }
+    const b = t.closest("[data-act]");
+    if (!b)
+        return;
+    const a = b.dataset.act, pid = b.dataset.post, d = b.dataset;
+    switch (a) {
+        case "mod-tab":
+            ui.modTab = d.t;
+            render();
+            break;
+        case "mod-note":
+            if (isMod()) {
+                ui.menu = null;
+                render();
+                modNoteModal(pid);
+            }
+            break;
+        case "mod-remove":
+            if (isMod()) {
+                ui.menu = null;
+                render();
+                modRemove(pid);
+            }
+            break;
+        case "mod-dismiss":
+            if (isMod()) {
+                const r = mod.reports.find((x) => x.id === d.rep);
+                if (r) {
+                    r.status = "dismissed";
+                    modLog("رفض بلاغاً");
+                    saveMod();
+                    render();
+                    toast("رُفض البلاغ");
+                }
+            }
+            break;
+        case "mod-restore":
+            if (isMod()) {
+                delete mod.removed[pid];
+                mod.reports.forEach((x) => { if (x.postId === pid && x.status === "removed")
+                    x.status = "restored"; });
+                modLog("أعاد منشوراً");
+                saveMod();
+                render();
+                toast("أُعيد المنشور");
+            }
+            break;
+        case "mod-del":
+            if (isAdmin()) {
+                mod.mods = mod.mods.filter((x) => x !== d.email);
+                modLog("أزال مشرفاً");
+                saveMod();
+                render();
+            }
+            break;
+        case "fab":
+            if (ui.view !== "home") {
+                location.hash = "#/home";
+                setTimeout(() => { var _a; return (_a = $('[data-key="post"]')) === null || _a === void 0 ? void 0 : _a.focus(); }, 60);
+            }
+            else {
+                (_a = $('[data-key="post"]')) === null || _a === void 0 ? void 0 : _a.focus();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+            break;
+        case "focus-search":
+            setTimeout(() => { var _a; return (_a = $('[data-key="q"]')) === null || _a === void 0 ? void 0 : _a.focus(); }, 60);
+            break;
+        case "sort":
+            ui.sort = d.s;
+            render();
+            break;
+        case "feed":
+            ui.feed = d.m;
+            ui.shown = 10;
+            render();
+            break;
+        case "tab":
+            ui.tab = d.t;
+            render();
+            break;
+        case "more":
+            ui.shown += 10;
+            render();
+            break;
+        case "react": {
+            const p = post(pid);
+            if (p)
+                setReaction(pid, p.myReaction ? p.myReaction : "love");
+            break;
+        }
+        case "rxpick":
+            ui.menu = null;
+            ui.rx = ui.rx === pid ? null : pid;
+            render();
+            break;
+        case "rx":
+            setReaction(pid, d.type);
+            break;
+        case "comments":
+            ui.open.has(pid) ? ui.open.delete(pid) : ui.open.add(pid);
+            render();
+            break;
+        case "save": {
+            const p = post(pid);
+            p.saved = !p.saved;
+            save();
+            render();
+            toast(p.saved ? "تم الحفظ" : "أُزيل من المحفوظات");
+            break;
+        }
+        case "share": {
+            const p = post(pid);
+            p && sharePost(p);
+            break;
+        }
+        case "menu":
+            ui.rx = null;
+            ui.menu = ui.menu === pid ? null : pid;
+            render();
+            break;
+        case "post-copy":
+            ui.menu = null;
+            copyText(location.href.split("#")[0] + "#/post/" + encodeURIComponent(pid)).then(() => toast("نُسخ الرابط"));
+            render();
+            break;
+        case "post-edit": {
+            ui.menu = null;
+            render();
+            const p = post(pid);
+            textModal("تعديل المنشور", "edit-post", p.text, 500, `data-post="${esc(pid)}"`);
+            break;
+        }
+        case "post-vis": {
+            const p = post(pid);
+            p.visibility = d.vis;
+            ui.menu = null;
+            save();
+            render();
+            toast("الخصوصية: " + VIS[d.vis][0]);
+            break;
+        }
+        case "post-comments": {
+            const p = post(pid);
+            p.commentsOff = !p.commentsOff;
+            ui.menu = null;
+            save();
+            render();
+            toast(p.commentsOff ? "أُغلقت التعليقات" : "فُتحت التعليقات");
+            break;
+        }
+        case "post-del":
+            ui.menu = null;
+            render();
+            confirmBox("حذف هذا المنشور نهائياً؟", "حذف", () => { state.posts = state.posts.filter((p) => p.id !== pid); save(); closeModal(); if (ui.view === "post")
+                location.hash = "#/home";
+            else
+                render(); toast("تم حذف المنشور"); });
+            break;
+        case "post-hide":
+            state.hidden.push(pid);
+            ui.menu = null;
+            save();
+            render();
+            toast("أُخفي المنشور");
+            break;
+        case "mute-user": {
+            const id = d.user, i = state.muted.indexOf(id);
+            if (i >= 0)
+                state.muted.splice(i, 1);
+            else
+                state.muted.push(id);
+            ui.menu = null;
+            save();
+            render();
+            toast(i >= 0 ? "أُلغي الكتم" : "تم الكتم");
+            break;
+        }
+        case "block-user":
+            ui.menu = null;
+            blockUser(d.user);
+            break;
+        case "unblock":
+            state.blocked = state.blocked.filter((x) => x !== d.user);
+            save();
+            render();
+            toast("أُلغي الحظر");
+            break;
+        case "report":
+            ui.menu = null;
+            render();
+            reportModal(pid);
+            break;
+        case "cm-like": {
+            const c = post(pid).comments.find((x) => x.id === d.cm);
+            c.liked = !c.liked;
+            c.likes = Math.max(0, c.likes + (c.liked ? 1 : -1));
+            save();
+            render();
+            break;
+        }
+        case "cm-reply": {
+            const p = post(pid), c = p.comments.find((x) => x.id === d.cm), root = c.parentId || c.id;
+            ui.reply[pid] = { rootId: root, name: user(c.authorId).name, handle: user(c.authorId).handle };
+            ui.open.add(pid);
+            const k = "c:" + pid;
+            if (!ui.drafts[k])
+                ui.drafts[k] = "@" + user(c.authorId).handle + " ";
+            render();
+            (_b = $(`[data-key="${CSS.escape(k)}"]`)) === null || _b === void 0 ? void 0 : _b.focus();
+            break;
+        }
+        case "reply-cancel":
+            delete ui.reply[pid];
+            ui.drafts["c:" + pid] = "";
+            render();
+            break;
+        case "cm-edit": {
+            const c = post(pid).comments.find((x) => x.id === d.cm);
+            textModal("تعديل التعليق", "edit-comment", c.text, 300, `data-post="${esc(pid)}" data-cm="${esc(d.cm)}"`);
+            break;
+        }
+        case "cm-del":
+            confirmBox("حذف هذا التعليق؟", "حذف", () => { const p = post(pid); p.comments = p.comments.filter((c) => c.id !== d.cm && c.parentId !== d.cm); save(); closeModal(); render(); toast("حُذف التعليق"); });
+            break;
+        case "follow":
+            toggleFollow(d.user);
+            break;
+        case "open-chat":
+            state.chatRead[d.user] = Date.now();
+            break;
+        case "story-add":
+            storyModal();
+            break;
+        case "story-open":
+            openStories(d.user);
+            break;
+        case "story-next":
+            storyNext();
+            break;
+        case "story-prev":
+            storyPrev();
+            break;
+        case "story-close":
+            storyClose();
+            break;
+        case "story-del": {
+            const sv = ui.sv, s = sv.groups[sv.gi].items[sv.idx];
+            state.stories = state.stories.filter((x) => x.id !== s.id);
+            save();
+            ui.sv = null;
+            $("#story-root").innerHTML = "";
+            render();
+            toast("حُذفت القصة");
+            break;
+        }
+        case "img-pick":
+            $("#file-post").click();
+            break;
+        case "img-clear":
+            ui.composer.img = null;
+            render();
+            break;
+        case "emoji-toggle":
+            ui.composer.emoji = !ui.composer.emoji;
+            render();
+            break;
+        case "emoji": {
+            const ta = $('[data-key="post"]'), v = ui.drafts.post || "", s = ta ? ta.selectionStart : v.length;
+            ui.drafts.post = (v.slice(0, s) + d.e + v.slice(ta ? ta.selectionEnd : s)).slice(0, 500);
+            render();
+            const n = $('[data-key="post"]');
+            n && (n.focus(), n.setSelectionRange(s + d.e.length, s + d.e.length));
+            break;
+        }
+        case "lightbox": {
+            const p = post(pid);
+            $("#modal-root").innerHTML = `<div class="backdrop" role="dialog" aria-modal="true" aria-label="الصورة"><div class="modal lightbox" tabindex="-1"><img src="${p.image}" alt="صورة المنشور" /></div></div>`;
+            break;
+        }
+        case "profile-edit":
+            profileModal();
+            break;
+        case "avatar-pick":
+            pickSource("الصورة الشخصية", (f) => compress(f, 256, true, 0.82).then((x) => { ui.tmpAvatar = x; const pv = $(".av-prev"); if (pv)
+                pv.innerHTML = avatar(Object.assign(Object.assign({}, me()), { avatarImg: x }), "lg"); }).catch(() => toast("تعذّر قراءة الصورة.")));
+            break;
+        case "avatar-clear":
+            ui.tmpAvatar = null;
+            {
+                const m = Object.assign(Object.assign({}, me()), { avatarImg: null });
+                $(".av-prev").innerHTML = avatar(m, "lg");
+            }
+            break;
+        case "lists":
+            listModal(d.kind, d.user);
+            break;
+        case "notif-all":
+            state.notifs.forEach((n) => { n.read = true; });
+            save();
+            render();
+            break;
+        case "chat-new":
+            newChatModal();
+            break;
+        case "chat-clear":
+            confirmBox("مسح كل رسائل هذه المحادثة؟", "مسح", () => { delete state.chats[d.user]; save(); closeModal(); render(); });
+            break;
+        case "msg-del": {
+            const ms = state.chats[d.user];
+            state.chats[d.user] = ms.filter((m) => m.id !== d.msg);
+            save();
+            render();
+            break;
+        }
+        case "set-toggle": {
+            const k = d.key2;
+            state.settings[k] = !state.settings[k];
+            if (k === "defComments")
+                ui.composer.off = !state.settings.defComments;
+            save();
+            render();
+            break;
+        }
+        case "set-val": {
+            state.settings[d.key2] = d.v;
+            if (d.key2 === "defVis")
+                ui.composer.vis = d.v;
+            save();
+            render();
+            break;
+        }
+        case "export":
+            download("kalimat-backup-" + new Date().toISOString().slice(0, 10) + ".json", JSON.stringify(state, null, 1));
+            toast("تم تصدير النسخة");
+            break;
+        case "import-pick":
+            $("#file-import").click();
+            break;
+        case "reset":
+            confirmBox("سيتم حذف كل بياناتك المحلية وإعادة البيانات التجريبية. متابعة؟", "إعادة ضبط", () => { state = normalize(makeSeed(acct.name, handleFrom(acct.email))); ui.composer = { img: null, vis: "public", off: false, emoji: false }; save(true); closeModal(); location.hash = "#/home"; render({ top: true }); toast("أُعيدت البيانات التجريبية"); });
+            break;
+        case "confirm-ok": {
+            const f = ui.confirmFn;
+            ui.confirmFn = null;
+            f && f();
+            break;
+        }
+        case "modal-close":
+            closeModal();
+            break;
+        case "install":
+            installApp();
+            break;
+        case "layer-close":
+            closeLayer();
+            break;
+        case "src-cam": {
+            const cb = ui.srcCb;
+            closeLayer();
+            cameraModal(cb);
+            break;
+        }
+        case "src-file": {
+            const cb = ui.srcCb;
+            closeLayer();
+            pickFile(cb);
+            break;
+        }
+        case "cam-flip":
+            cameraModal(ui.camCb, ui.camFacing === "user" ? "environment" : "user");
+            break;
+        case "cam-shot": {
+            const v = $("#cam-v");
+            if (!v || !v.videoWidth)
+                break;
+            const c = document.createElement("canvas");
+            c.width = v.videoWidth;
+            c.height = v.videoHeight;
+            c.getContext("2d").drawImage(v, 0, 0);
+            const cb = ui.camCb;
+            c.toBlob((bl) => { closeLayer(); if (bl && cb)
+                cb(new File([bl], "camera.jpg", { type: "image/jpeg" })); }, "image/jpeg", 0.85);
+            break;
+        }
+        case "cam-post":
+            cameraModal(composerPhoto);
+            break;
+        case "poll-toggle":
+            ui.composer.poll = ui.composer.poll ? null : { n: 2 };
+            if (ui.composer.poll)
+                ui.composer.bg = null;
+            render();
+            break;
+        case "poll-add":
+            if (ui.composer.poll && ui.composer.poll.n < 4)
+                ui.composer.poll.n++;
+            render();
+            break;
+        case "bg-toggle":
+            ui.composer.bgOpen = !ui.composer.bgOpen;
+            render();
+            break;
+        case "bg-set": {
+            const i = +d.i;
+            ui.composer.bg = ui.composer.bg === i ? null : i;
+            render();
+            break;
+        }
+        case "vote": {
+            const p = post(pid), i = +d.i;
+            if (!p || !p.poll)
+                break;
+            const pl = p.poll;
+            if (pl.myVote === i) {
+                pl.options[i].votes = Math.max(0, pl.options[i].votes - 1);
+                pl.myVote = null;
+            }
+            else {
+                if (pl.myVote != null)
+                    pl.options[pl.myVote].votes = Math.max(0, pl.options[pl.myVote].votes - 1);
+                pl.options[i].votes++;
+                pl.myVote = i;
+            }
+            save();
+            render();
+            break;
+        }
+        case "goto":
+            if (!t.closest("a"))
+                location.hash = d.href;
+            break;
+        case "rx-list": {
+            const p = post(pid);
+            if (!p)
+                break;
+            const rows = Object.entries(p.reactions).filter(([, n]) => n > 0).sort((x, y) => y[1] - x[1]).map(([k, n]) => `<div class="rxrow"><span style="font-size:1.6rem">${RX[k]}</span><span class="who" style="flex:1"><strong>${RX_LABEL[k]}</strong></span><b>${fmt(n)}</b></div>`).join("");
+            modal("التفاعلات", rows || '<p class="dim">لا توجد تفاعلات.</p>');
+            break;
+        }
+        case "post-repost": {
+            ui.menu = null;
+            render();
+            const p = post(pid);
+            if (!p)
+                break;
+            const rootId = p.repostOf || p.id, root = post(rootId);
+            if (!root || root.visibility !== "public") {
+                toast("لا يمكن إعادة نشر هذا المنشور.");
+                break;
+            }
+            modal("إعادة نشر", `<form data-form="repost" data-post="${esc(rootId)}" style="display:grid;gap:12px"><div class="field"><textarea name="text" maxlength="300" placeholder="أضف تعليقك (اختياري)" autofocus></textarea></div>${embedHtml(rootId, false)}<div class="ma"><button type="button" class="btn out" data-act="modal-close">إلغاء</button><button class="btn" type="submit">${ic("repeat")} إعادة نشر</button></div></form>`);
+            break;
+        }
+        case "story-img-pick":
+            pickSource("صورة القصة", (f) => compress(f, 1080, false, 0.7).then((x) => { ui.storyImg = x; const sp = $("#sp"); if (sp) {
+                sp.style.background = `url('${x}') center/cover`;
+                sp.textContent = "";
+            } }).catch(() => toast("تعذّر قراءة الصورة.")));
+            break;
+        case "story-img-clear": {
+            ui.storyImg = null;
+            const sp = $("#sp"), c = $("input[name=bg]:checked");
+            if (sp) {
+                sp.style.background = STORY_BG[c ? +c.value : 0];
+                sp.textContent = "معاينة قصتك";
+            }
+            break;
+        }
+        case "chat-emoji-toggle":
+            ui.chatEmoji = !ui.chatEmoji;
+            render();
+            break;
+        case "chat-emoji": {
+            const k = "m:" + d.user;
+            ui.drafts[k] = ((ui.drafts[k] || "") + d.e).slice(0, 1000);
+            render();
+            const el = $(`[data-key="${CSS.escape(k)}"]`);
+            if (el)
+                el.focus();
+            break;
+        }
+        case "chat-cam":
+            cameraModal((f) => chatPhoto(d.user, f));
+            break;
+        case "chat-img":
+            pickFile((f) => chatPhoto(d.user, f));
+            break;
+        case "chat-reply-cancel":
+            ui.chatReply = null;
+            render();
+            break;
+        case "msg-reply": {
+            const m = (state.chats[d.user] || []).find((x) => x.id === d.msg);
+            if (m) {
+                ui.chatReply = { user: d.user, text: msgPreview(m).slice(0, 80), mine: m.from === ME };
+                render();
+                const el = $(`[data-key="${CSS.escape("m:" + d.user)}"]`);
+                if (el)
+                    el.focus();
+            }
+            break;
+        }
+        case "msg-copy": {
+            const m = (state.chats[d.user] || []).find((x) => x.id === d.msg);
+            if (m)
+                copyText(m.text).then(() => toast("نُسخت الرسالة"));
+            break;
+        }
+        case "msg-img": {
+            const m = (state.chats[d.user] || []).find((x) => x.id === d.msg);
+            if (m && m.img)
+                showImage(m.img);
+            break;
+        }
+        case "rec-start":
+            recStart(d.user);
+            break;
+        case "rec-stop":
+            recStop(false);
+            break;
+        case "rec-cancel":
+            recStop(true);
+            break;
+        case "pw-eye": {
+            const inp = b.parentElement.querySelector("input"), show = inp.type === "password";
+            inp.type = show ? "text" : "password";
+            b.innerHTML = ic(show ? "eyeoff" : "eye");
+            b.setAttribute("aria-label", show ? "إخفاء كلمة المرور" : "إظهار كلمة المرور");
+            break;
+        }
+        case "auth-go": {
+            const em = ($("input[name=email]") || {}).value || ui.auth.email || "";
+            ui.auth = { screen: d.s, email: em.trim() };
+            renderAuth();
+            break;
+        }
+        case "resend": {
+            const email = ui.auth.email;
+            if (d.kind === "reset" && !auth.accounts.some((x) => x.email === email && x.verified)) {
+                toast("أُرسل رمز جديد");
+                break;
+            }
+            const r = sendCode(d.kind, email);
+            if (r.wait)
+                toast(`انتظر ${fmt(r.wait)} ثانية قبل إعادة الإرسال`);
+            else {
+                toast("أُرسل رمز جديد");
+                renderAuth();
+            }
+            break;
+        }
+        case "terms":
+            termsModal();
+            break;
+        case "logout":
+            confirmBox("تسجيل الخروج من هذا الجهاز؟", "خروج", () => { closeModal(); logout(); toast("تم تسجيل الخروج"); }, false);
+            break;
+        case "chg-pw":
+            pwModal();
+            break;
+        case "chg-email":
+            emailModal();
+            break;
+        case "del-account":
+            delModal();
+            break;
+        case "details-edit":
+            detailsModal();
+            break;
+        case "cover-pick":
+            pickSource("صورة الغلاف", (f) => compress(f, 1280, false, 0.75).then((x) => { me().coverImg = x; save(true); render(); toast("تم تحديث صورة الغلاف"); }).catch(() => toast("تعذّر قراءة الصورة.")));
+            break;
+        case "cover-modal-pick":
+            pickSource("صورة الغلاف", (f) => compress(f, 1280, false, 0.75).then((x) => { ui.tmpCover = x; const cv = $(".cv-prev"); if (cv)
+                cv.style.cssText = `height:84px;border-radius:12px;background-image:url('${x}')`; }).catch(() => toast("تعذّر قراءة الصورة.")));
+            break;
+        case "cover-clear":
+            ui.tmpCover = null;
+            {
+                const cv = $(".cv-prev");
+                if (cv)
+                    cv.style.cssText = `height:84px;border-radius:12px;background:${COVERS[me().cover]}`;
+            }
+            break;
+        case "avatar-quick":
+            pickSource("الصورة الشخصية", (f) => compress(f, 256, true, 0.82).then((x) => { me().avatarImg = x; save(true); render(); toast("تم تحديث الصورة الشخصية"); }).catch(() => toast("تعذّر قراءة الصورة.")));
+            break;
+        case "ptab":
+            ui.ptab = d.t;
+            if (d.s)
+                ui.psub = d.s;
+            render();
+            break;
+        case "psub":
+            ui.psub = d.s;
+            render();
+            break;
+        case "post-pin": {
+            const m = me();
+            m.pinned = m.pinned === pid ? null : pid;
+            ui.menu = null;
+            save();
+            render();
+            toast(m.pinned ? "تم التثبيت في ملفك" : "أُلغي التثبيت");
+            break;
+        }
+        case "share-profile":
+            copyText(location.href.split("#")[0] + "#/user/" + encodeURIComponent(d.user)).then(() => toast("نُسخ رابط الملف الشخصي"));
+            break;
+        case "lightbox-user": {
+            const u = user(d.user), src = d.kind === "cover" ? u.coverImg : u.avatarImg;
+            if (src)
+                $("#modal-root").innerHTML = `<div class="backdrop" role="dialog" aria-modal="true" aria-label="الصورة"><div class="modal lightbox" tabindex="-1"><img src="${src}" alt="الصورة" /></div></div>`;
+            break;
+        }
+    }
+});
+document.addEventListener("input", (e) => {
+    const el = e.target;
+    if (el.matches && el.matches("input[data-meter]"))
+        updateMeter(el);
+    const k = el.dataset && el.dataset.key;
+    if (!k || !state)
+        return;
+    ui.drafts[k] = el.value;
+    if (k === "post" || k.startsWith("po")) {
+        if (k === "post")
+            $("#cnt").textContent = el.value.length;
+        const pb = $("#pub");
+        if (pb)
+            pb.disabled = !canPublish();
+    }
+    if (k === "q" || k === "pq") {
+        clearTimeout(input.t);
+        input.t = setTimeout(() => render(), 160);
+    }
+});
+function input() { }
+document.addEventListener("change", (e) => {
+    const el = e.target;
+    if (el.dataset.comp === "vis")
+        ui.composer.vis = el.value;
+    if (el.dataset.comp === "feel")
+        ui.composer.feel = el.value;
+    if (el.id === "file-any" && el.files[0]) {
+        const f = el.files[0], cb = anyCb;
+        el.value = "";
+        anyCb = null;
+        if (cb)
+            cb(f);
+    }
+    if (el.dataset.comp === "off")
+        ui.composer.off = el.checked;
+    if (el.id === "file-post" && el.files[0])
+        compress(el.files[0], 1080, false, 0.72).then((d) => { ui.composer.img = d; render(); }).catch(() => toast("تعذّر قراءة الصورة.")).finally(() => { el.value = ""; });
+    if (el.id === "file-avatar" && el.files[0])
+        compress(el.files[0], 256, true, 0.82).then((d) => { if (ui.avatarDirect) {
+            ui.avatarDirect = false;
+            me().avatarImg = d;
+            save(true);
+            render();
+            toast("تم تحديث الصورة الشخصية");
+            return;
+        } ui.tmpAvatar = d; const p = $(".av-prev"); if (p)
+            p.innerHTML = avatar(Object.assign(Object.assign({}, me()), { avatarImg: d }), "lg"); }).catch(() => toast("تعذّر قراءة الصورة.")).finally(() => { el.value = ""; });
+    if (el.id === "file-cover" && el.files[0])
+        compress(el.files[0], 1280, false, 0.75).then((d) => { if (ui.coverDirect) {
+            ui.coverDirect = false;
+            me().coverImg = d;
+            save(true);
+            render();
+            toast("تم تحديث صورة الغلاف");
+            return;
+        } ui.tmpCover = d; const cv = $(".cv-prev"); if (cv)
+            cv.style.cssText = `height:84px;border-radius:12px;background-image:url('${d}')`; }).catch(() => toast("تعذّر قراءة الصورة.")).finally(() => { el.value = ""; });
+    if (el.id === "file-import" && el.files[0]) {
+        const f = el.files[0];
+        el.value = "";
+        f.text().then((t) => { const n = normalize(JSON.parse(t)); if (!n)
+            throw new Error("bad"); confirmBox("استبدال بياناتك الحالية بمحتوى هذا الملف؟", "استيراد", () => { state = n; save(true); closeModal(); render({ top: true }); toast("تم الاستيراد"); }, false); }).catch(() => toast("الملف غير صالح."));
+    }
+    if (el.name === "bg" && !ui.storyImg) {
+        const sp = $("#sp");
+        if (sp)
+            sp.style.background = STORY_BG[+el.value];
+    }
+});
+document.addEventListener("submit", (e) => {
+    const form = e.target, kind = form.dataset.form;
+    if (!kind)
+        return;
+    e.preventDefault();
+    const fd = new FormData(form), d = form.dataset;
+    const err = (n, m) => { const s = form.querySelector(`[data-err="${n}"]`); if (s)
+        s.textContent = m; };
+    if (AUTH_FORMS[kind]) {
+        guarded(form, () => AUTH_FORMS[kind](form, fd));
+        return;
+    }
+    if (!state)
+        return;
+    if (kind === "details") {
+        const g = (n) => String(fd.get(n) || "").trim();
+        let site = g("website");
+        if (site && !/^https?:\/\//i.test(site))
+            site = "https://" + site;
+        if (site && !/^https?:\/\/[^\s]+\.[^\s]+$/.test(site))
+            return err("website", "اكتب رابطاً صحيحاً.");
+        const m = me();
+        m.about = cleanAbout({ work: g("work"), education: g("education"), city: g("city"), hometown: g("hometown"), relation: g("relation"), gender: g("gender"), birthday: g("birthday"), website: site });
+        m.detailsVis = VIS[g("detailsVis")] ? g("detailsVis") : "public";
+        m.showBirthday = !!fd.get("showBirthday");
+        m.showEmail = !!fd.get("showEmail");
+        save(true);
+        closeModal();
+        render();
+        toast("تم حفظ التفاصيل");
+        return;
+    }
+    if (kind === "search") {
+        const q = (ui.drafts.rq || "").trim();
+        ui.drafts.q = q;
+        ui.tab = "all";
+        location.hash = "#/explore";
+        if (location.hash === "#/explore")
+            render({ top: true });
+    }
+    if (kind === "post") {
+        const text = (ui.drafts.post || "").trim(), c = ui.composer;
+        if (!canPublish())
+            return;
+        const poll = c.poll ? { options: pollOpts().map((t) => ({ t, votes: 0 })), myVote: null } : null;
+        state.posts.unshift({ id: uid("p"), authorId: ME, text, image: c.img, bg: !c.img && !poll && c.bg != null ? c.bg : null, feeling: FEELINGS.includes(c.feel) ? c.feel : "", poll: cleanPoll(poll), repostOf: null, createdAt: Date.now(), edited: false, visibility: c.vis, commentsOff: c.off, reactions: { love: 0, like: 0, haha: 0, wow: 0, sad: 0 }, myReaction: null, saved: false, views: 0, shares: 0, comments: [] });
+        ui.drafts.post = "";
+        [0, 1, 2, 3].forEach((i) => { delete ui.drafts["po" + i]; });
+        ui.composer = { img: null, vis: state.settings.defVis, off: !state.settings.defComments, emoji: false };
+        save(true);
+        render({ top: true });
+        toast("تم نشر لحظتك");
+    }
+    if (kind === "repost") {
+        const root = post(d.post);
+        if (!root || root.visibility !== "public")
+            return toast("لا يمكن إعادة نشر هذا المنشور.");
+        const text = String(fd.get("text") || "").trim();
+        state.posts.unshift({ id: uid("p"), authorId: ME, text, image: null, bg: null, feeling: "", poll: null, repostOf: root.id, createdAt: Date.now(), edited: false, visibility: state.settings.defVis, commentsOff: false, reactions: { love: 0, like: 0, haha: 0, wow: 0, sad: 0 }, myReaction: null, saved: false, views: 0, shares: 0, comments: [] });
+        root.shares++;
+        save(true);
+        closeModal();
+        render({ top: true });
+        toast("تمت إعادة النشر على ملفك");
+    }
+    if (kind === "comment") {
+        const pid = d.post, k = "c:" + pid, text = (ui.drafts[k] || "").trim();
+        if (!text)
+            return;
+        const p = post(pid), rep = ui.reply[pid];
+        p.comments.push({ id: uid("c"), authorId: ME, text, at: Date.now(), likes: 0, liked: false, parentId: rep ? rep.rootId : null, edited: false });
+        ui.drafts[k] = "";
+        delete ui.reply[pid];
+        ui.open.add(pid);
+        save();
+        render();
+    }
+    if (kind === "edit-post") {
+        const t = String(fd.get("text")).trim();
+        const p = post(d.post);
+        if (!t && !p.image)
+            return toast("لا يمكن ترك المنشور فارغاً.");
+        if (t !== p.text) {
+            p.text = t;
+            p.edited = true;
+        }
+        save();
+        closeModal();
+        render();
+        toast("تم تحديث المنشور");
+    }
+    if (kind === "edit-comment") {
+        const t = String(fd.get("text")).trim();
+        if (!t)
+            return;
+        const c = post(d.post).comments.find((x) => x.id === d.cm);
+        if (t !== c.text) {
+            c.text = t;
+            c.edited = true;
+        }
+        save();
+        closeModal();
+        render();
+    }
+    if (kind === "report") {
+        const rp = post(d.post);
+        if (rp)
+            fileReport(rp, String(fd.get("reason")), String(fd.get("note") || ""));
+        state.reports.push({ postId: d.post, reason: fd.get("reason"), note: String(fd.get("note") || ""), at: Date.now() });
+        if (!state.hidden.includes(d.post))
+            state.hidden.push(d.post);
+        save();
+        closeModal();
+        render();
+        toast("شكراً، تم تسجيل البلاغ وأُخفي المنشور.");
+    }
+    if (kind === "modnote") {
+        if (!isMod())
+            return;
+        const t = String(fd.get("text")).trim().slice(0, 280), pid2 = d.post;
+        if (t) {
+            mod.notes[pid2] = { text: t, at: Date.now() };
+            modLog("أضاف ملاحظة على منشور");
+        }
+        else if (mod.notes[pid2]) {
+            delete mod.notes[pid2];
+            modLog("حذف ملاحظة عن منشور");
+        }
+        saveMod();
+        closeModal();
+        render();
+        toast(t ? "نُشرت الملاحظة تحت المنشور" : "حُذفت الملاحظة");
+        return;
+    }
+    if (kind === "modadd") {
+        if (!isAdmin())
+            return;
+        const em = normEmail(fd.get("email"));
+        if (!emailOk(em))
+            return err("email", "اكتب بريداً صحيحاً.");
+        if (ADMIN_EMAILS.indexOf(em) > -1 || mod.mods.indexOf(em) > -1)
+            return err("email", "هذا البريد مشرف بالفعل.");
+        mod.mods.push(em);
+        modLog("أضاف مشرفاً");
+        saveMod();
+        render();
+        toast("أُضيف المشرف");
+        return;
+    }
+    if (kind === "story") {
+        const t = String(fd.get("text")).trim(), img = ui.storyImg;
+        if (!t && !img)
+            return;
+        state.stories.push({ id: uid("s"), authorId: ME, text: t, bg: +fd.get("bg") || 0, img: img || null, createdAt: Date.now() });
+        ui.storyImg = null;
+        save();
+        closeModal();
+        render();
+        toast("تم نشر قصتك");
+    }
+    if (kind === "chat") {
+        const k = "m:" + d.user, t = (ui.drafts[k] || "").trim();
+        if (!t)
+            return;
+        ui.drafts[k] = "";
+        sendMsg(d.user, { text: t });
+    }
+    if (kind === "profile") {
+        const name = String(fd.get("name")).trim(), handle = String(fd.get("handle")).trim().toLowerCase();
+        err("name", "");
+        err("handle", "");
+        if (!validName(name))
+            return err("name", "الاسم يجب أن يكون حروفاً فقط (٢–٤٠) دون رموز أو إيموجي.");
+        if (!validHandle(handle))
+            return err("handle", "٣–٢٠ من الأحرف الإنجليزية والأرقام و _ و .");
+        if (state.users.some((u) => u.id !== ME && u.handle.toLowerCase() === handle))
+            return err("handle", "هذا المعرّف مستخدم بالفعل.");
+        const m = me();
+        m.name = name;
+        m.handle = handle;
+        if (kind === "profile") {
+            m.bio = String(fd.get("bio")).trim().slice(0, 160);
+            m.tone = +fd.get("tone") || 0;
+            m.cover = +fd.get("cover") || 0;
+            if (ui.tmpAvatar !== undefined)
+                m.avatarImg = ui.tmpAvatar;
+            if (ui.tmpCover !== undefined)
+                m.coverImg = ui.tmpCover;
+        }
+        state.onboarded = true;
+        save(true);
+        closeModal();
+        render();
+        toast("تم حفظ الملف الشخصي");
+    }
+});
+document.addEventListener("animationend", (e) => { if (e.target.matches && e.target.matches(".bars i.cur::after, .bars i.cur"))
+    storyNext(); }, true);
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        if ($("#layer-root").firstChild)
+            closeLayer();
+        else if (ui.sv)
+            storyClose();
+        else if ($("#modal-root").firstChild)
+            closeModal();
+        else if (ui.menu || ui.rx) {
+            ui.menu = ui.rx = null;
+            render();
+        }
+    }
+    if (ui.sv && e.key === "ArrowLeft")
+        storyNext();
+    if (ui.sv && e.key === "ArrowRight")
+        storyPrev();
+});
+window.addEventListener("hashchange", () => { if (!acct)
+    return; route(); render({ top: true }); });
+if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol))
+    navigator.serviceWorker.register("kalimat-sw.js").catch((e) => console.warn("sw", e));
+(function boot() {
+    let sid = null;
+    try {
+        sid = localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
+    }
+    catch (e) { }
+    const a = sid && auth.accounts.find((x) => x.id === sid && x.verified);
+    if (a)
+        enterApp(a);
+    else {
+        if (!auth.accounts.length)
+            ui.auth.screen = "register";
+        renderAuth();
+    }
+    window.__ready = true;
+})();
+</script>
+</body>
+</html>
